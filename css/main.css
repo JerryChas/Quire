@@ -1,7 +1,18 @@
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* vad sägs om grid?  */
+}
+
+nav {
+  background-color: blue;
+}
+aside {
+  background-color: rgb(127, 127, 127);
 }
