@@ -7,9 +7,12 @@
 }
 
 body {
-  /* vad sägs om grid?  */
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 40px auto;
 }
 
 nav {
   background-color: blue;
+  overflow: hidden;
 }

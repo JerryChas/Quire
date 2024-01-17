@@ -1,3 +1,13 @@
+main {
+  display: flex;
+  /* width: 100%; */
+}
+
 aside {
   background-color: rgb(127, 127, 127);
+}
+
+#display_container {
+  background-color: antiquewhite;
+  width: 100%;
 }
