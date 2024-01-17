@@ -11,3 +11,11 @@ aside {
   background-color: antiquewhite;
   width: 100%;
 }
+
+/* Styling for welcome message on first visit */
+.welcome {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
