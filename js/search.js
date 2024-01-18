@@ -213,6 +213,6 @@ function performSearch() {
   renderSearchResults(searchResultArray);
 }
 
-// Add an event listener to the search input that triggers the search function on input
-// searchInput.addEventListener('input', performSearch);
+// Perform search on input AND click
+searchInput.addEventListener('input', performSearch);
 searchBtn.addEventListener('click', performSearch);
