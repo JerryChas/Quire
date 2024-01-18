@@ -5,17 +5,17 @@
 
 
 //load the div to render to:
-// ? This is the div emil said he had created. is it true?:
-//const searchResultContainer = document.getElementById("showSearchResults")
+// ? This is the div emil said he had created:
+const searchResultContainer = document.getElementById("showSearchResults")
 
-//! Mockup 
-const searchResultContainer = document.querySelector("main");
+//! Mockup: 
+// !const searchResultContainer = document.querySelector("main");
 //! console.log(searchResultContainer);
 
 // - - - - - - -
 //! the following is a temporary array to test funktionality when we develop.
 //! "LÅT STÅ", for now:
-let tempArray = [
+/* let tempArray = [
     {
         title: "Första inlägget",
         id: 1,
@@ -65,11 +65,11 @@ let tempArray = [
         dateLastEdited: "2022-07-15",
         bodyText: "Dagens inlägg handlar om några reflektioner jag gjort den senaste tiden."
     }
-];
+];*/
 
 
 // TODO ta bort test anropet:
-renderSearchResults(tempArray)
+//renderSearchResults(tempArray)
 
 //This function takes an array of notes that is suposed to be displyed:
 function renderSearchResults(notesArrayToDisplay) {
@@ -96,8 +96,7 @@ function renderSearchResults(notesArrayToDisplay) {
 
 
 
-
-
+// TODO LOCIG FOR MODAL DISPLAY:
 // Render preview-modal based of clicked result card.:
 searchResultContainer.addEventListener("click", (event) => {
 
@@ -116,6 +115,6 @@ searchResultContainer.addEventListener("click", (event) => {
         console.log(noteIdeToDisplay)
     }
 
-    //rendering modal based on the noteId.
+    // TODO rendering modal based on the noteId.
 })
 
