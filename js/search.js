@@ -140,12 +140,14 @@ let tempArray = [
   },
 ];
 
+// Get the search input element from the DOM
 const searchInput = document.getElementById('searchBox');
 
 //*---------------------------FUNCTIONS---------------------------*//
 
 //* ===--- Perform search
 function performSearch() {
+  // Clear the console for better readability
   console.clear();
 
   //* Handle input
@@ -153,9 +155,11 @@ function performSearch() {
   let searchInputValue = searchInput.value;
   console.log(`User Input: ${searchInputValue}`);
 
+  // Clean the search input by removing special characters and trimming whitespace
   let cleanedSearchInput = searchInputValue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
   console.log(`Cleaned search: ${cleanedSearchInput}`);
 
+  // Split the cleaned search input into terms and remove empty terms
   let searchTerms = cleanedSearchInput.split(' ').filter((term) => term !== '');
 
   // Check if the search input is within double quotes and treat it as a whole phrase
@@ -174,10 +178,12 @@ function performSearch() {
   //* Search object
   let searchResultArray;
 
+  // Check if there are no search terms
   if (searchTerms.length === 0) {
-    // nothing will display
+    // If there are no search terms, nothing will display
     searchResultArray = [];
   } else {
+    // Perform the search on the temporary array
     searchResultArray = tempArray.filter((p) => {
       return searchTerms.every((term) => {
         let termLower = term.toLowerCase();
@@ -201,7 +207,10 @@ function performSearch() {
 
   console.log('Found: ');
   console.log(searchResultArray);
+
+  // Render the search results
   renderSearchResults(searchResultArray);
 }
 
+// Add an event listener to the search input that triggers the search function on input
 searchInput.addEventListener('input', performSearch);
