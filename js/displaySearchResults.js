@@ -3,12 +3,11 @@
 //TODO Modal ska komma upp med den anteckning man sökt
 //TODO Skicka till index med sparad i local storge senast anteckning.
 
-
 //load the div to render to:
 // ? This is the div emil said he had created:
-const searchResultContainer = document.getElementById("showSearchResults")
+const searchResultContainer = document.getElementById('showSearchResults');
 
-//! Mockup: 
+//! Mockup:
 // !const searchResultContainer = document.querySelector("main");
 //! console.log(searchResultContainer);
 
@@ -67,54 +66,49 @@ const searchResultContainer = document.getElementById("showSearchResults")
     }
 ];*/
 
-
 // TODO ta bort test anropet:
 //renderSearchResults(tempArray)
 
 //This function takes an array of notes that is suposed to be displyed:
 function renderSearchResults(notesArrayToDisplay) {
-    notesArrayToDisplay.forEach((note) => {
+  searchResultContainer.innerHTML = '';
+  notesArrayToDisplay.forEach((note) => {
+    // Creating a snippet of the body text to display in the card:
+    let bodyTextSnippet = note.bodyText.substring(0, 100);
+    // console.log(note.bodyText.length);
+    //Adding dots in the end if necessary
+    if (note.bodyText.length > 100) {
+      bodyTextSnippet += ' ...';
+    }
 
-        // Creating a snippet of the body text to display in the card:
-        let bodyTextSnippet = note.bodyText.substring(0, 100);
-        console.log(note.bodyText.length);
-        //Adding dots in the end if necessary
-        if (note.bodyText.length > 100) {
-            bodyTextSnippet += " ...";
-        }
-
-        //render card:
-        searchResultContainer.innerHTML += `
+    //render card:
+    searchResultContainer.innerHTML += `
         <div class="result-card" data-note-id="${note.id}">
                 <h4>${note.title}</h4>
                 <p class="body-text-snippet">${bodyTextSnippet}</p>
                 <p class="date-information"> Created ${note.dateCreated} | Last edited ${note.dateLastEdited}</p>
 
         </div>`;
-    });
+  });
 }
-
-
 
 // TODO LOCIG FOR MODAL DISPLAY:
 // Render preview-modal based of clicked result card.:
-searchResultContainer.addEventListener("click", (event) => {
-
-    /*  storing the value of dataset.noteId that is associated 
+searchResultContainer.addEventListener('click', (event) => {
+  /*  storing the value of dataset.noteId that is associated 
     with the closest parent of class .result-card (i therer is any) */
 
-    //storing clicked card:
-    const clickedCard = event.target.closest(".result-card");
+  //storing clicked card:
+  const clickedCard = event.target.closest('.result-card');
 
-    //if the clicked element is a result-card.... 
-    //(else, the vallue of clickedCard is false).
-    if (clickedCard) {
-        console.log(clickedCard);
-        //storing dataset.noteID.
-        const noteIdeToDisplay = clickedCard.dataset.noteId;
-        console.log(noteIdeToDisplay)
-    }
+  //if the clicked element is a result-card....
+  //(else, the vallue of clickedCard is false).
+  if (clickedCard) {
+    console.log(clickedCard);
+    //storing dataset.noteID.
+    const noteIdeToDisplay = clickedCard.dataset.noteId;
+    console.log(noteIdeToDisplay);
+  }
 
-    // TODO rendering modal based on the noteId.
-})
-
+  // TODO rendering modal based on the noteId.
+});
