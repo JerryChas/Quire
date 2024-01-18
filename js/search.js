@@ -140,8 +140,9 @@ let tempArray = [
   },
 ];
 
-// Get the search input element from the DOM
+// Get input element from the DOM
 const searchInput = document.getElementById('searchBox');
+const searchBtn = document.getElementById('search_btn');
 
 //*---------------------------FUNCTIONS---------------------------*//
 
@@ -213,4 +214,5 @@ function performSearch() {
 }
 
 // Add an event listener to the search input that triggers the search function on input
-searchInput.addEventListener('input', performSearch);
+// searchInput.addEventListener('input', performSearch);
+searchBtn.addEventListener('click', performSearch);
