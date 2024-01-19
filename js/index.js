@@ -1,12 +1,27 @@
-// Array with notes
-let noteArray = [];
+// Creates variable for the id
+let idStarter = parseInt(localStorage.getItem("lastNoteId")) || 0;
+
+//Creates variable for date
+let dateToday;
+
+//Get notes from localStorage or an empty array
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
 // Hämtar knappen
 const addNewBtn = document.getElementById("add-new_btn");
 
+//* ---------- FUNCTIONS ---------- *//
+
+//Saves id to note and saves it to localStorage
+function saveNotesToLocalStorage() {
+  localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+// Gets current date
 function getDateStamp() {
   const now = new Date();
 
+  //Makes date to string
   const date = now.toLocaleDateString("sv-SE", {
     year: "numeric",
     month: "long",
@@ -16,25 +31,34 @@ function getDateStamp() {
   return date;
 }
 
+// Generates new id to every note
+function generateID() {
+  idStarter += 1;
+  return idStarter;
+}
+
+// Gets inputs from user
 function getInputs() {
-  const titleInput = getElementById("note-title");
+  const titleInput = document.getElementById("note-title");
   const noteInput = document.getElementById("note-text");
 
   const titleValue = titleInput.value;
   const noteValue = noteInput.value;
+  const newID = generateID();
 
   let note = {
     title: titleValue,
-    id: 0,
+    id: newID,
     dateCreated: dateToday,
     // dateLastEdited: ,
     bodyText: noteValue,
   };
 
-  noteArray.push(note);
-  saveNotesToLocalStorage();
+//Puts note to the array
+  notes.push(note);
 }
 
+// Render and display form for new note
 function renderNewNoteForm() {
   const displayContainer = document.getElementById("display_container");
 
@@ -51,47 +75,24 @@ function renderNewNoteForm() {
   </form>
   `;
   const saveNoteBtn = document.querySelector(".save-note_btn");
-
-  // SAVE-BUTTON
+  
+  // Saves note to localstorage 
   saveNoteBtn.addEventListener("click", () => {
-    // get value of title
-    // Get value of text
-    // Push them into note[] as a object
+    
     dateToday = getDateStamp();
     getInputs();
+    saveNotesToLocalStorage();
+
   });
 }
 
-// Vid klick på knappen
+
+//* ------------------------------------------------*//
+
+
+
+// When clicked you get the form
 addNewBtn.addEventListener("click", () => {
   console.log("klick");
   renderNewNoteForm();
 });
-
-console.log(dateToday);
-
-let idStarter = 0;
-
-//Generates new id to every note
-function generateID() {
-  idStarter += 1;
-  return idStarter;
-}
-
-//Saves id to note and saves it to localStorage
-function saveNotesToLocalStorage() {
-  //Get notes from localStorage
-  let notes = JSON.parse(localStorage.getItem("notes")) || [];
-
-  //Creates a new ID to a variable
-  const newID = generateID();
-
-  //Gives the id to the note
-  note.id = newID;
-
-  //Creates a variable and pushes it to the note variable
-  const newNote = { id: newID, content: note };
-  notes.push(newNote);
-
-  localStorage.setItem("notes", JSON.stringify(notes));
-}
