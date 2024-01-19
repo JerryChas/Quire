@@ -18,6 +18,12 @@ nav {
   overflow: hidden;
 }
 
+/* Container that wraps all the main content and centers it. */
+.main-content_wrapping {
+  width: clamp(0px, 100%, 1000px);
+  margin: 0 auto;
+}
+
 
 /* Base style for all headings */
 h1,
