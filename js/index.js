@@ -87,7 +87,7 @@ function getInputs() {
     title: titleValue,
     id: newID,
     dateCreated: dateToday,
-    // dateLastEdited: ,
+    dateLastEdited: dateToday,
     bodyText: noteValue,
   };
 
