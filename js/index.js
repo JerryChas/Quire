@@ -1,20 +1,53 @@
 // Creates variable for the id
-let idStarter = parseInt(localStorage.getItem("lastNoteId")) || 0;
+let idStarter = parseInt(localStorage.getItem('lastNoteId')) || 0;
 
 //Creates variable for date
 let dateToday;
 
 //Get notes from localStorage or an empty array
-let notes = JSON.parse(localStorage.getItem("notes")) || [];
+let notes = JSON.parse(localStorage.getItem('notes')) || [
+  {
+    title: 'Första inlägget',
+    id: 1,
+    dateCreated: '2022-01-01',
+    dateLastEdited: '2022-01-05',
+    bodyText:
+      'Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.',
+  },
+  {
+    title: 'Ett annat inlägg',
+    id: 2,
+    dateCreated: '2022-02-10',
+    dateLastEdited: '2022-02-15',
+    bodyText:
+      'Idag vill jag dela med mig av några tankar om mitt senaste ämne. Det har varit en spännande resa att utforska detta ämne och jag ser fram emot att höra era åsikter och reflektioner om det.',
+  },
+  {
+    title: 'En dag i mitt liv',
+    id: 3,
+    dateCreated: '2022-03-20',
+    dateLastEdited: '2022-03-25',
+    bodyText:
+      'I dagens inlägg tänkte jag berätta om en vanlig dag i mitt liv. Det finns något vackert i det vardagliga, och jag hoppas kunna dela med mig av de små ögonblicken som gör livet speciellt.',
+  },
+  {
+    title: 'Reseberättelse',
+    id: 4,
+    dateCreated: '2022-04-05',
+    dateLastEdited: '2022-04-10',
+    bodyText:
+      'För några veckor sedan hade jag möjlighet att resa till en otrolig plats. Utsikten, kulturen och människorna gjorde det till en oförglömlig upplevelse. Här är min detaljerade reseskildring som jag hoppas att ni kommer att njuta av.',
+  },
+];
 
 // Hämtar knappen
-const addNewBtn = document.getElementById("add-new_btn");
+const addNewBtn = document.getElementById('add-new_btn');
 
 //* ---------- FUNCTIONS ---------- *//
 
 //Saves id to note and saves it to localStorage
 function saveNotesToLocalStorage() {
-  localStorage.setItem("notes", JSON.stringify(notes));
+  localStorage.setItem('notes', JSON.stringify(notes));
 }
 
 // Gets current date
@@ -22,10 +55,10 @@ function getDateStamp() {
   const now = new Date();
 
   //Makes date to string
-  const date = now.toLocaleDateString("sv-SE", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  const date = now.toLocaleDateString('sv-SE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 
   return date;
@@ -39,8 +72,8 @@ function generateID() {
 
 // Gets inputs from user
 function getInputs() {
-  const titleInput = document.getElementById("note-title");
-  const noteInput = document.getElementById("note-text");
+  const titleInput = document.getElementById('note-title');
+  const noteInput = document.getElementById('note-text');
 
   const titleValue = titleInput.value;
   const noteValue = noteInput.value;
@@ -54,13 +87,13 @@ function getInputs() {
     bodyText: noteValue,
   };
 
-//Puts note to the array
+  //Puts note to the array
   notes.push(note);
 }
 
 // Render and display form for new note
 function renderNewNoteForm() {
-  const displayContainer = document.getElementById("display_container");
+  const displayContainer = document.getElementById('display_container');
 
   displayContainer.innerHTML = `
   <form id="note_form">
@@ -74,25 +107,20 @@ function renderNewNoteForm() {
   <button class="button save-note_btn">Save Note</button>
   </form>
   `;
-  const saveNoteBtn = document.querySelector(".save-note_btn");
-  
-  // Saves note to localstorage 
-  saveNoteBtn.addEventListener("click", () => {
-    
+  const saveNoteBtn = document.querySelector('.save-note_btn');
+
+  // Saves note to localstorage
+  saveNoteBtn.addEventListener('click', () => {
     dateToday = getDateStamp();
     getInputs();
     saveNotesToLocalStorage();
-
   });
 }
 
-
 //* ------------------------------------------------*//
 
-
-
 // When clicked you get the form
-addNewBtn.addEventListener("click", () => {
-  console.log("klick");
+addNewBtn.addEventListener('click', () => {
+  console.log('klick');
   renderNewNoteForm();
 });
