@@ -13,6 +13,7 @@ button {
   font-size: 1.0625rem;
   border: none;
   cursor: pointer;
+  transition: opacity 0.4s ease-in-out;
 }
 
 #showSearchResults {
@@ -24,11 +25,11 @@ button {
 }
 
 /* Hover Styling */
-
 input:hover {
-  background-color: beige;
+  background-color: #d2dff7;
+  opacity: 0.8;
 }
-
 button:hover {
-  background-color: rgb(185, 185, 185);
+  background-color: #639aff;
+  opacity: 0.8;
 }

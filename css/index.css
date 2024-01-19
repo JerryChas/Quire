@@ -4,11 +4,12 @@ main {
 }
 
 aside {
-  background-color: rgb(127, 127, 127);
+  background-color: rgb(183, 182, 182);
+  width: 12em;
 }
 
 #display_container {
-  background-color: antiquewhite;
+
   width: 100%;
 }
 
@@ -18,4 +19,12 @@ aside {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.aside-note_li{
+  border-bottom: 1px solid #e3e0e0;
+  height: 2em;
+  font-weight: bold;
+  list-style: none;
+  margin: 0.7em;
 }

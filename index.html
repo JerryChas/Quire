@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,29 +8,68 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/index.css" />
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
     <!-- SCRIPT -->
     <script src="js/index.js" defer></script>
+    <script src="js/asidenotes.js" defer></script>
+    <script src="js/savetolocal.js" defer></script>
     <script src="js/welcome.js" defer></script>
+
     <title>Quire - Startsida</title>
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+
+
   </head>
   <body>
     <nav>
       <ul>
-        <li><a href="index.html">start</a></li>
-        <li><a href="search.html">sök</a></li>
-        <li><a href="favorites.html">favoriter</a></li>
-        <li><a href="statistics.html">statistik</a></li>
-        <li><a href="settings.html">inställningar</a></li>
+        <li>
+          <a href="index.html" class="navIcons">
+            <i class="fa-brands fa-quora fa-4x"></i>
+          </a>
+        </li>
+        <div class="line"></div>
+        <li>
+          <a href="search.html" class="navIcons">
+            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+          </a>
+        </li>
+        <div class="line"></div>
+        <li>
+          <a href="favorites.html" class="navIcons">
+            <i class="fa-regular fa-star fa-2x"></i>
+            <a>
+            </li>
+        <div class="line"></div>
+        <li>
+          <a href="statistics.html" class="navIcons">
+            <i class="fa-solid fa-chart-simple fa-2x">
+            </i>
+          </a>
+        </li>
+        <div class="line"></div>
+        <li>
+          <a href="settings.html" class="navIcons">
+            <i class="fa-solid fa-gear fa-2x"></i>
+          </a>
+        </li>
+        <div class="line"></div>
       </ul>
     </nav>
-
     <main>
       <aside>
-        <p>lista med anteckningar</p>
+        <ul id="notes-list_ul"></ul>
       </aside>
       <div id="display_container">
         <div id="welcome" class="welcome"></div>
       </div>
     </main>
+
+
   </body>
 </html>
