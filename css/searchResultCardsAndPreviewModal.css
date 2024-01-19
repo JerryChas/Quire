@@ -1,3 +1,4 @@
+/* =============================== */
 /* ***** SEARCH RESULT CARDS ***** */
 
 .result-card {
@@ -9,17 +10,47 @@
     margin: 0.5rem;
 }
 
-.result-card:hover {
+.result-card:hover,
+#modal-exit-button:hover {
     background-color: #dddddd;
+    cursor: pointer;
 }
 
-
-.result-card .date-information {
+.date-information {
     font-size: 0.8em;
     color: #555555;
 }
 
 
-
+/* ======================================== */
 /* ***** SEARCH RESULT PREVIEW MODAL  ***** */
-/* Todo Det kommer */
+
+#preview-container {
+    width: 80%;
+    max-width: 900px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
+
+#preview-background-plate {
+    background-color: rgba(0, 0, 0, 0.181);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+#modal-exit-button {
+    padding: 0.5rem;
+    display: block;
+    width: 2rem;
+    text-align: center;
+    margin-left: auto;
+}
