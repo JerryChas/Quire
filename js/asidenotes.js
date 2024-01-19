@@ -59,4 +59,7 @@ function renderNotesMain(NoteID) {
 
     displayContainer.appendChild(titleDiv);
     displayContainer.appendChild(bodyTextDiv);
+
+    //Storing the note as the most recent note in local storage:
+    localStorage.setItem("recentNote", note.id);
 }  
