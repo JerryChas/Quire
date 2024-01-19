@@ -89,7 +89,7 @@ searchResultContainer.addEventListener('click', (event) => {
             <h2>${noteToPreview.title}</h2>
             <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
             <p id="preview-body-text">${noteToPreview.bodyText}</p>
-            <button class="button">Edit</button>
+            <button class="button" id="edit-searched-note_btn" data-note-id="${noteToPreview.id}">Edit</button>
         </div>
     </div>`
 
@@ -109,6 +109,10 @@ searchResultContainer.addEventListener('click', (event) => {
     function exitModal() {
       backgroundPlate.remove();
     };
+
+    //send user to editor when thy click the Edit-button:
+    const editSearchedNoteBtn = document.getElementById("edit-searched-note_btn");
+    editSearchedNoteBtn.addEventListener("click", sendUserToEditor);
 
   }
 });

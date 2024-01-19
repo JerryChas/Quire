@@ -14,10 +14,10 @@
 //         bodyText: "lorem ipsum jadi jadi 2"
 //     },
 
- const notesListUl = document.getElementById('notes-list_ul');
- 
+const notesListUl = document.getElementById('notes-list_ul');
+
 //Funktion för att rendera ut listan med notes i aside
- function renderNotesAsideList() {
+function renderNotesAsideList() {
     notes.forEach((note) => {
         const notesList = document.createElement('li');
         notesList.textContent = note.title;
@@ -27,17 +27,23 @@
 
         //En eventlistener för att kalla på renderNotesMain funktionen när man klickar på note-Li
         notesList.addEventListener('click', () => {
-        renderNotesMain(note);
+            renderNotesMain(note.id);
         });
     });
- }
- renderNotesAsideList();
+}
+renderNotesAsideList();
 //variabel för att hämta containern där notes ska finnas i main
- const displayContainer = document.getElementById('display_container');
+const displayContainer = document.getElementById('display_container');
 
 
-//Funktion för att rendera ut notes i containern i main
- function renderNotesMain(note) {
+//Funktion för att rendera ut notes i containern i main.
+function renderNotesMain(NoteID) {
+
+    // Finding the right note in the array "notes" that is loded in index.js
+    const note = notes.find((note) => {
+        return note.id === NoteID;
+    })
+
     //Om det var någon note framme innan så tas den bort med detta
     displayContainer.innerHTML = '';
 
