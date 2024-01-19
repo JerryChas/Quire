@@ -11,6 +11,7 @@
 
 .result-card:hover {
     background-color: #dddddd;
+    cursor: pointer;
 }
 
 

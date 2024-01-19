@@ -81,8 +81,18 @@ searchResultContainer.innerHTML = displayCatHTML;
 // TODO ta bort test anropet:
 //renderSearchResults(tempArray)
 
+// ============================================
+//Storing the notes that is searched for, for late use when rendering the modal:
+let searchResultsArray;
+// ============================================
+
+
 //This function takes an array of notes that is suposed to be displyed:
 function renderSearchResults(notesArrayToDisplay) {
+
+  //Storing the search results:
+  searchResultsArray = notesArrayToDisplay;
+
   searchResultContainer.innerHTML = '';
   notesArrayToDisplay.forEach((note) => {
     // Creating a snippet of the body text to display in the card:
@@ -109,6 +119,8 @@ function renderSearchResults(notesArrayToDisplay) {
   }
 }
 
+
+// ======================================================
 // TODO LOCIG FOR MODAL DISPLAY:
 // Render preview-modal based of clicked result card.:
 searchResultContainer.addEventListener('click', (event) => {
@@ -122,10 +134,22 @@ searchResultContainer.addEventListener('click', (event) => {
   //(else, the vallue of clickedCard is false).
   if (clickedCard) {
     console.log(clickedCard);
+
     //storing dataset.noteID.
     const noteIdeToDisplay = clickedCard.dataset.noteId;
-    console.log(noteIdeToDisplay);
+    //console.log(noteIdeToDisplay);
+
+
+    // finding the note to display in modal:
+    const noteToPreview = searchResultsArray.find((note) => {
+      return (note.id);
+    });
+    console.log(noteToPreview);
+    console.log(noteIdeToDisplay)
   }
 
   // TODO rendering modal based on the noteId.
 });
+
+
+
