@@ -53,12 +53,8 @@ It's note-taking made effortless and enjoyable. Highly recommend!
     //get the id of the most recent note:
     recentNoteToOpenID = Number(localStorage.getItem("recentNote"));
 
-    //call function that loads the most recent note if there is one:
+    //call function that loads the most recent note if there is any:
     if (recentNoteToOpenID) {
         renderNotesMain(recentNoteToOpenID);
     }
-
-
-
-
 }
