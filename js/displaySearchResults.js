@@ -87,8 +87,8 @@ searchResultContainer.addEventListener('click', (event) => {
         <div id="preview-container">
         <div id="modal-exit-button">X</div>
             <h2>${noteToPreview.title}</h2>
-            <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
-            <p><br>${noteToPreview.bodyText}<br><br></p>
+            <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}<br><br></p>
+            <p id="preview-body-text">${noteToPreview.bodyText}<br></p>
             <button class="button">Edit</button>
         </div>
     </div>`
