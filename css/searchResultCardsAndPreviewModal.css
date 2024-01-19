@@ -66,6 +66,6 @@
 }
 
 #preview-body-text {
-    max-height: calc(50vh);
+    max-height: 50vh;
     overflow: auto;
 }
