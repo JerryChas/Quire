@@ -20,13 +20,18 @@ nav {
 
 
 /* Base style for all headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
 }
 
 /* Base style for buttons */
 .button {
-  background-color: rgb(0,83,146);
+  background-color: rgb(0, 83, 146);
   color: lightgray;
   border: 1px solid lightgray;
   padding: 1rem;
@@ -35,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.436);
   font-size: 0.9rem;
   cursor: pointer;
+  margin: 0.5rem
 }
 
 .button:hover {
@@ -63,15 +69,18 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   transition: opacity 0.4s ease-in-out;
 }
+
 /* line to divide nav icons */
 .line {
-    height: 0.1rem;
-    background: linear-gradient(to right, transparent, #a7c6ff, transparent); 
+  height: 0.1rem;
+  background: linear-gradient(to right, transparent, #a7c6ff, transparent);
 }
+
 /* remove underline on links */
 a {
   text-decoration: none;
 }
+
 /* hover effect on icons */
 .navIcons:hover {
   background-color: #639aff;

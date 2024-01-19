@@ -32,6 +32,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
     z-index: 100;
+    max-height: 90%;
 }
 
 #preview-background-plate {
@@ -53,4 +54,10 @@
     width: 2rem;
     text-align: center;
     margin-left: auto;
+}
+
+#preview-body-text {
+    max-height: 50vh;
+
+    overflow: auto;
 }
