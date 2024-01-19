@@ -1,4 +1,4 @@
-import { note } from "oklart.js";
+import { note } from "ibra.js";
 
 let idStarter = 0;
 
@@ -10,7 +10,19 @@ function generateID() {
 
 //Saves id to note and saves it to localStorage
 function saveNotesToLocalStorage() {
-  note.id = generateID();
 
-  localStorage.setItem("notes", JSON.stringify(note));
+  //Get notes from localStorage
+  let notes = JSON.parse(localStorage.getItem("notes")) || [];  
+
+  //Creates a new ID to a variable
+  const newID = generateID();
+
+  //Gives the id to the note
+  note.id = newID;
+
+  //Creates a variable and pushes it to the note variable
+  const newNote = {id: newID, content: note};
+  notes.push(newNote);
+
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
