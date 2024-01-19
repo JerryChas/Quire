@@ -7,7 +7,7 @@ const searchResultContainer = document.getElementById('showSearchResults');
 //When nothing is searched for we show this cute cat:
 //Variable for re-using this HTML-snippet:
 const displayCatHTML = `<body>
-<center><img src="../images/CatSearch.jpg" alt="Searching cat" style="max-width: 100%;"></center>
+<center><img src="./images/CatSearch.jpg" alt="Searching cat" style="max-width: 100%;"></center>
 </body`
 
 //Rende Cute cat when entering the page:
