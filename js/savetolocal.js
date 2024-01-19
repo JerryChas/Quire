@@ -1,15 +1,16 @@
 import { note } from "ibra.js";
 
-//Saves id to note and saves it to localStorage
-function saveNotesToLocalStorage() {
-
-  let idStarter = 0;
+let idStarter = 0;
 
   //Generates new id to every note
-  function generateID() {
-    idStarter += 1;
-    return idStarter;
-  }
+function generateID() {
+   idStarter += 1;
+   return idStarter;
+}
+
+
+//Saves id to note and saves it to localStorage
+function saveNotesToLocalStorage() {
 
   //Get notes from localStorage
   let notes = JSON.parse(localStorage.getItem("notes")) || [];  
