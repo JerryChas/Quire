@@ -13,6 +13,14 @@ aside {
   width: 100%;
 }
 
+/* Styling for welcome message on first visit */
+.welcome {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .aside-note_li{
   border-bottom: 1px solid #e3e0e0;
   height: 2em;
