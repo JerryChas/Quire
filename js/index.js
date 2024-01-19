@@ -1,5 +1,5 @@
 // Creates variable for the id
-let idStarter = parseInt(localStorage.getItem('lastNoteId')) || 0;
+let idCounter = parseInt(localStorage.getItem('lastNoteId')) || 0;
 
 //Creates variable for date
 let dateToday;
@@ -8,7 +8,7 @@ let dateToday;
 let notes = JSON.parse(localStorage.getItem('notes')) || [
   {
     title: 'Första inlägget',
-    id: 1,
+    id: 99991,
     dateCreated: '2022-01-01',
     dateLastEdited: '2022-01-05',
     bodyText:
@@ -16,7 +16,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
   },
   {
     title: 'Ett annat inlägg',
-    id: 2,
+    id: 99992,
     dateCreated: '2022-02-10',
     dateLastEdited: '2022-02-15',
     bodyText:
@@ -24,7 +24,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
   },
   {
     title: 'En dag i mitt liv',
-    id: 3,
+    id: 99993,
     dateCreated: '2022-03-20',
     dateLastEdited: '2022-03-25',
     bodyText:
@@ -32,7 +32,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
   },
   {
     title: 'Reseberättelse',
-    id: 4,
+    id: 99994,
     dateCreated: '2022-04-05',
     dateLastEdited: '2022-04-10',
     bodyText:
@@ -66,8 +66,12 @@ function getDateStamp() {
 
 // Generates new id to every note
 function generateID() {
-  idStarter += 1;
-  return idStarter;
+  idCounter += 1;
+  //store the last id that was set:
+  localStorage.setItem('lastNoteId', JSON.stringify(idCounter));
+  return idCounter;
+
+
 }
 
 // Gets inputs from user
