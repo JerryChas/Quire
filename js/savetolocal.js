@@ -27,3 +27,7 @@ function saveNotesToLocalStorage() {
 
   localStorage.setItem("notes", JSON.stringify(notes));
 }
+
+export { idStarter };
+export { generateID };
+export { saveNotesToLocalStorage };
