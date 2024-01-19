@@ -49,4 +49,16 @@ It's note-taking made effortless and enjoyable. Highly recommend!
 } else {
     // When the page has been visited, there is no welcome message
     welcomeDiv.textContent = "";
+
+    //get the id of the most recent note:
+    recentNoteToOpenID = Number(localStorage.getItem("recentNote"));
+
+    //call function that loads the most recent note if there is one:
+    if (recentNoteToOpenID) {
+        renderNotesMain(recentNoteToOpenID);
+    }
+
+
+
+
 }

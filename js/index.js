@@ -93,6 +93,9 @@ function getInputs() {
 
   //Puts note to the array
   notes.push(note);
+
+  //Storing the note as the most recent note in local storage:
+  localStorage.setItem("recentNote", note.id);
 }
 
 // Render and display form for new note
@@ -114,7 +117,7 @@ function renderNewNoteForm() {
   const saveNoteBtn = document.querySelector('.save-note_btn');
 
   // Saves note to localstorage
-  saveNoteBtn.addEventListener('click', () => {
+  saveNoteBtn.addEventListener('click', (e) => {
     dateToday = getDateStamp();
     getInputs();
     saveNotesToLocalStorage();
