@@ -29,10 +29,19 @@
     width: 80%;
     max-width: 900px;
     background-color: white;
-    padding: 1rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     border-radius: 0.5rem;
     z-index: 100;
-    max-height: 90%;
+    max-height: 80%;
+    min-height: fit-content;
+
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+#preview-container button {
+    align-self: self-end;
 }
 
 #preview-background-plate {
@@ -58,6 +67,5 @@
 
 #preview-body-text {
     max-height: 50vh;
-
     overflow: auto;
 }
