@@ -185,7 +185,7 @@ function performSearch() {
     searchResultArray = [];
   } else {
     // Perform the search on the temporary array
-    searchResultArray = tempArray.filter((p) => {
+    searchResultArray = notes.filter((p) => {
       return searchTerms.every((term) => {
         let termLower = term.toLowerCase();
         return (
