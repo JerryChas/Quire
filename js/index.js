@@ -70,8 +70,6 @@ function generateID() {
   //store the last id that was set:
   localStorage.setItem('lastNoteId', JSON.stringify(idCounter));
   return idCounter;
-
-
 }
 
 // Gets inputs from user
@@ -109,16 +107,63 @@ function renderNewNoteForm() {
   <textarea id="note-text" name="note" rows="6" cols="30"></textarea>
   
   <button class="button save-note_btn">Save Note</button>
+  <button class="button add-img_btn">Add image</button>
   </form>
+  
+
   `;
-  const saveNoteBtn = document.querySelector('.save-note_btn');
 
   // Saves note to localstorage
+  const saveNoteBtn = document.querySelector('.save-note_btn');
   saveNoteBtn.addEventListener('click', () => {
     dateToday = getDateStamp();
     getInputs();
     saveNotesToLocalStorage();
   });
+
+  // Add image - BUTTON
+  const addImgBtn = document.querySelector('.add-img_btn');
+  addImgBtn.addEventListener('click', () => {
+    renderAddImgModal();
+  });
+}
+// Function to start the Img Modal PopUp Window
+function renderAddImgModal() {
+  displayContainer.innerHTML += `
+    <div class="add-img_modal">
+      <div class="image-preview_container"> 
+      </div>
+      <input id="img-url_input" type="url" placeholder="Paste your URL of your favorite image"></input>
+      <button class="button">Add to notes</button>
+    </div>
+  `;
+
+  const imgUrlInput = document.getElementById('img-url_input');
+  const imagePreviewContainer = document.querySelector('.image-preview_container');
+  // Input function to get the URL from the user
+  imgUrlInput.addEventListener('input', () => {
+    const imageUrl = imgUrlInput.value;
+    // Check if the URL needs to checked or not
+    if (isValidUrl(imageUrl)) {
+      imagePreviewContainer.innerHTML = `
+        <img src="${imageUrl}" alt="image from user" width="300">
+      `;
+    } else {
+      // Display error message
+      imagePreviewContainer.innerHTML = 'Please submit a valid URL';
+    }
+  });
+}
+// Check if the URL is valid
+function isValidUrl(url) {
+  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  return urlRegex.test(url);
+}
+
+// Add image to note
+function addImageToNote() {
+  const imageUrl = imgUrlInput.value;
+  return imageUrl;
 }
 
 //* ------------------------------------------------*//
