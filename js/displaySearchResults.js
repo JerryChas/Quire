@@ -75,6 +75,8 @@ searchResultContainer.addEventListener('click', (event) => {
     const noteIdeToDisplay = clickedCard.dataset.noteId;
     //console.log(noteIdeToDisplay);
 
+    console.log(clickedCard.dataset);
+
 
     // finding the note to preview in modal:
     const noteToPreview = searchResultsArray.find((note) => {
@@ -109,6 +111,8 @@ searchResultContainer.addEventListener('click', (event) => {
     function exitModal() {
       backgroundPlate.remove();
     };
+
+    console.log(event.target.dataset)
 
   }
 });
