@@ -1,4 +1,5 @@
-// Creates variable for the id
+/* Creates variable for the id and keeps track of the last id
+If there is no id the counter starts at 0 */
 let idCounter = parseInt(localStorage.getItem('lastNoteId')) || 0;
 
 //Creates variable for date
@@ -6,7 +7,7 @@ let dateToday;
 
 //Get notes from localStorage or an empty array
 let notes = JSON.parse(localStorage.getItem('notes')) || [
-  {
+  /*{
     title: 'Första inlägget',
     id: 99991,
     dateCreated: '2022-01-01',
@@ -48,7 +49,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     bodyText: 'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.'
   }
 
-];
+*/];
 
 // Hämtar knappen
 const addNewBtn = document.getElementById('add-new_btn');
@@ -80,8 +81,6 @@ function generateID() {
   //store the last id that was set:
   localStorage.setItem('lastNoteId', JSON.stringify(idCounter));
   return idCounter;
-
-
 }
 
 // Gets inputs from user
@@ -133,8 +132,20 @@ function renderNewNoteForm() {
 
 //* ------------------------------------------------*//
 
-// When clicked you get the form
+// When click you get the form
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
   renderNewNoteForm();
 });
+
+
+//------------------CODE FOR RETRIEVING THE WELCOME MESSAGE AGAIN------------------------------//
+const infoBtn = document.getElementById('info-btn');
+infoBtn.addEventListener('click', getWelcomeAgain);
+
+//function for deleting the visited keyn from localstorage and to send the user to index.html
+function getWelcomeAgain(){
+    localStorage.removeItem('visited');
+
+    window.location.href = './index.html'
+}

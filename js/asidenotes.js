@@ -17,7 +17,9 @@
 const notesListUl = document.getElementById('notes-list_ul');
 
 //Funktion för att rendera ut listan med notes i aside
-function renderNotesAsideList() {
+
+ function renderNotesAsideList() {
+        notesListUl.innerHTML = "";
     notes.forEach((note) => {
         const notesList = document.createElement('li');
         notesList.textContent = note.title;
