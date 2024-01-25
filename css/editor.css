@@ -1,0 +1,113 @@
+/* error-searching tagg: */
+/* #display_container * {
+    box-shadow: 0px 0px 1px black;
+} */
+
+
+#editor {
+    height: 100%;
+}
+
+#editor button {
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    font-size: inherit;
+}
+
+/* the wrapping container is neded to let the document fill upp the page heigth
+   The document page is inside the wrapping and is hiding behind the scroll bar iff it is to long
+   This is begus we dont want the document to extend the mage if it is too long for the screen   */
+#document_wrapping-container {
+    height: 100%;
+    overflow: auto;
+    /* background-color: green; */
+}
+
+#note-document {
+    /* background-color: rgb(255, 255, 255); */
+    width: clamp(1px, 90%, 900px);
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 100vh;
+
+    display: grid;
+    grid-template-areas:
+        "head favo"
+        "meta meta"
+        "body body";
+
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr auto;
+}
+
+/* ------------------------------ */
+/* GRID AREAS NAMEING START HERE: */
+#note_headding_container {
+    grid-area: head;
+}
+
+#favourite-icon-container {
+    grid-area: favo;
+}
+
+#note-body-text {
+    grid-area: body;
+}
+
+#meta-information_div {
+    grid-area: meta;
+}
+
+/* end of grid areas nameing: */
+/* -------------------------- */
+
+#note-document [contenteditable]:focus {
+    outline: none;
+}
+
+#note-document h1,
+#note-document #meta-information_div,
+#note-document #note-body-text {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+
+
+
+#favourite-icon-container svg {
+    height: 2rem;
+    overflow: visible;
+    margin-left: 1rem;
+}
+
+#favourite-icon-container svg path {
+    fill: none;
+    stroke: rgba(125, 125, 125, 0.5);
+    stroke-width: 30px;
+}
+
+#favourite-icon-container svg path:hover {
+    fill: rgba(125, 125, 125, 0.1);
+    stroke: rgb(125, 125, 125);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+#date-stamp_div {
+    font-size: 80%;
+    color: grey;
+    padding-top: 0.5rem;
+}
+
+#note-body-text {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+}
