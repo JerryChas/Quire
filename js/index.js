@@ -128,3 +128,15 @@ addNewBtn.addEventListener('click', () => {
   console.log('klick');
   renderNewNoteForm();
 });
+
+
+//------------------CODE FOR RETRIEVING THE WELCOME MESSAGE AGAIN------------------------------//
+const infoBtn = document.getElementById('info-btn');
+infoBtn.addEventListener('click', getWelcomeAgain);
+
+//function for deleting the visited keyn from localstorage and to send the user to index.html
+function getWelcomeAgain(){
+    localStorage.removeItem('visited');
+
+    window.location.href = './index.html'
+}
