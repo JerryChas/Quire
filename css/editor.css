@@ -90,7 +90,7 @@
 
 #favourite-icon-container svg path:hover {
     fill: rgba(125, 125, 125, 0.1);
-    stroke: rgb(125, 125, 125);
+    stroke: rgba(125, 125, 125);
     cursor: pointer;
 }
 

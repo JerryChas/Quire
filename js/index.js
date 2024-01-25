@@ -38,6 +38,16 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     bodyText:
       'För några veckor sedan hade jag möjlighet att resa till en otrolig plats. Utsikten, kulturen och människorna gjorde det till en oförglömlig upplevelse. Här är min detaljerade reseskildring som jag hoppas att ni kommer att njuta av.',
   },
+  {
+    title: "här är ett inlägg med favorit och bild",
+    id: 9999999,
+    dateCreated: "1995-12-25",
+    dateLastEdited: "1995-12-25",
+    isFavourite: true,
+    images: ["https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVubnklMjBjYXR8ZW58MHx8MHx8fDA%3D", "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png", "https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg"],
+    bodyText: 'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.'
+  }
+
 ];
 
 // Hämtar knappen
