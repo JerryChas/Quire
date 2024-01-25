@@ -93,9 +93,6 @@ function renderNewNoteForm() {
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
   renderNewNoteForm();
-
-});
-=======
 });
 
 
