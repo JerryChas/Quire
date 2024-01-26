@@ -7,7 +7,7 @@ input[type='text'] {
   cursor: pointer;
 }
 
-button {
+#search_btn {
   padding: 0.6rem;
   background: #ddd;
   font-size: 1.0625rem;
@@ -29,7 +29,8 @@ input:hover {
   background-color: #d2dff7;
   opacity: 0.8;
 }
-button:hover {
+
+#search_btn:hover {
   background-color: #639aff;
   opacity: 0.8;
 }

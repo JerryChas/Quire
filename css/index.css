@@ -3,13 +3,19 @@ main {
   /* width: 100%; */
 }
 
-aside {
+aside{
   background-color: rgb(183, 182, 182);
   width: 12em;
+  max-height: 100vh;
+  overflow-y: scroll; 
+  scroll-behavior: auto;
 }
 
-#display_container {
+ aside::-webkit-scrollbar{
+   display: none;
+} 
 
+#display_container {
   width: 100%;
 }
 

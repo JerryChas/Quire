@@ -1,7 +1,7 @@
 //* SEARCH ENGINE
 
 // Temporary array of notes
-let tempArray = [
+/* let tempArray = [
   {
     title: 'Första inlägget',
     id: 1,
@@ -138,7 +138,7 @@ let tempArray = [
     bodyText:
       'Ett nytt år har börjat, och det är dags att titta tillbaka på årets höjdpunkter. Jag reflekterar över de mest minnesvärda ögonblicken och ser fram emot vad det kommande året har att erbjuda.',
   },
-];
+]; */
 
 // Get input element from the DOM
 const searchInput = document.getElementById('searchBox');
@@ -185,7 +185,7 @@ function performSearch() {
     searchResultArray = [];
   } else {
     // Perform the search on the temporary array
-    searchResultArray = tempArray.filter((p) => {
+    searchResultArray = notes.filter((p) => {
       return searchTerms.every((term) => {
         let termLower = term.toLowerCase();
         return (
