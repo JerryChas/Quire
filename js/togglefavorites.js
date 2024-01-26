@@ -19,5 +19,9 @@ function toggleFavorite(noteObject) {
         } else {
             console.error("Note not found");
         }
+        localStorage.setItem("notes", JSON.stringify(notes));
+        styleOfFavouriteStar(noteObject);
+        favorite(noteObject);
     });
+
 }
