@@ -35,6 +35,20 @@ aside{
   margin: 0.7em;
 }
 
-#add-new_btn{
-  background: url()
+#add-new_btn {
+  padding: 1em;
+  margin: 1em;
+  color: #397fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed; 
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px; 
+}
+
+#add-new_btn:hover {
+  background-color: white; 
+
 }
