@@ -1,13 +1,13 @@
 // Test object:
-// const testObj = {
-//   title: "Lolololol",
-//   id: 3,
-//   dateCreated: "2021-01-24",
-//   dateLastEdited: "2021-01-24",
-//   isFavourite: false,
-//   images: [`https://hejochhå.jpg`, `https://hejochhå.jpg`],
-//   bodyText: "DET HAR BYTTS UT",
-// };
+const testObj = {
+  title: "EN ny ANteckKNIigGG!!!",
+  id: 3,
+  dateCreated: "2021-01-24",
+  dateLastEdited: "1999-01-23",
+  isFavourite: false,
+  images: [`https://hejochhå.jpg`, `https://hejochhå.jpg`],
+  bodyText: "hej från petter stordalen HÅHÅ (;",
+};
 
 // Function to save notes 
 function saveNote(obj) {
@@ -22,6 +22,7 @@ If it exists we replace it */
 function searchId(objToSave) {
   let noteIndex;
   noteIndex = notes.findIndex((note) => {
+  obj.dateLastEdited = getDateStamp();
    return objToSave.id === note.id;
   }
   )
@@ -36,3 +37,6 @@ saveNotesToLocalStorage();
 renderNotesAsideList();
 }
 }
+
+// testing:
+// saveNote(testObj)
