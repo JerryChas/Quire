@@ -147,6 +147,8 @@ function getDateStamp() {
   return date;
 }
 
+let note;
+
 // Generates new id to every note
 function generateID() {
   idCounter += 1;
@@ -164,9 +166,10 @@ function getInputs() {
   const noteValue = noteInput.value;
   const newID = generateID();
 
-  let note = {
+  note = {
     title: titleValue,
     id: newID,
+    isFavourite: false,
     dateCreated: dateToday,
     // dateLastEdited: ,
     bodyText: noteValue,
