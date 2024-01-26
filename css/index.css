@@ -27,12 +27,13 @@ aside{
   align-items: center;
 }
 
-.aside-note_li{
+.aside-note_li {
   border-bottom: 1px solid #e3e0e0;
-  height: 2em;
+  height: 2.5em;
   font-weight: bold;
   list-style: none;
   margin: 0.7em;
+  white-space: nowrap;
 }
 
 #add-new_btn {
