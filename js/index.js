@@ -140,7 +140,7 @@ function getDateStamp() {
   //Makes date to string
   const date = now.toLocaleDateString('sv-SE', {
     year: 'numeric',
-    month: 'long',
+    month: 'numeric',
     day: 'numeric',
   });
 
