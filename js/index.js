@@ -251,10 +251,28 @@ function addImageToNote() {
 
 //* ------------------------------------------------*//
 
-// When click you get the form
+// When click you get the form (PEN)
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
-  renderNewNoteForm();
+  dateToday = getDateStamp();
+  let newID = generateID();
+
+  let newNote = {
+    title: '',
+    id: newID,
+    dateCreated: dateToday,
+    dateLastEdited: dateToday,
+    isFavourite: false,
+    images: [],
+    bodyText: '',
+  };
+
+  notes.push(newNote);
+
+  // Uppdatera local storage med de nya noterna
+  saveNotesToLocalStorage();
+  // Rendrera det nya anteckningsformuläret
+  renderNotesMain(newNote);
 });
 
 //------------------CODE FOR RETRIEVING THE WELCOME MESSAGE AGAIN------------------------------//
