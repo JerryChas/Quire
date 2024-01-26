@@ -176,40 +176,6 @@ function getInputs() {
   notes.push(note);
 }
 
-// Render and display form for new note
-function renderNewNoteForm() {
-  const displayContainer = document.getElementById('display_container');
-
-  displayContainer.innerHTML = `
-  <form id="note_form">
-  
-  <label for="note-title">Title:</label>
-  <input type="text" id="note-title">
-  
-  <label for="note-text">Text:</label>
-  <textarea id="note-text" name="note" rows="6" cols="30"></textarea>
-  
-  <button class="button save-note_btn">Save Note</button>
-  <button class="button add-img_btn">Add image</button>
-  </form>
-  
-
-  `;
-
-  // Saves note to localstorage
-  const saveNoteBtn = document.querySelector('.save-note_btn');
-  saveNoteBtn.addEventListener('click', () => {
-    dateToday = getDateStamp();
-    getInputs();
-    saveNotesToLocalStorage();
-  });
-
-  // Add image - BUTTON
-  const addImgBtn = document.querySelector('.add-img_btn');
-  addImgBtn.addEventListener('click', () => {
-    renderAddImgModal();
-  });
-}
 // Function to start the Img Modal PopUp Window
 function renderAddImgModal() {
   displayContainer.innerHTML += `
