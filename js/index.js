@@ -96,3 +96,5 @@ addNewBtn.addEventListener("click", () => {
   console.log("klick");
   renderNewNoteForm();
 });
+
+document.getElementById("add-new_btn").innerHTML = '<i class="fas fa-pen"></i>';
