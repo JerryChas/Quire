@@ -49,7 +49,7 @@ function renderNotesMain(noteObject) {
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <div style="background-color: #eeeeee; font-size: 0.8rem">
-                    <button class="button add-img_btn">Add image</button>
+                    <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
                     (Här skulle det kunna ligga en knapp och en div som fylls med de bilder man har laddat in. Kanske som en simpel image carusell från internet. kanske code pen?)
                     </div>
 
@@ -115,9 +115,10 @@ function renderNotesMain(noteObject) {
 // Add image - BUTTON
 displayContainer.addEventListener('click', (event) => {
   const addImgBtn = event.target.closest('.add-img_btn');
+
   if (addImgBtn) {
     console.log('klickat på Add Image');
-    renderAddImgModal();
+    renderAddImgModal(event.target.dataset.noteId);
   }
 });
 

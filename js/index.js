@@ -177,13 +177,13 @@ function getInputs() {
 }
 
 // Function to start the Img Modal PopUp Window
-function renderAddImgModal() {
+function renderAddImgModal(id) {
   displayContainer.innerHTML += `
     <div class="add-img_modal">
       <div class="image-preview_container"> 
       </div>
-      <input id="img-url_input" type="url" placeholder="Paste your URL of your favorite image"></input>
-      <button class="button">Add to notes</button>
+      <input id="img-url_input" value="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" type="url" placeholder="Paste your URL of your favorite image"></input>
+      <button class="button add-img-to-note_btn">Add to notes</button>
     </div>
   `;
 
@@ -202,6 +202,13 @@ function renderAddImgModal() {
       imagePreviewContainer.innerHTML = 'Please submit a valid URL';
     }
   });
+
+  // Click event for "Add Image To Note Button"
+  const addImgToNoteBtn = document.querySelector('.add-img-to-note_btn');
+  addImgToNoteBtn.setAttribute('data-id', '123');
+  addImgToNoteBtn.addEventListener('click', () => {
+    addImageToNote(id);
+  });
 }
 // Check if the URL is valid
 function isValidUrl(url) {
@@ -210,9 +217,15 @@ function isValidUrl(url) {
 }
 
 // Add image to note
-function addImageToNote() {
+function addImageToNote(id) {
+  const imgUrlInput = document.getElementById('img-url_input');
   const imageUrl = imgUrlInput.value;
-  return imageUrl;
+
+  let currentNote = notes.find((note) => {
+    return note.id == id;
+  });
+  console.log(currentNote);
+  currentNote.images.push(String(imageUrl));
 }
 
 //* ------------------------------------------------*//
