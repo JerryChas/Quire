@@ -112,6 +112,15 @@ function renderNotesMain(noteObject) {
   styleOfFavouriteStar(noteObject);
 }
 
+// Add image - BUTTON
+displayContainer.addEventListener('click', (event) => {
+  const addImgBtn = event.target.closest('.add-img_btn');
+  if (addImgBtn) {
+    console.log('klickat på Add Image');
+    renderAddImgModal();
+  }
+});
+
 /** ******************* End of main function *********************
  **************************************************************** */
 
