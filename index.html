@@ -1,75 +1,85 @@
 <!DOCTYPE html>
 <html lang="eng">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link rel="icon" href="data:," />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/index.css" />
-        <!-- Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
-    <!-- SCRIPT -->
-    <script src="js/index.js" defer></script>
-    <script src="js/asidenotes.js" defer></script>
-    <script src="js/welcome.js" defer></script>
 
-    <title>Quire - Startsida</title>
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" href="data:," />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/editor.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <script src="js/index.js" defer></script>
+  <script src="js/asidenotes.js" defer></script>
+  <script src="js/welcome.js" defer></script>
+  <script src="js/editor.js" defer></script>
+  <script src="js/saveNotes.js" defer></script>
+
+  <title>Quire - Startsida</title>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html" class="navIcons">
+          <i class="fa-brands fa-quora fa-4x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="search.html" class="navIcons">
+          <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="favorites.html" class="navIcons">
+          <i class="fa-regular fa-star fa-2x"></i>
+          <a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="statistics.html" class="navIcons">
+          <i class="fa-solid fa-chart-simple fa-2x">
+          </i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="settings.html" class="navIcons">
+          <i class="fa-solid fa-gear fa-2x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li class="navIcons">
+        <i class="fa-solid fa-info fa-2x" id="info-btn"></i>
+      </li>
+      <div class="line"></div>
+    </ul>
+  </nav>
+  <main>
+    <aside>
+      <ul id="notes-list_ul"></ul>
+    </aside>
+    <div id="display_container">
+      <button id="add-new_btn">Tryck här</button>
+      <div id="welcome" class="welcome"></div>
+    </div>
+  </main>
 
 
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="index.html" class="navIcons">
-            <i class="fa-brands fa-quora fa-4x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="search.html" class="navIcons">
-            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="favorites.html" class="navIcons">
-            <i class="fa-regular fa-star fa-2x"></i>
-            <a>
-            </li>
-        <div class="line"></div>
-        <li>
-          <a href="statistics.html" class="navIcons">
-            <i class="fa-solid fa-chart-simple fa-2x">
-            </i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="settings.html" class="navIcons">
-            <i class="fa-solid fa-gear fa-2x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-      </ul>
-    </nav>
-    <main>
-      <aside>
-        <ul id="notes-list_ul"></ul>
-      </aside>
-      <div id="display_container">
-        <button id="add-new_btn">Tryck här</button>
-        <div id="welcome" class="welcome"></div>
-      </div>
-    </main>
+</body>
 
-
-  </body>
 </html>
