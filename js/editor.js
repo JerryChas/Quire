@@ -1,6 +1,5 @@
 //Funktion för att rendera ut notes i containern i main
 
-
 //============================================
 //Calling the render funktion with dubby data:
 //This is dummy data just for development state:
@@ -17,16 +16,13 @@
 
 //============================================
 
-
-
-/* **************************************************************** 
-** This is the main functtino that renders the note to the Ppage **
-**************************************************************** */
+/* ****************************************************************
+ ** This is the main functtino that renders the note to the Ppage **
+ **************************************************************** */
 
 function renderNotesMain(noteObject) {
-
-    //render the editor to page:
-    displayContainer.innerHTML = `
+  //render the editor to page:
+  displayContainer.innerHTML = `
     <div id="editor">
 
         <!-- <div id="editor-tool-bar"> Här kan toolbar finnas om vi hinner utveckla avancerad editor</div> -->
@@ -53,6 +49,7 @@ function renderNotesMain(noteObject) {
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <div style="background-color: #eeeeee; font-size: 0.8rem">
+                    <button class="button add-img_btn">Add image</button>
                     (Här skulle det kunna ligga en knapp och en div som fylls med de bilder man har laddat in. Kanske som en simpel image carusell från internet. kanske code pen?)
                     </div>
 
@@ -70,61 +67,57 @@ function renderNotesMain(noteObject) {
 
     </div>`;
 
-    //adding dynamic place holders:
-    const headdingTextField = document.getElementById("note-headding_container");
-    const bodyTextField = document.getElementById("note-body-text");
-    placeholderLogic(headdingTextField, "New note");
-    placeholderLogic(bodyTextField, "What's on your mind?...")
+  //adding dynamic place holders:
+  const headdingTextField = document.getElementById('note-headding_container');
+  const bodyTextField = document.getElementById('note-body-text');
+  placeholderLogic(headdingTextField, 'New note');
+  placeholderLogic(bodyTextField, "What's on your mind?...");
 
+  //listening for changes in textfelds and changeing the object to the new text:
+  //then we call the save function.
+  //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
+  const noteDocument = document.getElementById('note-document');
+  noteDocument.addEventListener('input', (e) => {
+    // console.log(e)
+    // console.log(e.target)
+    // console.log(e.target.innerHTML)
 
-    //listening for changes in textfelds and changeing the object to the new text:
-    //then we call the save function.
-    //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
-    const noteDocument = document.getElementById("note-document");
-    noteDocument.addEventListener("input", (e) => {
-        // console.log(e)
-        // console.log(e.target)
-        // console.log(e.target.innerHTML)
+    switch (e.target.id) {
+      case 'note-headding_container':
+        noteObject.title = e.target.textContent;
+        console.log('heddingen redigerades');
+        break;
+      case 'note-body-text':
+        noteObject.bodyText = e.target.innerHTML;
+        console.log('bodytexten redigerades');
+        break;
 
-        switch (e.target.id) {
-            case "note-headding_container":
-                noteObject.title = e.target.textContent
-                console.log("heddingen redigerades")
-                break;
-            case "note-body-text":
-                noteObject.bodyText = e.target.innerHTML
-                console.log("bodytexten redigerades")
-                break;
+      default:
+        break;
+    }
 
-            default:
-                break;
-        }
+    //fallback:
+    //setting default headding, if there is none from the user:
+    if (noteObject.title == false) {
+      noteObject.title = 'New note';
+    }
 
-        //fallback:
-        //setting default headding, if there is none from the user:
-        if (noteObject.title == false) {
-            noteObject.title = "New note"
-        }
+    // Call the save function:
+    saveNote(noteObject);
+  });
 
-        // Call the save function:
-        saveNote(noteObject);
+  //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
 
-    });
-
-    //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
-
-    //checking if the star is going to be yellow or not
-    styleOfFavouriteStar(noteObject);
+  //checking if the star is going to be yellow or not
+  styleOfFavouriteStar(noteObject);
 }
 
 /** ******************* End of main function *********************
-**************************************************************** */
+ **************************************************************** */
 
-
-// 
 //
-// 
-
+//
+//
 
 // ==============================================================
 // Other functions tat the main funchtion uses is comming here:
@@ -132,46 +125,45 @@ function renderNotesMain(noteObject) {
 
 //put the favourite icon in the right style based of if the note is fav or not:
 function styleOfFavouriteStar(noteObject) {
-    if (noteObject.isFavourite) {
-        //hooking up the favouriteicon:
-        const favouriteIconPath = document.querySelector("#favourite-icon-path");
-        console.log("den här noten är en favorit");
-        favouriteIconPath.style.fill = "#EFBD02";
-    }
+  if (noteObject.isFavourite) {
+    //hooking up the favouriteicon:
+    const favouriteIconPath = document.querySelector('#favourite-icon-path');
+    console.log('den här noten är en favorit');
+    favouriteIconPath.style.fill = '#EFBD02';
+  }
 }
 
 // ---------------------------------------------------------------
 
 //Adding dynamic placeholder text in textelds when there is othing inthere from the user:
 function placeholderLogic(textfield, placeholdertext) {
-    // when the notes opens and the is nithing in the textfield....
-    // --- add placeholder text.
-    // --- change color.
-    if (textfield.innerHTML == false) {
-        textfield.innerHTML = placeholdertext;
-        textfield.style.color = "rgba(125, 125, 125, 0.500)";
-        textfield.dataset.isFilled = false;
+  // when the notes opens and the is nithing in the textfield....
+  // --- add placeholder text.
+  // --- change color.
+  if (textfield.innerHTML == false) {
+    textfield.innerHTML = placeholdertext;
+    textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+    textfield.dataset.isFilled = false;
+  }
+  // when focused and dataset.isFilled=false...
+  // --- removse the placeholder color.
+  // --- remove the placeholdertext.
+  textfield.addEventListener('focus', () => {
+    if (textfield.dataset.isFilled === 'false') {
+      textfield.removeAttribute('style');
+      textfield.innerHTML = '';
+      textfield.dataset.isFilled = true;
     }
-    // when focused and dataset.isFilled=false...
-    // --- removse the placeholder color.
-    // --- remove the placeholdertext.
-    textfield.addEventListener("focus", () => {
-        if (textfield.dataset.isFilled === "false") {
-            textfield.removeAttribute('style');
-            textfield.innerHTML = "";
-            textfield.dataset.isFilled = true;
-        }
-    })
-    // when the use unfocus the field and there still is no headding...
-    // --- Whe do the same thing as in the first step.
-    textfield.addEventListener("blur", () => {
-        if (textfield.innerHTML == false) {
-            textfield.innerHTML = placeholdertext;
-            textfield.style.color = "rgba(125, 125, 125, 0.500)";
-            textfield.dataset.isFilled = false;
-        }
-    })
+  });
+  // when the use unfocus the field and there still is no headding...
+  // --- Whe do the same thing as in the first step.
+  textfield.addEventListener('blur', () => {
+    if (textfield.innerHTML == false) {
+      textfield.innerHTML = placeholdertext;
+      textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+      textfield.dataset.isFilled = false;
+    }
+  });
 }
-
 
 // ---------------------------------------------------------------
