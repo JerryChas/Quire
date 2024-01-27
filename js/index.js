@@ -179,38 +179,82 @@ function getInputs() {
   notes.push(note);
 }
 
-// Render and display form for new note
-function renderNewNoteForm() {
-  const displayContainer = document.getElementById('display_container');
-
-  displayContainer.innerHTML = `
-  <form id="note_form">
-  
-  <label for="note-title">Title:</label>
-  <input type="text" id="note-title">
-  
-  <label for="note-text">Text:</label>
-  <textarea id="note-text" name="note" rows="6" cols="30"></textarea>
-  
-  <button class="button save-note_btn">Save Note</button>
-  </form>
+// Function to start the Img Modal PopUp Window
+function renderAddImgModal(id) {
+  displayContainer.innerHTML += `
+    <div class="add-img_modal">
+      <div class="image-preview_container"> 
+      </div>
+      <input id="img-url_input" value="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" type="url" placeholder="Paste your URL of your favorite image"></input>
+      <button class="button add-img-to-note_btn">Add to notes</button>
+    </div>
   `;
-  const saveNoteBtn = document.querySelector('.save-note_btn');
 
-  // Saves note to localstorage
-  saveNoteBtn.addEventListener('click', () => {
-    dateToday = getDateStamp();
-    getInputs();
-    saveNotesToLocalStorage();
+  const imgUrlInput = document.getElementById('img-url_input');
+  const imagePreviewContainer = document.querySelector('.image-preview_container');
+  // Input function to get the URL from the user
+  imgUrlInput.addEventListener('input', () => {
+    const imageUrl = imgUrlInput.value;
+    // Check if the URL needs to checked or not
+    if (isValidUrl(imageUrl)) {
+      imagePreviewContainer.innerHTML = `
+        <img src="${imageUrl}" alt="image from user" width="300">
+      `;
+    } else {
+      // Display error message
+      imagePreviewContainer.innerHTML = 'Please submit a valid URL';
+    }
   });
+
+  // Click event for "Add Image To Note Button"
+  const addImgToNoteBtn = document.querySelector('.add-img-to-note_btn');
+  addImgToNoteBtn.setAttribute('data-id', '123');
+  addImgToNoteBtn.addEventListener('click', () => {
+    addImageToNote(id);
+  });
+}
+// Check if the URL is valid
+function isValidUrl(url) {
+  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  return urlRegex.test(url);
+}
+
+// Add image to note
+function addImageToNote(id) {
+  const imgUrlInput = document.getElementById('img-url_input');
+  const imageUrl = imgUrlInput.value;
+
+  let currentNote = notes.find((note) => {
+    return note.id == id;
+  });
+  console.log(currentNote);
+  currentNote.images.push(String(imageUrl));
 }
 
 //* ------------------------------------------------*//
 
-// When click you get the form
+// When click you get the form (PEN)
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
-  renderNewNoteForm();
+  dateToday = getDateStamp();
+  let newID = generateID();
+
+  let newNote = {
+    title: '',
+    id: newID,
+    dateCreated: dateToday,
+    dateLastEdited: dateToday,
+    isFavourite: false,
+    images: [],
+    bodyText: '',
+  };
+
+  notes.push(newNote);
+
+  // Uppdatera local storage med de nya noterna
+  saveNotesToLocalStorage();
+  // Rendrera det nya anteckningsformuläret
+  renderNotesMain(newNote);
 });
 
 //------------------CODE FOR RETRIEVING THE WELCOME MESSAGE AGAIN------------------------------//

@@ -1,6 +1,5 @@
 //Funktion för att rendera ut notes i containern i main
 
-
 //============================================
 //Calling the render funktion with dubby data:
 //This is dummy data just for development state:
@@ -17,16 +16,13 @@
 
 //============================================
 
-
-
-/* **************************************************************** 
-** This is the main functtino that renders the note to the Ppage **
-**************************************************************** */
+/* ****************************************************************
+ ** This is the main functtino that renders the note to the Ppage **
+ **************************************************************** */
 
 function renderNotesMain(noteObject) {
-
-    //render the editor to page:
-    displayContainer.innerHTML = `
+  //render the editor to page:
+  displayContainer.innerHTML = `
     <div id="editor">
 
         <!-- <div id="editor-tool-bar"> Här kan toolbar finnas om vi hinner utveckla avancerad editor</div> -->
@@ -53,6 +49,7 @@ function renderNotesMain(noteObject) {
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <div style="background-color: #eeeeee; font-size: 0.8rem">
+                    <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
                     (Här skulle det kunna ligga en knapp och en div som fylls med de bilder man har laddat in. Kanske som en simpel image carusell från internet. kanske code pen?)
                     </div>
 
@@ -69,6 +66,7 @@ function renderNotesMain(noteObject) {
         </div>
 
     </div>`;
+
 
     //adding dynamic place holders:
     const headdingTextField = document.getElementById("note-headding_container");
@@ -119,14 +117,22 @@ function renderNotesMain(noteObject) {
     
 }
 
+// Add image - BUTTON
+displayContainer.addEventListener('click', (event) => {
+  const addImgBtn = event.target.closest('.add-img_btn');
+
+  if (addImgBtn) {
+    console.log('klickat på Add Image');
+    renderAddImgModal(event.target.dataset.noteId);
+  }
+});
+
 /** ******************* End of main function *********************
-**************************************************************** */
+ **************************************************************** */
 
-
-// 
 //
-// 
-
+//
+//
 
 // ==============================================================
 // Other functions tat the main funchtion uses is comming here:
@@ -149,34 +155,33 @@ function styleOfFavouriteStar(noteObject) {
 
 //Adding dynamic placeholder text in textelds when there is othing inthere from the user:
 function placeholderLogic(textfield, placeholdertext) {
-    // when the notes opens and the is nithing in the textfield....
-    // --- add placeholder text.
-    // --- change color.
-    if (textfield.innerHTML == false) {
-        textfield.innerHTML = placeholdertext;
-        textfield.style.color = "rgba(125, 125, 125, 0.500)";
-        textfield.dataset.isFilled = false;
+  // when the notes opens and the is nithing in the textfield....
+  // --- add placeholder text.
+  // --- change color.
+  if (textfield.innerHTML == false) {
+    textfield.innerHTML = placeholdertext;
+    textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+    textfield.dataset.isFilled = false;
+  }
+  // when focused and dataset.isFilled=false...
+  // --- removse the placeholder color.
+  // --- remove the placeholdertext.
+  textfield.addEventListener('focus', () => {
+    if (textfield.dataset.isFilled === 'false') {
+      textfield.removeAttribute('style');
+      textfield.innerHTML = '';
+      textfield.dataset.isFilled = true;
     }
-    // when focused and dataset.isFilled=false...
-    // --- removse the placeholder color.
-    // --- remove the placeholdertext.
-    textfield.addEventListener("focus", () => {
-        if (textfield.dataset.isFilled === "false") {
-            textfield.removeAttribute('style');
-            textfield.innerHTML = "";
-            textfield.dataset.isFilled = true;
-        }
-    })
-    // when the use unfocus the field and there still is no headding...
-    // --- Whe do the same thing as in the first step.
-    textfield.addEventListener("blur", () => {
-        if (textfield.innerHTML == false) {
-            textfield.innerHTML = placeholdertext;
-            textfield.style.color = "rgba(125, 125, 125, 0.500)";
-            textfield.dataset.isFilled = false;
-        }
-    })
+  });
+  // when the use unfocus the field and there still is no headding...
+  // --- Whe do the same thing as in the first step.
+  textfield.addEventListener('blur', () => {
+    if (textfield.innerHTML == false) {
+      textfield.innerHTML = placeholdertext;
+      textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+      textfield.dataset.isFilled = false;
+    }
+  });
 }
-
 
 // ---------------------------------------------------------------
