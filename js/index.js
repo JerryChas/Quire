@@ -147,6 +147,8 @@ function getDateStamp() {
   return date;
 }
 
+let note;
+
 // Generates new id to every note
 function generateID() {
   idCounter += 1;
@@ -164,9 +166,10 @@ function getInputs() {
   const noteValue = noteInput.value;
   const newID = generateID();
 
-  let note = {
+  note = {
     title: titleValue,
     id: newID,
+    isFavourite: false,
     dateCreated: dateToday,
     // dateLastEdited: ,
     bodyText: noteValue,
@@ -258,9 +261,19 @@ addNewBtn.addEventListener('click', () => {
 const infoBtn = document.getElementById('info-btn');
 infoBtn.addEventListener('click', getWelcomeAgain);
 
+
+// When clicked you get the form
+addNewBtn.addEventListener("click", () => {
+  console.log("klick");
+  renderNewNoteForm();
+});
+
+document.getElementById("add-new_btn").innerHTML = '<i class="fas fa-pen"></i>';
+
 //function for deleting the visited keyn from localstorage and to send the user to index.html
 function getWelcomeAgain() {
   localStorage.removeItem('visited');
 
   window.location.href = './index.html';
 }
+

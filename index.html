@@ -19,6 +19,8 @@
   <script src="js/welcome.js" defer></script>
   <script src="js/editor.js" defer></script>
   <script src="js/saveNotes.js" defer></script>
+  <script src="js/favorites.js" defer></script>
+  <script src="js/togglefavorites.js" defer></script>
 
   <title>Quire - Startsida</title>
   <!-- FONT -->
@@ -26,7 +28,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
     rel="stylesheet">
-
 </head>
 
 <body>
@@ -63,8 +64,8 @@
         </a>
       </li>
       <div class="line"></div>
-      <li class="navIcons">
-        <i class="fa-solid fa-info fa-2x" id="info-btn"></i>
+      <li class="navIcons" id="info-btn">
+        <i class="fa-solid fa-info fa-2x" ></i>
       </li>
       <div class="line"></div>
     </ul>
@@ -74,12 +75,12 @@
       <ul id="notes-list_ul"></ul>
     </aside>
     <div id="display_container">
-      <button id="add-new_btn">Tryck här</button>
+      <button id="add-new_btn"><span id="button-text">Tryck här</span></button>
       <div id="welcome" class="welcome"></div>
     </div>
   </main>
 
-
 </body>
 
 </html>
+

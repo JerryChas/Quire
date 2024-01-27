@@ -17,12 +17,15 @@
 const notesListUl = document.getElementById('notes-list_ul');
 
 //Funktion för att rendera ut listan med notes i aside
-
  function renderNotesAsideList() {
         notesListUl.innerHTML = "";
-    notes.forEach((note) => {
+ notes.forEach((note) => {
         const notesList = document.createElement('li');
         notesList.textContent = note.title;
+        if (notesList.textContent.length >= 17) {
+            notesList.textContent = notesList.textContent.substring(0, 17) + "...";
+        }
+
         //La till klassnamn för att redigera stil i css
         notesList.className = 'aside-note_li';
         notesListUl.appendChild(notesList);

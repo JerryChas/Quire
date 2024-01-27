@@ -67,49 +67,54 @@ function renderNotesMain(noteObject) {
 
     </div>`;
 
-  //adding dynamic place holders:
-  const headdingTextField = document.getElementById('note-headding_container');
-  const bodyTextField = document.getElementById('note-body-text');
-  placeholderLogic(headdingTextField, 'New note');
-  placeholderLogic(bodyTextField, "What's on your mind?...");
 
-  //listening for changes in textfelds and changeing the object to the new text:
-  //then we call the save function.
-  //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
-  const noteDocument = document.getElementById('note-document');
-  noteDocument.addEventListener('input', (e) => {
-    // console.log(e)
-    // console.log(e.target)
-    // console.log(e.target.innerHTML)
+    //adding dynamic place holders:
+    const headdingTextField = document.getElementById("note-headding_container");
+    const bodyTextField = document.getElementById("note-body-text");
+    placeholderLogic(headdingTextField, "New note");
+    placeholderLogic(bodyTextField, "What's on your mind?...")
 
-    switch (e.target.id) {
-      case 'note-headding_container':
-        noteObject.title = e.target.textContent;
-        console.log('heddingen redigerades');
-        break;
-      case 'note-body-text':
-        noteObject.bodyText = e.target.innerHTML;
-        console.log('bodytexten redigerades');
-        break;
 
-      default:
-        break;
-    }
+    //listening for changes in textfelds and changeing the object to the new text:
+    //then we call the save function.
+    //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
+    const noteDocument = document.getElementById("note-document");
+    noteDocument.addEventListener("input", (e) => {
+        // console.log(e)
+        // console.log(e.target)
+        // console.log(e.target.innerHTML)
 
-    //fallback:
-    //setting default headding, if there is none from the user:
-    if (noteObject.title == false) {
-      noteObject.title = 'New note';
-    }
+        switch (e.target.id) {
+            case "note-headding_container":
+                noteObject.title = e.target.textContent
+                console.log("heddingen redigerades")
+                break;
+            case "note-body-text":
+                noteObject.bodyText = e.target.innerHTML
+                console.log("bodytexten redigerades")
+                break;
 
-    // Call the save function:
-    saveNote(noteObject);
-  });
+            default:
+                break;
+        }
 
-  //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
+        //fallback:
+        //setting default headding, if there is none from the user:
+        if (noteObject.title == false) {
+            noteObject.title = "New note"
+        }
 
-  //checking if the star is going to be yellow or not
-  styleOfFavouriteStar(noteObject);
+        // Call the save function:
+        saveNote(noteObject);
+
+    });
+
+    //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
+
+    //checking if the star is going to be yellow or not
+    styleOfFavouriteStar(noteObject);
+    toggleFavorite(noteObject);
+    
 }
 
 // Add image - BUTTON
@@ -135,12 +140,15 @@ displayContainer.addEventListener('click', (event) => {
 
 //put the favourite icon in the right style based of if the note is fav or not:
 function styleOfFavouriteStar(noteObject) {
-  if (noteObject.isFavourite) {
-    //hooking up the favouriteicon:
-    const favouriteIconPath = document.querySelector('#favourite-icon-path');
-    console.log('den här noten är en favorit');
-    favouriteIconPath.style.fill = '#EFBD02';
-  }
+    const favouriteIconPath = document.querySelector("#favourite-icon-path");
+    if (noteObject.isFavourite) {
+        //hooking up the favouriteicon:
+        // console.log("den här noten är en favorit");
+        favouriteIconPath.style.fill = "#EFBD02";
+    } else {
+        // console.log("den här noten är inte en favorit");
+        favouriteIconPath.style.fill = "none";
+    }
 }
 
 // ---------------------------------------------------------------
