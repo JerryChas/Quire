@@ -115,6 +115,8 @@ function renderNotesMain(noteObject) {
 
     //checking if the star is going to be yellow or not
     styleOfFavouriteStar(noteObject);
+    toggleFavorite(noteObject);
+    
 }
 
 /** ******************* End of main function *********************
@@ -132,11 +134,14 @@ function renderNotesMain(noteObject) {
 
 //put the favourite icon in the right style based of if the note is fav or not:
 function styleOfFavouriteStar(noteObject) {
+    const favouriteIconPath = document.querySelector("#favourite-icon-path");
     if (noteObject.isFavourite) {
         //hooking up the favouriteicon:
-        const favouriteIconPath = document.querySelector("#favourite-icon-path");
-        console.log("den här noten är en favorit");
+        // console.log("den här noten är en favorit");
         favouriteIconPath.style.fill = "#EFBD02";
+    } else {
+        // console.log("den här noten är inte en favorit");
+        favouriteIconPath.style.fill = "none";
     }
 }
 
