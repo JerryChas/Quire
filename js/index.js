@@ -217,6 +217,8 @@ function renderAddImgModal(id) {
     saveNotesToLocalStorage();
     //remove modal from displayContainer
     displayContainer.removeChild(document.querySelector('.add-img_modal'));
+
+    //! -- Här måste sidan uppdateras med nya datan och öppna den anteckning som det gäller
   });
   closeModal(displayContainer, addImgModal);
 }
