@@ -1,5 +1,5 @@
 //calling function for test:
-renderNotesMain(notes[0])
+renderNotesMain(notes[2])
 
 /* *******************************************************************
 ** This sctipt is shameless stolen from Akshay Chandran on code pen! *
@@ -23,13 +23,13 @@ function renderImageCarousel(noteID) {
         </div>
 
         <!-- Adding buttons to slide -->
-        <div class="carousel-slide-buttons">
-            <button id="carousel-left-button">&lsaquo;</button>
-            <button id="carousel-right-button">&rsaquo;</button>
+        <div class="carousel-slide-buttons" id="carousel-slide-buttons-container">
+            
+            <!-- THIS IS THE AREA WHERE THE BUTTONS WILL EXIST IF THER IS MORE THAN ONE IMAGE -->
         </div>
         <!-- All images are from wallpaper flare -->
         <div class="carousel-sub-imgs" id="sub-images-area">
-       <!-- THIS IS THE AREA WHERE THE THUMBNAILS WILL BE PLACED-->
+            <!-- THIS IS THE AREA WHERE THE THUMBNAILS WILL BE PLACED-->
     </div>`
 
     //
@@ -39,6 +39,7 @@ function renderImageCarousel(noteID) {
 
     const mainImageContainer = document.getElementById("carousel-main-img")
     const thumbnailsArea = document.getElementById("sub-images-area")
+    const slideButtonsContainer = document.getElementById("carousel-slide-buttons-container")
 
     //getting the current note from notes array:
     const currentNote = notes.find((note) => note.id == noteID);
@@ -49,102 +50,122 @@ function renderImageCarousel(noteID) {
     mainImageContainer.innerHTML = `<img src="${currentNote.images[0]}" alt="image" id="carousel-current-img"></img>`
 
 
+    // if there is more than ONE image...
+    // --- we also get acces to the thumbnail-area/sunimages-area.
+    // --- Ew also get slide-buttons.
 
-
-    //i there is more than ONE image, we also get axxes to the thumbnail-area/sunimages-area:
     if (currentNote.images.length > 1) {
         //fill the sub-images area:
         currentNote.images.forEach((image) => {
             thumbnailsArea.innerHTML += `<img src="${image}" alt="image1">`
         })
+
+        //creating sliding buttons:
+        slideButtonsContainer.innerHTML = `
+            <button id="carousel-left-button">&lsaquo;</button>
+            <button id="carousel-right-button">&rsaquo;</button>`
+
     }
 
 
 
     /* ###########  For the image carousel ########### */
 
-    const current = document.querySelector('#carousel-current-img');
-    // select all sub images
-    const imgs = document.querySelectorAll(".carousel-sub-imgs img");
-    const img_opacity = 0.6;
 
-    // set the first image opacity directly
-    imgs[0].style.opacity = img_opacity;
 
-    // Using Event delegation to select an image
-    // * --- setting up eventlistener on thumbnails .....
-    document.querySelector(".carousel-sub-imgs").addEventListener("click", imgClick);
+    // *********************
+    // IF WE HAVE MORE THAN ONE IMAGE WE ALSO ADD THINGS FOR THE THUMBNAILS AND SLIDING-FUNCTIONALITY:
 
-    //  Loop through the nodeList and reach out each image, method 1
-    // imgs.forEach(img => img.addEventListener('click', imgClick));
+    if (currentNote.images.length > 1) {
 
-    function imgClick(e) {
-        // Reset the opacity of all the images
-        // * --- the clicked thumbnail style changes:
-        imgs.forEach(img => (img.style.opacity = 1));
+        const current = document.querySelector('#carousel-current-img');
+        // select all sub images
+        const imgs = document.querySelectorAll(".carousel-sub-imgs img");
+        const img_opacity = 0.6;
 
-        // Change current image to source of clicked image
-        // * --- calling on function to set the clicked thumbnail to also be the big image:
-        changeImageTo(e.target);
-    }
+        // set the first image opacity directly
+        imgs[0].style.opacity = img_opacity;
 
-    // * FUNCTION FOR SETTING THE CKLICKED THUMBNAIL TO BE THE BIG IMAGE:
-    function changeImageTo(image) {
-        imgs.forEach((img) => (img.style.opacity = 1));
 
-        if (image.tagName === "IMG") {
-            current.src = image.src;
+        // Using Event delegation to select an image
+        // * --- setting up eventlistener on thumbnails .....
+        document.querySelector(".carousel-sub-imgs").addEventListener("click", imgClick);
 
-            // Add fade in class
-            current.classList.add("fade-in");
+        //  Loop through the nodeList and reach out each image, method 1
+        // imgs.forEach(img => img.addEventListener('click', imgClick));
 
-            // Remove fade-in after 0.5 seconds
-            setTimeout(() => current.classList.remove("fade-in"), 500);
+        function imgClick(e) {
+            // Reset the opacity of all the images
+            // * --- the clicked thumbnail style changes:
+            imgs.forEach(img => (img.style.opacity = 1));
 
-            // Change the current image opacity
-            image.style.opacity = img_opacity;
+            // Change current image to source of clicked image
+            // * --- calling on function to set the clicked thumbnail to also be the big image:
+            changeImageTo(e.target);
         }
-    }
 
-    // Adding buttons for image change
-    // Adding buttons for image change
-    // Adding buttons for image change
+        // * FUNCTION FOR SETTING THE CKLICKED THUMBNAIL TO BE THE BIG IMAGE:
+        function changeImageTo(image) {
+            imgs.forEach((img) => (img.style.opacity = 1));
 
-    // Selections
-    const leftButton = document.getElementById("carousel-left-button");
-    const rightButton = document.getElementById("carousel-right-button");
+            if (image.tagName === "IMG") {
+                current.src = image.src;
 
-    // Event listener
-    leftButton.addEventListener('click', leftScroll);
-    rightButton.addEventListener('click', rightScroll);
+                // Add fade in class
+                current.classList.add("fade-in");
 
-    // functions
+                // Remove fade-in after 0.5 seconds
+                setTimeout(() => current.classList.remove("fade-in"), 500);
 
-    function leftScroll() {
-        for (let i = 0; i < imgs.length; i++) {
-            if (imgs[i].src === current.src) {
-                currIndex = i - 1;
-                if (currIndex < 0) {
-                    currIndex += imgs.length;
-                }
-                changeImageTo(imgs[currIndex]);
-                break;
+                // Change the current image opacity
+                image.style.opacity = img_opacity;
             }
         }
-    }
 
-    function rightScroll() {
-        for (let i = 0; i < imgs.length; i++) {
-            if (imgs[i].src === current.src) {
-                currIndex = i + 1;
-                if (currIndex > imgs.length - 1) {
-                    currIndex -= imgs.length;
+        // Adding buttons for image change
+        // Adding buttons for image change
+        // Adding buttons for image change
+
+        // Selections
+        const leftButton = document.getElementById("carousel-left-button");
+        const rightButton = document.getElementById("carousel-right-button");
+
+        // Event listener
+        leftButton.addEventListener('click', leftScroll);
+        rightButton.addEventListener('click', rightScroll);
+
+        // functions
+
+        function leftScroll() {
+            for (let i = 0; i < imgs.length; i++) {
+                if (imgs[i].src === current.src) {
+                    currIndex = i - 1;
+                    if (currIndex < 0) {
+                        currIndex += imgs.length;
+                    }
+                    changeImageTo(imgs[currIndex]);
+                    break;
                 }
-                changeImageTo(imgs[currIndex]);
-                break;
             }
         }
+
+        function rightScroll() {
+            for (let i = 0; i < imgs.length; i++) {
+                if (imgs[i].src === current.src) {
+                    currIndex = i + 1;
+                    if (currIndex > imgs.length - 1) {
+                        currIndex -= imgs.length;
+                    }
+                    changeImageTo(imgs[currIndex]);
+                    break;
+                }
+            }
+        }
+
     }
+
+
+
 
     // THANKS TO BRAD TRAVERSY AND DEV-ED, FOR GIVING THIS MUCH INSPIRATION.
     // ALL WALLPAPERS FROM wallpaperflare.com

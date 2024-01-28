@@ -8,9 +8,20 @@ let dateToday;
 //Get notes from localStorage or an empty array
 let notes = JSON.parse(localStorage.getItem('notes')) || [
   //!-----------------------------------------DUMMY NOTES----------------------------------!//
+
   {
     title: 'Mitt första inlägg',
     id: 9999999,
+    dateCreated: '1995-12-25',
+    dateLastEdited: '1995-12-25',
+    isFavourite: true,
+    images: [],
+    bodyText:
+      'Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.',
+  },
+  {
+    title: '🐈 MÅNGA bilder ',
+    id: 99999999999992,
     dateCreated: '1995-12-25',
     dateLastEdited: '1995-12-25',
     isFavourite: true,
@@ -20,7 +31,19 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
       'https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg',
     ],
     bodyText:
-      'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.',
+      'Kolla vad många bilder på gulliga katter jag hittat på internet! Jag älskar katter :) 🐈',
+  },
+  {
+    title: 'only one 🐈‍⬛ 📷',
+    id: 99999999999993,
+    dateCreated: '1995-12-25',
+    dateLastEdited: '1995-12-25',
+    isFavourite: true,
+    images: [
+      'https://fourfriends.se/wp-content/uploads/2018/10/neva-masquerade-kitten-fourfriends.jpg'
+    ],
+    bodyText:
+      'Gulligaste katten jag sett. Den förtjänar en egen anteckning. <br> Kolla också vad häftig denhär appen är som inte visar några thumbnails eller pilar när det bara finns EN bild :) WOW!',
   },
   {
     title: 'Min resa till fjällen',
