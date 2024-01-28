@@ -1,8 +1,9 @@
 //calling function for test:
-renderNotesMain(notes[2])
+renderNotesMain(notes[1])
 
 /* *******************************************************************
-** This sctipt is shameless stolen from Akshay Chandran on code pen! *
+** This sctipt is shameless stolen from Akshay Chandran on code pen  *
+** and integrated on this app.                                       *
 ** https://codepen.io/akshaych/pen/RwaqJNW ***************************
 ******************************************************************* */
 
@@ -16,7 +17,9 @@ function renderImageCarousel(noteID) {
     //Render the carousel into the dynamic image container:
     dynamicImageCarouselContainer.innerHTML = `    
     <div class="carousel-container">
-     <span id=carousel-delete-current-image>Delete this image <i class="fa-regular fa-trash-can"></i></span>
+        <span id=carousel-delete-current-image>
+            Delete this image <i class="fa-regular fa-trash-can"></i>
+        </span>
         <div class="carousel-main-img" id=carousel-main-img>
             <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(1).jpg?raw=true" alt="image" id="carousel-current-img">
            
@@ -24,10 +27,8 @@ function renderImageCarousel(noteID) {
 
         <!-- Adding buttons to slide -->
         <div class="carousel-slide-buttons" id="carousel-slide-buttons-container">
-            
             <!-- THIS IS THE AREA WHERE THE BUTTONS WILL EXIST IF THER IS MORE THAN ONE IMAGE -->
         </div>
-        <!-- All images are from wallpaper flare -->
         <div class="carousel-sub-imgs" id="sub-images-area">
             <!-- THIS IS THE AREA WHERE THE THUMBNAILS WILL BE PLACED-->
     </div>`
@@ -36,24 +37,34 @@ function renderImageCarousel(noteID) {
     //
     //
 
-
     const mainImageContainer = document.getElementById("carousel-main-img")
     const thumbnailsArea = document.getElementById("sub-images-area")
     const slideButtonsContainer = document.getElementById("carousel-slide-buttons-container")
+    const carouselDeleteCurrentImage = document.getElementById("carousel-delete-current-image")
+
 
     //getting the current note from notes array:
     const currentNote = notes.find((note) => note.id == noteID);
     console.log(currentNote.images)
 
+    // variable for tracking the current img that is showing so we can delete the right img
+    // when new image is klicked the currentImg will uppdate .......
+    const currentImg = {
+        noteId: noteID,
+        imgUrl: "",
+    }
+
+
 
     // we seting the first image in the array to be the main image at first.
     mainImageContainer.innerHTML = `<img src="${currentNote.images[0]}" alt="image" id="carousel-current-img"></img>`
 
+    //send information about the current image for the delete function:
+    currentImg.imgUrl = currentNote.images[0]
 
     // if there is more than ONE image...
     // --- we also get acces to the thumbnail-area/sunimages-area.
     // --- Ew also get slide-buttons.
-
     if (currentNote.images.length > 1) {
         //fill the sub-images area:
         currentNote.images.forEach((image) => {
@@ -67,15 +78,19 @@ function renderImageCarousel(noteID) {
 
     }
 
+    //hooking up eventlistener to the delete-button
+    carouselDeleteCurrentImage.addEventListener("click", () => {
+        deleteCurrentImage(currentImg)
+    });
 
 
+
+
+
+    // *********************************************************************
     /* ###########  For the image carousel ########### */
 
-
-
-    // *********************
-    // IF WE HAVE MORE THAN ONE IMAGE WE ALSO ADD THINGS FOR THE THUMBNAILS AND SLIDING-FUNCTIONALITY:
-
+    // IF WE HAVE MORE THAN ONE IMAGE WE ALSO ADD JS FOR THE THUMBNAILS AND SLIDING-FUNCTIONALITY:
     if (currentNote.images.length > 1) {
 
         const current = document.querySelector('#carousel-current-img');
@@ -102,6 +117,12 @@ function renderImageCarousel(noteID) {
             // Change current image to source of clicked image
             // * --- calling on function to set the clicked thumbnail to also be the big image:
             changeImageTo(e.target);
+
+            // sending information about the current image that is showing for the delete function:
+            // sending information about the current image that is showing for the delete function:
+            // sending information about the current image that is showing for the delete function:
+            currentImg.imgUrl = e.target.src;
+            // console.log(currentImg);
         }
 
         // * FUNCTION FOR SETTING THE CKLICKED THUMBNAIL TO BE THE BIG IMAGE:
@@ -144,6 +165,11 @@ function renderImageCarousel(noteID) {
                         currIndex += imgs.length;
                     }
                     changeImageTo(imgs[currIndex]);
+                    // sending information about the current image that is showing for the delete function:
+                    // sending information about the current image that is showing for the delete function:
+                    // sending information about the current image that is showing for the delete function:
+                    currentImg.imgUrl = current.src;
+                    // console.log(currentImg);
                     break;
                 }
             }
@@ -157,6 +183,11 @@ function renderImageCarousel(noteID) {
                         currIndex -= imgs.length;
                     }
                     changeImageTo(imgs[currIndex]);
+                    // sending information about the current image that is showing for the delete function:
+                    // sending information about the current image that is showing for the delete function:
+                    // sending information about the current image that is showing for the delete function:
+                    currentImg.imgUrl = current.src;
+                    // console.log(currentImg);
                     break;
                 }
             }
@@ -165,18 +196,7 @@ function renderImageCarousel(noteID) {
     }
 
 
-
-
-    // THANKS TO BRAD TRAVERSY AND DEV-ED, FOR GIVING THIS MUCH INSPIRATION.
-    // ALL WALLPAPERS FROM wallpaperflare.com
+};
 
 
 
-
-
-
-
-
-
-
-}
