@@ -211,6 +211,8 @@ function renderAddImgModal(id) {
   addImgToNoteBtn.setAttribute('data-id', '123');
   addImgToNoteBtn.addEventListener('click', () => {
     addImageToNote(id);
+    // Uppdatera local storage med de nya noterna
+    saveNotesToLocalStorage();
   });
 }
 // Check if the URL is valid
@@ -261,14 +263,13 @@ addNewBtn.addEventListener('click', () => {
 const infoBtn = document.getElementById('info-btn');
 infoBtn.addEventListener('click', getWelcomeAgain);
 
-
 // When clicked you get the form
-addNewBtn.addEventListener("click", () => {
-  console.log("klick");
+addNewBtn.addEventListener('click', () => {
+  console.log('klick');
   renderNewNoteForm();
 });
 
-document.getElementById("add-new_btn").innerHTML = '<i class="fas fa-pen"></i>';
+document.getElementById('add-new_btn').innerHTML = '<i class="fas fa-pen"></i>';
 
 //function for deleting the visited keyn from localstorage and to send the user to index.html
 function getWelcomeAgain() {
@@ -276,4 +277,3 @@ function getWelcomeAgain() {
 
   window.location.href = './index.html';
 }
-
