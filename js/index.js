@@ -185,10 +185,12 @@ function renderAddImgModal(id) {
     <div class="add-img_modal">
       <div class="image-preview_container"> 
       </div>
-      <input id="img-url_input" value="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" type="url" placeholder="Paste your URL of your favorite image"></input>
+      <input id="img-url_input" type="url" placeholder="Paste your URL of your favorite image"></input>
       <button class="button add-img-to-note_btn">Add to notes</button>
     </div>
   `;
+
+  const addImgModal = document.querySelector('.add-img_modal');
 
   const imgUrlInput = document.getElementById('img-url_input');
   const imagePreviewContainer = document.querySelector('.image-preview_container');
@@ -211,8 +213,28 @@ function renderAddImgModal(id) {
   addImgToNoteBtn.setAttribute('data-id', '123');
   addImgToNoteBtn.addEventListener('click', () => {
     addImageToNote(id);
+    // Uppdatera local storage med de nya noterna
+    saveNotesToLocalStorage();
+    //remove modal from displayContainer
+    displayContainer.removeChild(document.querySelector('.add-img_modal'));
+
+    //! -- Här måste sidan uppdateras med nya datan och öppna den anteckning som det gäller
+  });
+  closeModal(displayContainer, addImgModal);
+}
+
+// Function to close modal
+function closeModal(parent, child) {
+  parent.addEventListener('click', (e) => {
+    if (e.target !== child && !child.contains(e.target)) {
+      // Kontrollera om child faktiskt är ett barn till föräldern innan borttagning
+      if (parent.contains(child)) {
+        parent.removeChild(child);
+      }
+    }
   });
 }
+
 // Check if the URL is valid
 function isValidUrl(url) {
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
@@ -261,14 +283,13 @@ addNewBtn.addEventListener('click', () => {
 const infoBtn = document.getElementById('info-btn');
 infoBtn.addEventListener('click', getWelcomeAgain);
 
-
 // When clicked you get the form
-addNewBtn.addEventListener("click", () => {
-  console.log("klick");
+addNewBtn.addEventListener('click', () => {
+  console.log('klick');
   renderNewNoteForm();
 });
 
-document.getElementById("add-new_btn").innerHTML = '<i class="fas fa-pen"></i>';
+document.getElementById('add-new_btn').innerHTML = '<i class="fas fa-pen"></i>';
 
 //function for deleting the visited keyn from localstorage and to send the user to index.html
 function getWelcomeAgain() {
@@ -276,4 +297,3 @@ function getWelcomeAgain() {
 
   window.location.href = './index.html';
 }
-
