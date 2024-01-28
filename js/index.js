@@ -234,6 +234,7 @@ function renderAddImgModal(id) {
     displayContainer.removeChild(document.querySelector('.add-img_modal'));
 
     //! -- Här måste sidan uppdateras med nya datan och öppna den anteckning som det gäller
+    renderImageCarousel(id);
   });
   closeModal(displayContainer, addImgModal);
 }
