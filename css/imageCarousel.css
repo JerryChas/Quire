@@ -1,0 +1,66 @@
+/* Image carousel box */
+.carousel-container {
+
+    position: relative;
+    max-width: 660px;
+    height: auto;
+    margin: auto;
+    margin-top: 3vh;
+    border: #fff solid 3px;
+    background: rgb(255, 255, 255);
+    background-color: green;
+}
+
+.carousel-main-img img,
+.carousel-sub-imgs img {
+    width: 100%;
+}
+
+.carousel-sub-imgs {
+    display: grid;
+    /* 4 images per coloumn */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+/* Slide buttons */
+.carousel-slide-buttons {
+    position: absolute;
+    left: 2%;
+    top: 30%;
+    transform: translate(-2%, -30%);
+    width: 100%;
+}
+
+.carousel-slide-buttons button {
+    width: 20px;
+    height: 50px;
+    background: none;
+    color: rgba(255, 255, 255, 0.452);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 1.8rem;
+    z-index: 1;
+}
+
+#carousel-left-button {
+    margin-left: 2%;
+}
+
+#carousel-right-button {
+    margin-left: 90%;
+}
+
+/* Fade in animation for the carousel */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in 1 forwards;
+}
