@@ -185,7 +185,7 @@ function renderAddImgModal(id) {
     <div class="add-img_modal">
       <div class="image-preview_container"> 
       </div>
-      <input id="img-url_input" value="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" type="url" placeholder="Paste your URL of your favorite image"></input>
+      <input id="img-url_input" type="url" placeholder="Paste your URL of your favorite image"></input>
       <button class="button add-img-to-note_btn">Add to notes</button>
     </div>
   `;
