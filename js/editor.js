@@ -4,14 +4,15 @@
 //Calling the render funktion with dubby data:
 //This is dummy data just for development state:
 
+
 // renderNotesMain({
-//     title: "Mit första inlägg med en bild och så med",
-//     id: 9999999,
-//     dateCreated: "1995-12-25",
-//     dateLastEdited: "1995-12-25",
-//     isFavourite: true,
-//     images: ["https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVubnklMjBjYXR8ZW58MHx8MHx8fDA%3D", "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png", "https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg"],
-//     bodyText: 'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.'
+//   title: "Mit första inlägg med en bild och så med",
+//   id: 9999999,
+//   dateCreated: "1995-12-25",
+//   dateLastEdited: "1995-12-25",
+//   isFavourite: true,
+//   images: ["https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVubnklMjBjYXR8ZW58MHx8MHx8fDA%3D", "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png", "https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg"],
+//   bodyText: 'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.'
 // });
 
 //============================================
@@ -42,15 +43,15 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateCreated}</p>
+                    <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
                     <div>
-                        <span>Taggs:</span>
+                        <span>Tags:</span>
                         <span id="tags_container">(Här kan dokumentets taggar dyka upp)</span>
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
-                    <div style="background-color: #eeeeee; font-size: 0.8rem">
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
-                    (Här skulle det kunna ligga en knapp och en div som fylls med de bilder man har laddat in. Kanske som en simpel image carusell från internet. kanske code pen?)
+                    <div id="dynamic-image-carousel_container">
+                    <!--THIS IS THE AREA FOR THE IMAGE CAROUSEL THAS EXIST IF THERE IS ANY IMAGES IN THE NOTE-->
                     </div>
 
                 </div>
@@ -68,53 +69,60 @@ function renderNotesMain(noteObject) {
     </div>`;
 
 
-    //adding dynamic place holders:
-    const headdingTextField = document.getElementById("note-headding_container");
-    const bodyTextField = document.getElementById("note-body-text");
-    placeholderLogic(headdingTextField, "New note");
-    placeholderLogic(bodyTextField, "What's on your mind?...")
+  //adding dynamic place holders:
+  const headdingTextField = document.getElementById("note-headding_container");
+  const bodyTextField = document.getElementById("note-body-text");
+  const defaultheading = "New note"
+  placeholderLogic(headdingTextField, defaultheading);
+  placeholderLogic(bodyTextField, "What's on your mind?...")
 
 
-    //listening for changes in textfelds and changeing the object to the new text:
-    //then we call the save function.
-    //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
-    const noteDocument = document.getElementById("note-document");
-    noteDocument.addEventListener("input", (e) => {
-        // console.log(e)
-        // console.log(e.target)
-        // console.log(e.target.innerHTML)
+  //listening for changes in textfelds and changeing the object to the new text:
+  //then we call the save function.
+  //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
+  const noteDocument = document.getElementById("note-document");
+  noteDocument.addEventListener("input", (e) => {
+    // console.log(e)
+    // console.log(e.target)
+    // console.log(e.target.innerHTML)
 
-        switch (e.target.id) {
-            case "note-headding_container":
-                noteObject.title = e.target.textContent
-                console.log("heddingen redigerades")
-                break;
-            case "note-body-text":
-                noteObject.bodyText = e.target.innerHTML
-                console.log("bodytexten redigerades")
-                break;
+    switch (e.target.id) {
+      case "note-headding_container":
+        noteObject.title = e.target.textContent
+        console.log("heddingen redigerades")
+        break;
+      case "note-body-text":
+        noteObject.bodyText = e.target.innerHTML
+        console.log("bodytexten redigerades")
+        break;
 
-            default:
-                break;
-        }
+      default:
+        break;
+    }
 
-        //fallback:
-        //setting default headding, if there is none from the user:
-        if (noteObject.title == false) {
-            noteObject.title = "New note"
-        }
+    //fallback:
+    //setting default headding, if there is none from the user:
+    if (noteObject.title == false) {
+      noteObject.title = "New note"
+    }
 
-        // Call the save function:
-        saveNote(noteObject);
+    // Call the save function:
+    saveNote(noteObject);
 
-    });
+  });
 
-    //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
+  //call function that render the image-carousel if there is any images in the note:
+  if (noteObject.images.length > 0) {
+    renderImageCarousel(noteObject.id)
+  }
 
-    //checking if the star is going to be yellow or not
-    styleOfFavouriteStar(noteObject);
-    toggleFavorite(noteObject);
-    
+
+  //checking if the star is going to be yellow or not
+  styleOfFavouriteStar(noteObject);
+  //call the function that listening for klick on the star:
+  toggleFavorite(noteObject);
+
+
 }
 
 // Add image - BUTTON
@@ -140,15 +148,15 @@ displayContainer.addEventListener('click', (event) => {
 
 //put the favourite icon in the right style based of if the note is fav or not:
 function styleOfFavouriteStar(noteObject) {
-    const favouriteIconPath = document.querySelector("#favourite-icon-path");
-    if (noteObject.isFavourite) {
-        //hooking up the favouriteicon:
-        // console.log("den här noten är en favorit");
-        favouriteIconPath.style.fill = "#EFBD02";
-    } else {
-        // console.log("den här noten är inte en favorit");
-        favouriteIconPath.style.fill = "none";
-    }
+  const favouriteIconPath = document.querySelector("#favourite-icon-path");
+  if (noteObject.isFavourite) {
+    //hooking up the favouriteicon:
+    // console.log("den här noten är en favorit");
+    favouriteIconPath.style.fill = "#EFBD02";
+  } else {
+    // console.log("den här noten är inte en favorit");
+    favouriteIconPath.style.fill = "none";
+  }
 }
 
 // ---------------------------------------------------------------

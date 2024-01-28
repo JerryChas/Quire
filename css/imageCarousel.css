@@ -1,0 +1,111 @@
+/* Image carousel box */
+.carousel-container {
+
+    position: relative;
+    width: 100%;
+
+    height: auto;
+    margin: auto;
+    background-color: rgba(125, 125, 125, 0.1);
+}
+
+
+.carousel-main-img {
+    max-height: 60vh;
+    min-height: 30vh;
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.carousel-main-img img {
+    max-height: 60vh;
+    max-width: 100%;
+
+}
+
+.carousel-sub-imgs img {
+    height: 4rem;
+    width: 6rem;
+    object-fit: cover;
+    margin-top: 0.5rem;
+}
+
+.carousel-sub-imgs {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+
+}
+
+/* Slide buttons */
+.carousel-slide-buttons {
+    position: absolute;
+    left: 2%;
+    top: 30%;
+    transform: translate(-2%, -30%);
+    width: 100%;
+}
+
+.carousel-slide-buttons button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: rgba(125, 125, 125, 0.200);
+    color: rgba(255, 255, 255, 0.800);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+#carousel-left-button {
+    position: absolute;
+    left: 0.5rem;
+}
+
+#carousel-right-button {
+    position: absolute;
+    right: 0.5rem;
+
+
+}
+
+#carousel-delete-current-image {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    background-color: rgba(125, 125, 125, 0.300);
+    color: rgba(255, 255, 255, 0.800);
+    padding: 0px 0.5rem 0px 0.5rem;
+    border-radius: 3px;
+
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.carousel-slide-buttons button:hover,
+#carousel-delete-current-image:hover {
+    background-color: rgba(125, 125, 125, 0.500);
+    color: rgba(255, 255, 255, 1);
+
+}
+
+/* Fade in animation for the carousel */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in 1 forwards;
+}
