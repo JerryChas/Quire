@@ -17,7 +17,7 @@ function renderImageCarousel(noteID) {
     dynamicImageCarouselContainer.innerHTML = `    
     <div class="carousel-container">
      <span id=carousel-delete-current-image>Delete this image <i class="fa-regular fa-trash-can"></i></span>
-        <div class="carousel-main-img">
+        <div class="carousel-main-img" id=carousel-main-img>
             <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(1).jpg?raw=true" alt="image" id="carousel-current-img">
            
         </div>
@@ -28,15 +28,38 @@ function renderImageCarousel(noteID) {
             <button id="carousel-right-button">&rsaquo;</button>
         </div>
         <!-- All images are from wallpaper flare -->
-        <div class="carousel-sub-imgs">
-            <img src="https://images.prismic.io/valuemystuff/d1f98dc9-de0d-4b7d-b48c-cd421c421c8e_Chardin_pastel_selfportrait.jpg?auto=compress,format" alt="image1">
-            <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(2).jpg?raw=true" alt="image2">
-            <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(3).jpg?raw=true" alt="image3">
+        <div class="carousel-sub-imgs" id="sub-images-area">
+       <!-- THIS IS THE AREA WHERE THE THUMBNAILS WILL BE PLACED-->
     </div>`
 
     //
     //
     //
+
+
+    const mainImageContainer = document.getElementById("carousel-main-img")
+    const thumbnailsArea = document.getElementById("sub-images-area")
+
+    //getting the current note from notes array:
+    const currentNote = notes.find((note) => note.id == noteID);
+    console.log(currentNote.images)
+
+
+    // we seting the first image in the array to be the main image at first.
+    mainImageContainer.innerHTML = `<img src="${currentNote.images[0]}" alt="image" id="carousel-current-img"></img>`
+
+
+
+
+    //i there is more than ONE image, we also get axxes to the thumbnail-area/sunimages-area:
+    if (currentNote.images.length > 1) {
+        //fill the sub-images area:
+        currentNote.images.forEach((image) => {
+            thumbnailsArea.innerHTML += `<img src="${image}" alt="image1">`
+        })
+    }
+
+
 
     /* ###########  For the image carousel ########### */
 
