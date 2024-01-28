@@ -9,9 +9,10 @@
 }
 
 #editor button {
-    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    padding: 0.3rem 0.65rem 0.3rem 0.65rem;
     font-size: inherit;
 }
+
 
 /* the wrapping container is neded to let the document fill upp the page heigth
    The document page is inside the wrapping and is hiding behind the scroll bar iff it is to long
