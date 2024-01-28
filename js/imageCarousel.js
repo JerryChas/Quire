@@ -8,13 +8,18 @@ renderNotesMain(notes[0])
 
 function renderImageCarousel(noteID) {
 
+    /* **************************** */
     //THE DYNAMIC IMAGE CONTAINER IN THE NOTE:
     const dynamicImageCarouselContainer = document.getElementById("dynamic-image-carousel_container");
+    /* **************************** */
 
+    //Render the carousel into the dynamic image container:
     dynamicImageCarouselContainer.innerHTML = `    
     <div class="carousel-container">
+     <span id=carousel-delete-current-image>Delete this image <i class="fa-regular fa-trash-can"></i></span>
         <div class="carousel-main-img">
             <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(1).jpg?raw=true" alt="image" id="carousel-current-img">
+           
         </div>
 
         <!-- Adding buttons to slide -->
@@ -24,11 +29,14 @@ function renderImageCarousel(noteID) {
         </div>
         <!-- All images are from wallpaper flare -->
         <div class="carousel-sub-imgs">
-            <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(1).jpg?raw=true" alt="image1">
+            <img src="https://images.prismic.io/valuemystuff/d1f98dc9-de0d-4b7d-b48c-cd421c421c8e_Chardin_pastel_selfportrait.jpg?auto=compress,format" alt="image1">
             <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(2).jpg?raw=true" alt="image2">
             <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(3).jpg?raw=true" alt="image3">
     </div>`
 
+    //
+    //
+    //
 
     /* ###########  For the image carousel ########### */
 
@@ -41,6 +49,7 @@ function renderImageCarousel(noteID) {
     imgs[0].style.opacity = img_opacity;
 
     // Using Event delegation to select an image
+    // * --- setting up eventlistener on thumbnails .....
     document.querySelector(".carousel-sub-imgs").addEventListener("click", imgClick);
 
     //  Loop through the nodeList and reach out each image, method 1
@@ -48,12 +57,15 @@ function renderImageCarousel(noteID) {
 
     function imgClick(e) {
         // Reset the opacity of all the images
+        // * --- the clicked thumbnail style changes:
         imgs.forEach(img => (img.style.opacity = 1));
 
         // Change current image to source of clicked image
+        // * --- calling on function to set the clicked thumbnail to also be the big image:
         changeImageTo(e.target);
     }
 
+    // * FUNCTION FOR SETTING THE CKLICKED THUMBNAIL TO BE THE BIG IMAGE:
     function changeImageTo(image) {
         imgs.forEach((img) => (img.style.opacity = 1));
 
@@ -71,6 +83,8 @@ function renderImageCarousel(noteID) {
         }
     }
 
+    // Adding buttons for image change
+    // Adding buttons for image change
     // Adding buttons for image change
 
     // Selections

@@ -8,7 +8,7 @@
     margin-top: 3vh;
     border: #fff solid 3px;
     background: rgb(255, 255, 255);
-    background-color: green;
+    /* background-color: green; */
 }
 
 .carousel-main-img img,
@@ -33,24 +33,51 @@
 }
 
 .carousel-slide-buttons button {
-    width: 20px;
-    height: 50px;
-    background: none;
-    color: rgba(255, 255, 255, 0.452);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: rgba(125, 125, 125, 0.200);
+    color: rgba(255, 255, 255, 0.800);
     border: none;
     padding: 0;
     cursor: pointer;
-    outline: inherit;
-    font-size: 1.8rem;
     z-index: 1;
 }
 
+
+
 #carousel-left-button {
-    margin-left: 2%;
+    position: absolute;
+    left: 0.5rem;
 }
 
 #carousel-right-button {
-    margin-left: 90%;
+    position: absolute;
+    right: 0.5rem;
+
+
+}
+
+#carousel-delete-current-image {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    background-color: rgba(125, 125, 125, 0.200);
+    color: rgba(255, 255, 255, 0.500);
+    padding: 0px 0.5rem 0px 0.5rem;
+    border-radius: 3px;
+
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.carousel-slide-buttons button:hover,
+#carousel-delete-current-image:hover {
+    background-color: rgba(125, 125, 125, 0.500);
+    color: rgba(255, 255, 255, 1);
+
 }
 
 /* Fade in animation for the carousel */
