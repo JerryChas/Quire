@@ -50,9 +50,8 @@ function renderNotesMain(noteObject) {
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
-                    <div id="dynamic-image-carousel_container" style="background-color: red;">
-                        
-                   detta är den dumamiska image carusel containern
+                    <div id="dynamic-image-carousel_container">
+                    <!--THIS IS THE AREA FOR THE IMAGE CAROUSEL THAS EXIST IF THERE IS ANY IMAGES IN THE NOTE-->
                     </div>
 
                 </div>
@@ -111,9 +110,10 @@ function renderNotesMain(noteObject) {
 
   });
 
-  //todo: om objektet har bilder så renderar vi ut de. VI GÖR DE SOM EN FUNKTION SOM INJESERAR den nödvändiga html htmlen:) Also. sätt en knapp i ktmlen för att addera bild från början.
   //call function that render the image-carousel if there is any images in the note:
-  renderImageCarousel(noteObject.id)
+  if (noteObject.images.length > 0) {
+    renderImageCarousel(noteObject.id)
+  }
 
 
   //checking if the star is going to be yellow or not
