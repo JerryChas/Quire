@@ -190,6 +190,8 @@ function renderAddImgModal(id) {
     </div>
   `;
 
+  const addImgModal = document.querySelector('.add-img_modal');
+
   const imgUrlInput = document.getElementById('img-url_input');
   const imagePreviewContainer = document.querySelector('.image-preview_container');
   // Input function to get the URL from the user
@@ -213,8 +215,24 @@ function renderAddImgModal(id) {
     addImageToNote(id);
     // Uppdatera local storage med de nya noterna
     saveNotesToLocalStorage();
+    //remove modal from displayContainer
+    displayContainer.removeChild(document.querySelector('.add-img_modal'));
+  });
+  closeModal(displayContainer, addImgModal);
+}
+
+// Function to close modal
+function closeModal(parent, child) {
+  parent.addEventListener('click', (e) => {
+    if (e.target !== child && !child.contains(e.target)) {
+      // Kontrollera om child faktiskt är ett barn till föräldern innan borttagning
+      if (parent.contains(child)) {
+        parent.removeChild(child);
+      }
+    }
   });
 }
+
 // Check if the URL is valid
 function isValidUrl(url) {
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
