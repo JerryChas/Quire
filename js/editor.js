@@ -72,7 +72,8 @@ function renderNotesMain(noteObject) {
   //adding dynamic place holders:
   const headdingTextField = document.getElementById("note-headding_container");
   const bodyTextField = document.getElementById("note-body-text");
-  placeholderLogic(headdingTextField, "New note");
+  const defaultheading = "New note"
+  placeholderLogic(headdingTextField, defaultheading);
   placeholderLogic(bodyTextField, "What's on your mind?...")
 
 

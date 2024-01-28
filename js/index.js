@@ -233,8 +233,10 @@ function renderAddImgModal(id) {
     //remove modal from displayContainer
     displayContainer.removeChild(document.querySelector('.add-img_modal'));
 
-    //! -- Här måste sidan uppdateras med nya datan och öppna den anteckning som det gäller
-    renderImageCarousel(id);
+    // Uppdate the DOM:
+    //finding the note object:
+    renderNotesMain(notes.find((note) => { return note.id == id }));
+
   });
   closeModal(displayContainer, addImgModal);
 }
@@ -267,6 +269,12 @@ function addImageToNote(id) {
   });
   console.log(currentNote);
   currentNote.images.push(String(imageUrl));
+
+  // IF this is a new note and the user hasn't set the title to something, we need to give it a default title so it can appear in the sidebar.:
+  if (currentNote.title == "") {
+    currentNote.title = "New note"
+  }
+  renderNotesAsideList()
 }
 
 //! -- DETTA ÄR EN TEMPORÄR FUNKTION SOM SKA BYTAS UT. NÄR MAN KLICKAR PÅ DELETEKNAPPEN ANROPAS DENNA FUNKTION SOM JUST NU BARA VISAR EN DIALOGRUTA FÖR ATT MARKERA ATT HÄR SKA HÄNDA GREJJOR:
@@ -281,7 +289,7 @@ function deleteCurrentImage(currentImg) {
    
    . med detta kan vi på gå in i databasen och hämta rätt note och sedan radera den bild som matchar currentImg.imgUrl.
 
-   . sedan måste vi kalla på en funktion som renderar ut alla bilder igen i noten för att få visuell uppdatering i domen.
+   . sedan måste vi kalla på en funktion som renderar ut alla bilder igen i noten för att få visuell uppdatering i domen. med detta komando : renderImageCarousel(currentImg.noteId);
    */
 
   /// MEEEEEEn undertiden får funktionen göra detta:
@@ -297,7 +305,9 @@ imgae URL:
   if (wantTodelete) {
     alert(`Okay.... delete delete... ⚙️ 🔧 🙂`)
   }
+  renderImageCarousel(currentImg.noteId);
 }
+
 
 
 //* ------------------------------------------------*//
@@ -329,12 +339,6 @@ addNewBtn.addEventListener('click', () => {
 //------------------CODE FOR RETRIEVING THE WELCOME MESSAGE AGAIN------------------------------//
 const infoBtn = document.getElementById('info-btn');
 infoBtn.addEventListener('click', getWelcomeAgain);
-
-// When clicked you get the form
-addNewBtn.addEventListener('click', () => {
-  console.log('klick');
-  renderNewNoteForm();
-});
 
 document.getElementById('add-new_btn').innerHTML = '<i class="fas fa-pen"></i>';
 

@@ -1,5 +1,5 @@
 //calling function for test:
-renderNotesMain(notes[1])
+// renderNotesMain(notes[1])
 
 /* *******************************************************************
 ** This sctipt is shameless stolen from Akshay Chandran on code pen  *
@@ -21,7 +21,7 @@ function renderImageCarousel(noteID) {
             Delete this image <i class="fa-regular fa-trash-can"></i>
         </span>
         <div class="carousel-main-img" id=carousel-main-img>
-            <img src="https://github.com/Akshay-ch-dj/Javascript-experience-projects/blob/master/js_image_slider_tES6/slider_images/wall-%20(1).jpg?raw=true" alt="image" id="carousel-current-img">
+        <!-- THIS IS THE AREA FOR THE BIG IMAGE-->
            
         </div>
 
@@ -45,7 +45,7 @@ function renderImageCarousel(noteID) {
 
     //getting the current note from notes array:
     const currentNote = notes.find((note) => note.id == noteID);
-    console.log(currentNote.images)
+    // console.log(currentNote.images)
 
     // variable for tracking the current img that is showing so we can delete the right img
     // when new image is klicked the currentImg will uppdate .......
