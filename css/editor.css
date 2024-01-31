@@ -8,6 +8,20 @@
     height: 100%;
 }
 
+#editor-tool-bar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#dropdown{
+    padding: .3rem;
+    border: none;
+    border-radius: 5px;
+    background: lightgray;
+}
+
 #editor button {
     padding: 0.3rem 0.65rem 0.3rem 0.65rem;
     font-size: inherit;
@@ -110,4 +124,11 @@
 #note-body-text {
     padding-top: 1rem;
     padding-bottom: 3rem;
+}
+
+.editorbutton{
+    margin: .5rem;
+    border-radius: 5px;
+    border: none;
+    background: lightgray;
 }
