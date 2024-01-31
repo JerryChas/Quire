@@ -27,12 +27,17 @@ function renderNotesMain(noteObject) {
     <div id="editor">
 
         <div id="editor-tool-bar">
-        <button id="bold">Bold</button>
-        <button id="italic">Italic</button>
-        <button id="ol">Ordered list</button>
-        <button id="ul">Unordered list</button>
-        <button id="underline">Underline</button> 
-        <button id="print">Print</button>
+        <button class="editorbutton" id="bold"><i class="fa-solid fa-bold" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="italic"><i class="fa-solid fa-italic" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="ol"><i class="fa-solid fa-list-ol" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="ul"><i class="fa-solid fa-list" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="underline"><i class="fa-solid fa-underline" style="color: #000000;"></i></button> 
+        <button class="editorbutton" id="print"><i class="fa-solid fa-print" style="color: #000000;"></i></button>
+        <select id="dropdown">
+        <option value="tema1">Tema 1</option>
+        <option value="tema2">Tema 2</option>
+        <option value="tema3">Tema 3</option>
+        </select>
         </div>
 
         <div id="document_wrapping-container">
