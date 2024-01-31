@@ -29,7 +29,14 @@ function renderNotesMain(noteObject) {
     displayContainer.innerHTML = `
     <div id="editor">
 
-        <!-- <div id="editor-tool-bar"> Här kan toolbar finnas om vi hinner utveckla avancerad editor</div> -->
+        <div id="editor-tool-bar">
+        <button id="bold">Bold</button>
+        <button id="italic">Italic</button>
+        <button id="ol">Ordered list</button>
+        <button id="ul">Unordered list</button>
+        <button id="underline">Underline</button> 
+        <button id="print">Print</button>
+        </div>
 
         <div id="document_wrapping-container">
 
