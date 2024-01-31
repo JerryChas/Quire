@@ -24,6 +24,12 @@
     padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
+@media (max-width: 800px) {
+    #statistics-card_container {
+        column-count: unset;
+    }
+}
+
 /*    END OF OVER-ALL STYLE   */
 /* **************************************************** */
 
