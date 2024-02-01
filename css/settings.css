@@ -1,0 +1,44 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.theme1 {
+  background-color: #f0e68c;
+  color: #2e8b57;
+}
+
+
+.theme2 {
+  background-color: #add8e6;
+  color: #ff6347;
+}
+
+
+.theme3 {
+  background-color: #deb887;
+  color: #5f9ea0;
+}
+
+
+
+
+
+#add-new_btn {
+  padding: 1em;
+  margin: 1em;
+  color: #397fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed; 
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px; 
+}
+
+#add-new_btn:hover {
+  background-color: white; 
+
+}
