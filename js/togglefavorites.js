@@ -21,7 +21,6 @@ function toggleFavorite(noteObject) {
         }
         localStorage.setItem("notes", JSON.stringify(notes));
         styleOfFavouriteStar(noteObject);
-        favorite(noteObject);
     });
 
 }

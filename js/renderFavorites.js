@@ -1,9 +1,9 @@
 function renderFavorites() {
 
 const displayFavorite = document.getElementById("favorite-container");
+const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-console.log(displayFavorite);
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+const favorites = notes.filter((note) => note.isFavourite);
 
   //Displays favorites on the page
   if (favorites.length > 0) {
@@ -36,3 +36,4 @@ console.log(displayFavorite);
   }
 }
 renderFavorites();
+saveToLocalStorage();
