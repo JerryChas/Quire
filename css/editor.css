@@ -132,3 +132,8 @@
     border: none;
     background: lightgray;
 }
+
+.editorbutton:hover{
+    background: gray;
+    cursor: pointer;
+}
