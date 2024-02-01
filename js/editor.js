@@ -29,6 +29,11 @@ function renderNotesMain(noteObject) {
         <!-- <div id="editor-tool-bar"> Här kan toolbar finnas om vi hinner utveckla avancerad editor</div> -->
 
         <div id="document_wrapping-container">
+        
+        <div id="water-mark">
+          <div #water-mark-logo"><i class="fa-brands fa-quora fa-4x"></i></div>
+          <div class="text-div">This note was created in <br>the free version of Query!</div>
+        </div>
 
             <div id="note-document" class="note-document">
 

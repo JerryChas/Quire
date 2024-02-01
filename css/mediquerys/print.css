@@ -10,14 +10,6 @@ men utan menyer och verktygskontroller i appen
 
 
 
-
-#note-document {
-    background-color: aqua;
-    border: 1px solid green;
-    color: red;
-}
-
-
 @media print {
 
     /* hide nav and aside */
@@ -38,6 +30,7 @@ men utan menyer och verktygskontroller i appen
     #note-document {
         background-color: white;
         color: black;
+        height: fit-content;
     }
 
 
@@ -45,12 +38,17 @@ men utan menyer och verktygskontroller i appen
         display: none;
     }
 
-    #meta-information_div>:not(#date-stamp_div) {
+    #meta-information_div>:not(#date-stamp_div, #dynamic-image-carousel_container) {
         display: none;
     }
 
-
-    #document_wrapping-container:before {
-        content: "";
+    /* make watermark exist */
+    #water-mark {
+        display: flex;
+        align-items: center;
+        color: grey;
+        margin: 0px 1rem 0px auto;
+        width: max-content;
+        height: fit-content
     }
 }

@@ -111,3 +111,7 @@
     padding-top: 1rem;
     padding-bottom: 3rem;
 }
+
+#water-mark {
+    display: none;
+}
