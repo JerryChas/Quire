@@ -1,6 +1,5 @@
 main {
   display: flex;
-  /* width: 100%; */
 }
 
 aside{
@@ -52,4 +51,37 @@ aside{
 #add-new_btn:hover {
   background-color: white; 
 
+}
+
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+ media query for mobile 
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+@media (max-width: 600px) {
+
+  main {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  aside {
+    width: 100vw;
+    max-height: 4rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+  .aside-note_li {
+    border-bottom: none;
+  }
+
+  .aside-note_li::after {
+    content: "     💠";
+  }
+
+  .aside-note_li::before {
+    content: "💠     ";
+  }
+  
 }
