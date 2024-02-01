@@ -1,0 +1,69 @@
+/* **************************************************** */
+/* THIS IS THE OVER-ALL STYLE */
+
+#statistics_container {
+    margin: 0 auto;
+    padding: 2rem 4rem 2rem 4rem;
+    max-width: 1500px;
+    min-height: 100%;
+}
+
+#statistics-card_container {
+    margin-top: 3rem;
+    column-count: 2;
+    column-gap: 1rem;
+}
+
+.statistics_card {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    background-color: #f5f5f5;
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+    min-height: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+@media (max-width: 800px) {
+    #statistics-card_container {
+        column-count: unset;
+    }
+}
+
+/*    END OF OVER-ALL STYLE   */
+/* **************************************************** */
+
+/* **************************************************** */
+/* PERSONAL STYLESPACE STARTS HERE: */
+
+/*--- ALICIA's style-space ---*/
+
+
+
+
+/*--- EMIL's style-space ---*/
+
+
+
+
+/*--- JERRY's style-space ---*/
+
+
+
+
+/*--- IBRAHIM's style-space ---*/
+
+
+
+
+/*--- VIKTOR's style-space ---*/
+
+
+
+
+/*--- PAULINA's style-space ---*/
+
+
+
+
+/*--- MOA's style-space ---*/
