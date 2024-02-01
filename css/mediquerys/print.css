@@ -1,0 +1,56 @@
+/* 
+Som användare vill jag kunna skriva ut en anteckning och att den då ser ut som på skärmen när jag skrev den,
+men utan menyer och verktygskontroller i appen
+*/
+
+
+/* todo: ta bort meny */
+/* todo: ta bort verktygsfält */
+/*  todo: addera liten vattenstämlel*/
+
+
+
+
+#note-document {
+    background-color: aqua;
+    border: 1px solid green;
+    color: red;
+}
+
+
+@media print {
+
+    /* hide nav and aside */
+    nav,
+    aside {
+        display: none;
+    }
+
+
+
+    /* setting the wrapping för the document to all its width */
+    #document_wrapping-container {
+        width: 100vw;
+    }
+
+    /* for safety rasons if any theeme had backround color we set wrapping and document bgcolor to white and also black text */
+    #document_wrapping-container,
+    #note-document {
+        background-color: white;
+        color: black;
+    }
+
+
+    .note-document>:not(#note-headding_container):not(#meta-information_div):not(#note-body-text) {
+        display: none;
+    }
+
+    #meta-information_div>:not(#date-stamp_div) {
+        display: none;
+    }
+
+
+    #document_wrapping-container:before {
+        content: "";
+    }
+}

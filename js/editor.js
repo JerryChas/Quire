@@ -30,7 +30,7 @@ function renderNotesMain(noteObject) {
 
         <div id="document_wrapping-container">
 
-            <div id="note-document">
+            <div id="note-document" class="note-document">
 
                 <h1 id="note-headding_container" contenteditable="true">${noteObject.title}</h1>
 
