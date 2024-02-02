@@ -126,6 +126,16 @@
     cursor: pointer;
 }
 
+
+#note-body-text {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+#water-mark {
+    display: none;
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -138,3 +148,4 @@
     padding-right: 0;
   }
 }
+
