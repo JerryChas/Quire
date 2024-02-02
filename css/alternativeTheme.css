@@ -1,0 +1,62 @@
+nav {
+  background-color: #FF573D;
+}
+
+/* aside styling */
+aside{
+  background-color: #5DA886;
+  color: white;
+}
+
+/* Base style for buttons */
+.button {
+  background-color: #5DA886;
+  color: rgb(255, 255, 255);
+}
+
+.button:hover {
+    background-color: #7cb59b;
+    /* color: #929785; */
+  }
+
+/* Hover Styling */
+input:hover {
+    background-color: #ffb7ab;
+    opacity: 0.8;
+  }
+  
+  #search_btn:hover {
+    background-color: #ff725c;
+    opacity: 0.8;
+  }
+
+/* line to divide nav icons */
+.line {
+  background: linear-gradient(to right, transparent, #ff826e, transparent);
+}
+
+/* hover effect on icons */
+.navIcons:hover {
+  background-color: #ff725c;
+  opacity: 0.8;
+}
+
+/* Hover Styling On Search Bar & Icon*/
+input:hover {
+    background-color: #ffa597;
+    opacity: 0.8;
+  }
+  
+  #search_btn:hover {
+    background-color: #ff725c;
+    opacity: 0.8;
+  }
+
+  /* Styling For The Pen Icon */
+#add-new_btn {
+    color: #ff725c;
+  }
+  
+  #add-new_btn:hover {
+    background-color: white; 
+  }

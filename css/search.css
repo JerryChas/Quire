@@ -24,17 +24,6 @@ input[type='text'] {
   height: auto;
 }
 
-/* Hover Styling */
-input:hover {
-  background-color: #d2dff7;
-  opacity: 0.8;
-}
-
-#search_btn:hover {
-  background-color: #639aff;
-  opacity: 0.8;
-}
-
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -74,5 +63,4 @@ input:hover {
     max-width: 100%;
     max-height: 70vh;
   }
-
 }

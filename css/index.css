@@ -2,18 +2,6 @@ main {
   display: flex;
 }
 
-aside{
-  background-color: rgb(183, 182, 182);
-  width: 12em;
-  max-height: 100vh;
-  overflow-y: scroll; 
-  scroll-behavior: auto;
-}
-
- aside::-webkit-scrollbar{
-   display: none;
-} 
-
 #display_container {
   width: 100%;
 }
@@ -24,6 +12,7 @@ aside{
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+
 }
 
 .aside-note_li {
@@ -34,25 +23,6 @@ aside{
   margin: 0.7em;
   white-space: nowrap;
 }
-
-#add-new_btn {
-  padding: 1em;
-  margin: 1em;
-  color: #397fff;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: fixed; 
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px; 
-}
-
-#add-new_btn:hover {
-  background-color: white; 
-
-}
-
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
@@ -83,5 +53,5 @@ aside{
   .aside-note_li::before {
     content: "💠     ";
   }
-  
+ 
 }
