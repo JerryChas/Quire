@@ -121,6 +121,7 @@
     background: lightgray;
 }
 
+
 .editorbutton:hover{
     background: gray;
     cursor: pointer;
@@ -149,3 +150,7 @@
   }
 }
 
+/**********  TextStyleEditor  ***********/
+.activeTextStyle{
+    background-color: lightblue;
+}
