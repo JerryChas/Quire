@@ -135,7 +135,6 @@ function renderNotesMain(noteObject) {
 
   //Activate/access the function for rendering optional textstyle
     activatingRichTextStyle();
-};
 
 
   // funktionaliity to print BUttoN
