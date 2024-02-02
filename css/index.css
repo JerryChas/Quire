@@ -12,7 +12,7 @@ main {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-
+  margin: 2rem;
 }
 
 .aside-note_li {
@@ -47,11 +47,13 @@ main {
   }
 
   .aside-note_li::after {
-    content: "     💠";
+    content: "     ◈";
+    color: rgb(225, 216, 216);
   }
 
   .aside-note_li::before {
-    content: "💠     ";
+    content: "◈     ";
+    color: rgb(225, 216, 216);
   }
  
 }
