@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', function () {
     applySavedTheme();
 });
 
-document.getElementById("quireTheme").addEventListener("click", function () {
-    applyTheme('css/main.css');
-});
-
-document.getElementById("melonTheme").addEventListener("click", function () {
-    applyTheme('css/alternativeTheme.css');
-});
+const quireTheme = document.getElementById('quireTheme');
+if (quireTheme) {
+    document.getElementById("quireTheme").addEventListener("click", function () {
+        applyTheme('css/main.css');
+    });
+    
+    document.getElementById("melonTheme").addEventListener("click", function () {
+        applyTheme('css/alternativeTheme.css');
+    });
+} 
 
 function applyTheme(theme) {
     // Remove the existing theme stylesheet
