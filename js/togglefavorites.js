@@ -3,6 +3,14 @@ function toggleFavorite(noteObject) {
 
     // Creates click event when clicked and toggles status of isFav
     starButton.addEventListener("click", function () {
+        
+        //Alicias spårningskod
+        gtag("event", "star_click", {
+        event_category: "Button",
+        event_label: "star_button",
+        });
+       
+        
         console.log(noteObject);
 
         let changedNote = notes.find((note) => {
@@ -21,7 +29,6 @@ function toggleFavorite(noteObject) {
         }
         localStorage.setItem("notes", JSON.stringify(notes));
         styleOfFavouriteStar(noteObject);
-        favorite(noteObject);
     });
 
 }

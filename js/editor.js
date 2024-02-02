@@ -34,15 +34,17 @@ function renderNotesMain(noteObject) {
         <button class="editorbutton option-button" id="underline"><i class="fa-solid fa-underline" style="color: #000000;"></i></button> 
         <button class="editorbutton" id="print"><i class="fa-solid fa-print" style="color: #000000;"></i></button>
         <select id="dropdown">
-        <option value="tema1">Tema 1</option>
-        <option value="tema2">Tema 2</option>
-        <option value="tema3">Tema 3</option>
         </select>
         </div>
 
         <div id="document_wrapping-container">
+        
+        <div id="water-mark">
+          <div #water-mark-logo"><i class="fa-brands fa-quora fa-4x"></i></div>
+          <div class="text-div">This note was created in <br>the free version of Quire!</div>
+        </div>
 
-            <div id="note-document">
+            <div id="note-document" class="note-document">
 
                 <h1 id="note-headding_container" contenteditable="true">${noteObject.title}</h1>
 
@@ -58,7 +60,7 @@ function renderNotesMain(noteObject) {
                     <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
                     <div>
                         <span>Tags:</span>
-                        <span id="tags_container">(Här kan dokumentets taggar dyka upp)</span>
+                        <span id="tags_container"></span>
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
@@ -80,32 +82,30 @@ function renderNotesMain(noteObject) {
 
     </div>`;
 
-
   //adding dynamic place holders:
-  const headdingTextField = document.getElementById("note-headding_container");
-  const bodyTextField = document.getElementById("note-body-text");
-  const defaultheading = "New note"
+  const headdingTextField = document.getElementById('note-headding_container');
+  const bodyTextField = document.getElementById('note-body-text');
+  const defaultheading = 'New note';
   placeholderLogic(headdingTextField, defaultheading);
-  placeholderLogic(bodyTextField, "What's on your mind?...")
-
+  placeholderLogic(bodyTextField, "What's on your mind?...");
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
   //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
-  const noteDocument = document.getElementById("note-document");
-  noteDocument.addEventListener("input", (e) => {
+  const noteDocument = document.getElementById('note-document');
+  noteDocument.addEventListener('input', (e) => {
     // console.log(e)
     // console.log(e.target)
     // console.log(e.target.innerHTML)
 
     switch (e.target.id) {
-      case "note-headding_container":
-        noteObject.title = e.target.textContent
-        console.log("heddingen redigerades")
+      case 'note-headding_container':
+        noteObject.title = e.target.textContent;
+        console.log('heddingen redigerades');
         break;
-      case "note-body-text":
-        noteObject.bodyText = e.target.innerHTML
-        console.log("bodytexten redigerades")
+      case 'note-body-text':
+        noteObject.bodyText = e.target.innerHTML;
+        console.log('bodytexten redigerades');
         break;
 
       default:
@@ -115,28 +115,36 @@ function renderNotesMain(noteObject) {
     //fallback:
     //setting default headding, if there is none from the user:
     if (noteObject.title == false) {
-      noteObject.title = "New note"
+      noteObject.title = 'New note';
     }
 
     // Call the save function:
     saveNote(noteObject);
-
   });
 
   //call function that render the image-carousel if there is any images in the note:
   if (noteObject.images.length > 0) {
-    renderImageCarousel(noteObject.id)
+    renderImageCarousel(noteObject.id);
   }
-
 
   //checking if the star is going to be yellow or not
   styleOfFavouriteStar(noteObject);
   //call the function that listening for klick on the star:
   toggleFavorite(noteObject);
 
+
   //Activate/access the function for rendering optional textstyle
     activatingRichTextStyle();
 };
+
+
+  // funktionaliity to print BUttoN
+  const printBtn = document.getElementById("print");
+  printBtn.addEventListener("click", () => { print() })
+
+  /* ------THEMES for each note---(Dropdown)--- */
+  noteThemes(noteObject);
+}
 
 
 // Add image - BUTTON

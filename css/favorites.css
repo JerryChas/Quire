@@ -38,6 +38,6 @@ body{
     font-size: 1.3rem;
 }
 
-#favcontent{
-
+.no_favorites {
+    text-align: center;
 }

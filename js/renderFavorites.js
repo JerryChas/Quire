@@ -1,14 +1,14 @@
 function renderFavorites() {
 
-const displayFavorite = document.getElementById("favorite-container");
+  const displayFavorite = document.getElementById("favorite-container");
+  const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-console.log(displayFavorite);
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favorites = notes.filter((note) => note.isFavourite);
 
   //Displays favorites on the page
   if (favorites.length > 0) {
     displayFavorite.innerHTML = `
-            <h4 id="favorites"> Dina favoriter </h4>
+            <h4 id="favorites"> Your Favorite Notes</h4>
             <div class="your_favorites"> </div>
             `;
 
@@ -30,9 +30,10 @@ console.log(displayFavorite);
     // If you don't have a favorite, this renders
   } else {
     displayFavorite.innerHTML = `
-            <h4 id="favorites">Dina favoriter</h4>
-            <div class="no_favorites"> Du har inga favoriter. </div>
+            <h4 id="favorites"> Your Favorite Notes  </h4>
+            <div class="no_favorites"> You don´t have any favorites yet.. </div>
             `;
   }
 }
 renderFavorites();
+

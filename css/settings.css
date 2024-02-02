@@ -1,0 +1,34 @@
+
+/* Preview Of Theme Images */
+
+.themePreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.themeImages {
+    width: 30%;
+    border: solid 2px black;
+    transition: transform 0.5s;
+    margin: 2rem;
+  }
+
+  .themeImages:hover {
+    transform: scale(1.1);
+  }
+
+/* Header styling */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1.5rem;
+}
+
+/* Center everything */
+#display_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+}
