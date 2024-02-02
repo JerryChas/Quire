@@ -8,7 +8,7 @@ const favorites = notes.filter((note) => note.isFavourite);
   //Displays favorites on the page
   if (favorites.length > 0) {
     displayFavorite.innerHTML = `
-            <h4 id="favorites"> Dina favoriter </h4>
+            <h4 id="favorites"> Your Favorite Notes  </h4>
             <div class="your_favorites"> </div>
             `;
 
@@ -30,8 +30,8 @@ const favorites = notes.filter((note) => note.isFavourite);
     // If you don't have a favorite, this renders
   } else {
     displayFavorite.innerHTML = `
-            <h4 id="favorites">Dina favoriter</h4>
-            <div class="no_favorites"> Du har inga favoriter. </div>
+            <h4 id="favorites"> Your Favorite Notes  </h4>
+            <div class="no_favorites"> You don´t have any favorites yet.. </div>
             `;
   }
 }
