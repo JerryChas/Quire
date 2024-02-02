@@ -4,6 +4,7 @@ function toggleFavorite(noteObject) {
     // Creates click event when clicked and toggles status of isFav
     starButton.addEventListener("click", function () {
         
+        //Alicias spårningskod
         gtag("event", "star_click", {
         event_category: "Button",
         event_label: "star_button",
