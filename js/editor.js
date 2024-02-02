@@ -132,6 +132,11 @@ function renderNotesMain(noteObject) {
   //call the function that listening for klick on the star:
   toggleFavorite(noteObject);
 
+<
+  // funktionaliity to print BUttoN
+  const printBtn = document.getElementById("print");
+  printBtn.addEventListener("click", () => { print() })
+
   /* ------THEMES for each note---(Dropdown)--- */
   noteThemes(noteObject);
 }

@@ -33,11 +33,17 @@ men utan menyer och verktygskontroller i appen
         height: fit-content;
     }
 
+    /* hide toolbar */
+    #editor-tool-bar {
+        display: none;
+    }
 
+    /* hide everything in note-document  but not the things in :not() */
     .note-document>:not(#note-headding_container):not(#meta-information_div):not(#note-body-text) {
         display: none;
     }
 
+    /* hide everything in meta-information but not the things in :not() */
     #meta-information_div>:not(#date-stamp_div, #dynamic-image-carousel_container) {
         display: none;
     }
