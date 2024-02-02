@@ -2,17 +2,17 @@ main {
   display: flex;
 }
 
-aside{
+aside {
   background-color: rgb(183, 182, 182);
   width: 12em;
   max-height: 100vh;
-  overflow-y: scroll; 
+  overflow-y: scroll;
   scroll-behavior: auto;
 }
 
- aside::-webkit-scrollbar{
-   display: none;
-} 
+aside::-webkit-scrollbar {
+  display: none;
+}
 
 #display_container {
   width: 100%;
@@ -24,6 +24,7 @@ aside{
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  margin: 2rem;
 }
 
 .aside-note_li {
@@ -42,24 +43,21 @@ aside{
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  position: fixed; 
+  position: fixed;
   bottom: 0;
   right: 0;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 #add-new_btn:hover {
-  background-color: white; 
-
+  background-color: white;
 }
-
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 @media (max-width: 600px) {
-
   main {
     flex-direction: column;
     justify-content: flex-start;
@@ -70,18 +68,19 @@ aside{
     max-height: 4rem;
     overflow-x: scroll;
     overflow-y: hidden;
-}
+  }
 
   .aside-note_li {
     border-bottom: none;
   }
 
   .aside-note_li::after {
-    content: "     💠";
+    content: "     ◈";
+    color: rgb(225, 216, 216);
   }
 
   .aside-note_li::before {
-    content: "💠     ";
+    content: "◈     ";
+    color: rgb(225, 216, 216);
   }
-  
 }
