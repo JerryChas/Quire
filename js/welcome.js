@@ -48,5 +48,14 @@ It's note-taking made effortless and enjoyable. Highly recommend!
 `
 } else {
     // When the page has been visited, there is no welcome message
-    welcomeDiv.textContent = "";
+    welcomeDiv.innerHTML = `
+    <h1 id="welcomeback">🎉 Welcome back to Quire, your digital notebook companion!</h1>
+    <h2 id="h2welcomeback">We're thrilled to have you back.✨</h2> 
+    <p class="welcomebacknote">Get ready to capture your thoughts, organize your ideas, and boost your productivity. 🚀 
+    <p class="welcomebacknote">Let Quire be your creative space and productivity hub. Whether it's jotting down quick notes, planning your next big project, or collaborating with your team, Quire is here to make it seamless and enjoyable. 📝💼</p>
+
+    <p class="welcomebacknote">Explore our latest features, customize your workspace, and make Quire your own. Embrace the power of efficient note-taking and task management. 🌐💡</p>
+
+    <p class="welcomebacknote">So, what are you waiting for? Dive back into the Quire experience and let your ideas flow! Happy noting! 🚀📓 📝</p>
+        `;
 }
