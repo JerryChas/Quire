@@ -58,7 +58,7 @@ function renderNotesMain(noteObject) {
                     <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
                     <div>
                         <span>Tags:</span>
-                        <span id="tags_container">(Här kan dokumentets taggar dyka upp)</span>
+                        <span id="tags_container"></span>
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
