@@ -37,3 +37,7 @@ body{
 #favtitle{
     font-size: 1.3rem;
 }
+
+.no_favorites {
+    text-align: center;
+}
