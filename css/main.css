@@ -18,6 +18,30 @@ nav {
   overflow: hidden;
 }
 
+/* aside styling */
+
+aside{
+  background-color: #E8B546;
+  width: 12em;
+  max-height: 100vh;
+  overflow-y: scroll; 
+  scroll-behavior: auto;
+  color: black;
+}
+
+ aside::-webkit-scrollbar{
+   display: none;
+} 
+
+.aside-note_li {
+  border-bottom: 1px solid #e3e0e0;
+  height: 2.5em;
+  font-weight: bold;
+  list-style: none;
+  margin: 0.7em;
+  white-space: nowrap;
+}
+
 /* Base style for all headings */
 h1,
 h2,
@@ -30,8 +54,8 @@ h6 {
 
 /* Base style for buttons */
 .button {
-  background-color: rgb(0, 83, 146);
-  color: lightgray;
+  background-color: #2d7cb9;
+  color: rgb(255, 255, 255);
   border: 1px solid lightgray;
   padding: 1rem;
   border-radius: 30px;
@@ -43,7 +67,8 @@ h6 {
 }
 
 .button:hover {
-  color: rgb(133, 151, 151);
+  background-color: #5b97c6;
+  /* color: #929785; */
 }
 
 /* Base style for links */
@@ -66,7 +91,7 @@ h6 {
   padding: 1.5rem 0rem;
   cursor: pointer;
   color: white;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* line to divide nav icons */
@@ -95,4 +120,97 @@ a {
   top: 200px;
   left: 50%;
   transform: translate(-50%);
+}
+
+/* Hover Styling On Search Bar & Icon*/
+input:hover {
+  background-color: #d2dff7;
+  opacity: 0.8;
+}
+
+#search_btn:hover {
+  background-color: #639aff;
+  opacity: 0.8;
+}
+
+/* Styling For The Pen Icon */
+#add-new_btn {
+  padding: 1em;
+  margin: 1em;
+  color: #397fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed; 
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px; 
+}
+
+#add-new_btn:hover {
+  background-color: white; 
+=======
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+ media query for mobile 
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+@media (max-width: 600px) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  } 
+
+   nav {
+    grid-column: span 2;
+    max-height: 5rem;
+  } 
+
+  ul {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem;
+    list-style: none; 
+  }
+
+  #notes-list_ul {
+    justify-content: unset;
+  }
+
+  .navIcons {
+    padding: 0.1rem;
+  }
+
+  .navIcons:hover {
+    background-color: #397fff;
+    color: lightblue;
+  }
+
+  #note-document h1 {
+    font-size: 1.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #note-document {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  #tags_container {
+    font-size: 0.8rem;
+  }
+
+  .add-img_btn {
+    display: inline;
+  }
+
+  .welcome {
+    margin: 1.1rem;
+  }
+
 }

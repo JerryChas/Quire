@@ -1,78 +1,138 @@
 <!DOCTYPE html>
 <html lang="eng">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-911QDKJDBF', { 'debug_mode':true });
-    </script>
-    <!-- --------------------------- -->
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link rel="icon" href="data:," />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/statistics.css" />
-        <!-- Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
-    <!-- SCRIPT -->
-    <script src="js/index.js" defer></script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-911QDKJDBF', { 'debug_mode': true });
+  </script>
+  <!-- --------------------------- -->
 
-    <title>Quire - Statistics</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="index.html" class="navIcons">
-            <i class="fa-brands fa-quora fa-4x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="search.html" class="navIcons">
-            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="favorites.html" class="navIcons">
-            <i class="fa-regular fa-star fa-2x"></i>
-            <a>
-            </li>
-        <div class="line"></div>
-        <li>
-          <a href="statistics.html" class="navIcons">
-            <i class="fa-solid fa-chart-simple fa-2x">
-            </i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li>
-          <a href="settings.html" class="navIcons">
-            <i class="fa-solid fa-gear fa-2x"></i>
-          </a>
-        </li>
-        <div class="line"></div>
-        <li class="navIcons" id="info-btn">
-          <i class="fa-solid fa-info fa-2x" ></i>
-        </li>
-        <div class="line"></div>
-      </ul>
-    </nav>
-    <main>
-      <aside>
-      </aside>
-      <div id="display_container">
-        <button id="add-new_btn">Tryck här</button>
-        <div id="welcome" class="welcome"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" href="data:," />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link id="theme-style" rel="stylesheet" href="#"/>
+  <link rel="stylesheet" href="css/statistics.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <script src="js/index.js" defer></script>
+  <script src=" js/statistics.js"></script>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+
+  <title>Quire - Statistics</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html" class="navIcons">
+          <i class="fa-brands fa-quora fa-4x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="search.html" class="navIcons">
+          <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="favorites.html" class="navIcons">
+          <i class="fa-regular fa-star fa-2x"></i>
+          <a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="statistics.html" class="navIcons">
+          <i class="fa-solid fa-chart-simple fa-2x">
+          </i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li>
+        <a href="settings.html" class="navIcons">
+          <i class="fa-solid fa-gear fa-2x"></i>
+        </a>
+      </li>
+      <div class="line"></div>
+      <li class="navIcons" id="info-btn">
+        <i class="fa-solid fa-info fa-2x"></i>
+      </li>
+      <div class="line"></div>
+    </ul>
+  </nav>
+  <main>
+    <aside>
+    </aside>
+    <div id="statistics_container">
+      <div>
+        <h4>Admin Panel</h4>
+
+        <h1>Statistics</h1>
+
+        <br>
+        <p>Review and gain insights into how this application is utilized by users worldwide.</p>
       </div>
-    </main>
-  </body>
+
+      <div id="statistics-card_container">
+
+        <!--  ALICIAS CONTAINER -->
+        <div class="statistics_card" id="statistics-alicia_container">
+          <h2>This is just some exampletex.</h2>
+          <p>This is an area where de will inject infomration about the usage of this app. <br> This text will be
+            replaxed by something more useful than this dummy text.
+          </p>
+        </div>
+
+        <!--  EMILS CONTAINER -->
+        <div class="statistics_card" id="statistics-emil_container">
+        </div>
+
+        <!--  JERRYS CONTAINER -->
+        <div class="statistics_card" id="statistics-jerry_container">
+        </div>
+
+        <!--  IBRAHIMS CONTAINER -->
+        <div class="statistics_card" id="statistics-ibrahim_container">
+          <h2>This is a h2 element.</h2>
+          <h3>this is a h3 element</h3>
+          <p>This is an area where de will inject infomration about the usage of this app. <br> This text will be
+            replaced by something more useful than this dummy text.
+          </p>
+        </div>
+
+        <!--  VIKTORS CONTAINER -->
+        <div class="statistics_card" id="statistics-viktor_container">
+        </div>
+
+        <!--  PAULINAS CONTAINER -->
+        <div class="statistics_card" id="statistics-paulina_container">
+        </div>
+
+        <!--  MOAS CONTAINER -->
+        <div class="statistics_card" id="statistics-moa_container">
+          <h2>Here goes heding that explanes whta data you will be exposed about in the panel</h2> The developer who is
+          responsible for each g-tag is the boss over the container and have the hand free to display yhe data inside
+          the div all by him/she-self<br><br>
+          In the css where is an area dedicated to each developer.
+        </div>
+      </div>
+    </div>
+    <button id="add-new_btn">Tryck här</button>
+    <div id="welcome" class="welcome"></div>
+  </main>
+</body>
 </html>

@@ -1,19 +1,6 @@
 main {
   display: flex;
-  /* width: 100%; */
 }
-
-aside{
-  background-color: rgb(183, 182, 182);
-  width: 12em;
-  max-height: 100vh;
-  overflow-y: scroll; 
-  scroll-behavior: auto;
-}
-
- aside::-webkit-scrollbar{
-   display: none;
-} 
 
 #display_container {
   width: 100%;
@@ -25,6 +12,7 @@ aside{
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+
 }
 
 .aside-note_li {
@@ -36,20 +24,34 @@ aside{
   white-space: nowrap;
 }
 
-#add-new_btn {
-  padding: 1em;
-  margin: 1em;
-  color: #397fff;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: fixed; 
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px; 
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+ media query for mobile 
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+@media (max-width: 600px) {
+
+  main {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  aside {
+    width: 100vw;
+    max-height: 4rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
-#add-new_btn:hover {
-  background-color: white; 
+  .aside-note_li {
+    border-bottom: none;
+  }
 
+  .aside-note_li::after {
+    content: "     💠";
+  }
+
+  .aside-note_li::before {
+    content: "💠     ";
+  }
+ 
 }

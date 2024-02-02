@@ -26,7 +26,19 @@ function renderNotesMain(noteObject) {
   displayContainer.innerHTML = `
     <div id="editor">
 
-        <!-- <div id="editor-tool-bar"> Här kan toolbar finnas om vi hinner utveckla avancerad editor</div> -->
+        <div id="editor-tool-bar">
+        <button class="editorbutton" id="bold"><i class="fa-solid fa-bold" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="italic"><i class="fa-solid fa-italic" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="ol"><i class="fa-solid fa-list-ol" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="ul"><i class="fa-solid fa-list" style="color: #000000;"></i></button>
+        <button class="editorbutton" id="underline"><i class="fa-solid fa-underline" style="color: #000000;"></i></button> 
+        <button class="editorbutton" id="print"><i class="fa-solid fa-print" style="color: #000000;"></i></button>
+        <select id="dropdown">
+        <option value="tema1">Tema 1</option>
+        <option value="tema2">Tema 2</option>
+        <option value="tema3">Tema 3</option>
+        </select>
+        </div>
 
         <div id="document_wrapping-container">
         
@@ -51,7 +63,7 @@ function renderNotesMain(noteObject) {
                     <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
                     <div>
                         <span>Tags:</span>
-                        <span id="tags_container">(Här kan dokumentets taggar dyka upp)</span>
+                        <span id="tags_container"></span>
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
