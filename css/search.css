@@ -25,6 +25,21 @@ input[type='text'] {
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+ media query for tablet 
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+ @media (max-width: 768px) {
+  #searchBox {
+    margin-left: 4rem;
+    width: 70%;
+  }
+
+  #showSearchResults {
+    width: 85%;
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
