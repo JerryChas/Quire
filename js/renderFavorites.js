@@ -36,4 +36,4 @@ const favorites = notes.filter((note) => note.isFavourite);
   }
 }
 renderFavorites();
-saveToLocalStorage();
+
