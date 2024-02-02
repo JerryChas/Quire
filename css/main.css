@@ -215,3 +215,18 @@ input:hover {
   }
 
 }
+
+#welcomeback{
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#h2welcomeback{
+  margin: 1rem;
+}
+
+.welcomebacknote{
+  font-size: 1.2rem;
+  text-align: center;
+  margin: .5rem;
+}
