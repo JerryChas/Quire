@@ -132,3 +132,8 @@
     border: none;
     background: lightgray;
 }
+
+/**********  TextStyleEditor  ***********/
+.activeTextStyle{
+    background-color: lightblue;
+}
