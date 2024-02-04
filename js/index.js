@@ -194,88 +194,7 @@ function getInputs() {
   notes.push(note);
 }
 
-// Function to start the Img Modal PopUp Window
-function renderAddImgModal(id) {
-  displayContainer.innerHTML += `
-    <div class="add-img_modal">
-      <div class="image-preview_container"> 
-      </div>
-      <input id="img-url_input" type="url" placeholder="Paste your URL of your favorite image"></input>
-      <button class="button add-img-to-note_btn">Add to notes</button>
-    </div>
-  `;
 
-  const addImgModal = document.querySelector('.add-img_modal');
-
-  const imgUrlInput = document.getElementById('img-url_input');
-  const imagePreviewContainer = document.querySelector('.image-preview_container');
-  // Input function to get the URL from the user
-  imgUrlInput.addEventListener('input', () => {
-    const imageUrl = imgUrlInput.value;
-    // Check if the URL needs to checked or not
-    if (isValidUrl(imageUrl)) {
-      imagePreviewContainer.innerHTML = `
-        <img src="${imageUrl}" alt="image from user" width="300">
-      `;
-    } else {
-      // Display error message
-      imagePreviewContainer.innerHTML = 'Please submit a valid URL';
-    }
-  });
-
-  // Click event for "Add Image To Note Button"
-  const addImgToNoteBtn = document.querySelector('.add-img-to-note_btn');
-  addImgToNoteBtn.setAttribute('data-id', '123');
-  addImgToNoteBtn.addEventListener('click', () => {
-    addImageToNote(id);
-    // Uppdatera local storage med de nya noterna
-    saveNotesToLocalStorage();
-    //remove modal from displayContainer
-    displayContainer.removeChild(document.querySelector('.add-img_modal'));
-
-    // Uppdate the DOM:
-    //finding the note object:
-    renderNotesMain(notes.find((note) => { return note.id == id }));
-
-  });
-  closeModal(displayContainer, addImgModal);
-}
-
-// Function to close modal
-function closeModal(parent, child) {
-  parent.addEventListener('click', (e) => {
-    if (e.target !== child && !child.contains(e.target)) {
-      // Kontrollera om child faktiskt är ett barn till föräldern innan borttagning
-      if (parent.contains(child)) {
-        parent.removeChild(child);
-      }
-    }
-  });
-}
-
-// Check if the URL is valid
-function isValidUrl(url) {
-  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-  return urlRegex.test(url);
-}
-
-// Add image to note
-function addImageToNote(id) {
-  const imgUrlInput = document.getElementById('img-url_input');
-  const imageUrl = imgUrlInput.value;
-
-  let currentNote = notes.find((note) => {
-    return note.id == id;
-  });
-  console.log(currentNote);
-  currentNote.images.push(String(imageUrl));
-
-  // IF this is a new note and the user hasn't set the title to something, we need to give it a default title so it can appear in the sidebar.:
-  if (currentNote.title == "") {
-    currentNote.title = "New note"
-  }
-  renderNotesAsideList()
-}
 
 //! -- DETTA ÄR EN TEMPORÄR FUNKTION SOM SKA BYTAS UT. NÄR MAN KLICKAR PÅ DELETEKNAPPEN ANROPAS DENNA FUNKTION SOM JUST NU BARA VISAR EN DIALOGRUTA FÖR ATT MARKERA ATT HÄR SKA HÄNDA GREJJOR:
 
@@ -307,10 +226,10 @@ imgae URL:
   }
   renderImageCarousel(currentImg.noteId);
 }
+//* ---------------------------------------------------------------------*//
 
 
 
-//* ------------------------------------------------*//
 
 // When click you get the form (PEN)
 addNewBtn.addEventListener('click', () => {
