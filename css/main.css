@@ -112,6 +112,7 @@ a {
 }
 
 .add-img_modal {
+  display: none;
   background-color: #fff;
   border: 3px solid black;
   border-radius: 2rem;
@@ -120,6 +121,7 @@ a {
   top: 200px;
   left: 50%;
   transform: translate(-50%);
+  z-index: 2;
 }
 
 /* Hover Styling On Search Bar & Icon*/
