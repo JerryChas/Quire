@@ -30,7 +30,6 @@
    The document page is inside the wrapping and is hiding behind the scroll bar iff it is to long
    This is begus we dont want the document to extend the mage if it is too long for the screen   */
 #document_wrapping-container {
-  height: 100%;
   overflow: auto;
   /* background-color: green; */
 }
