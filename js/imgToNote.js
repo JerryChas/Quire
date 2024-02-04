@@ -37,7 +37,7 @@ function imgToNote(noteObject) {
               if (!duplicate){
                 //  Show the preview by creating an 'img' element with the source being the provided url
                 imagePreviewContainer.innerHTML = `
-                <img src="${imageUrl}" alt="image from user" width="250">
+                <img src="${imageUrl}" alt="image from user">
               `;
                 //  Enable the "Add Image To Note" button
                 addImgToNoteBtn.disabled = false;
@@ -53,7 +53,7 @@ function imgToNote(noteObject) {
               } else {
                 console.error('Image Already exist in this note.');
                 imagePreviewContainer.innerHTML = `
-                <img src="${imageUrl}" alt="image from user" width="250" style="filter: grayscale(100%);">
+                <img src="${imageUrl}" alt="image from user" style="filter: grayscale(100%);">
                 <p>This image was already added to this note</p>`;
 
                 addImgToNoteBtn.disabled = true; //  Disable the "Add Image To Note" button
@@ -81,10 +81,10 @@ function imgToNote(noteObject) {
   // Toogle Modal (add image modal)
   function toggleModal() {
     const modal = document.querySelector('.add-img_modal');
-    if (modal.style.display === 'block') {
+    if (modal.style.display === 'flex') {
       modal.style.display = 'none';
     } else {
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
 
       window.addEventListener('click', (e) => {
         if (e.target !== modal && !modal.contains(e.target)) {
