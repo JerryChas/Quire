@@ -32,7 +32,8 @@ const notesListUl = document.getElementById('notes-list_ul');
 
         //En eventlistener för att kalla på renderNotesMain funktionen när man klickar på note-Li
         notesList.addEventListener('click', () => {
-            renderNotesMain(note);
+          renderNotesMain(note);
+          console.log('Clicked on note object: ', note); //!  DEBUGGING
         });
     });
 }

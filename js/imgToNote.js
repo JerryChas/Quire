@@ -121,7 +121,7 @@ function imgToNote(noteObject) {
   function addImageToNote(noteObject, url) {
     noteObject.images.push(String(url));
 
-    console.log(noteObject); //!  DEBUGGING
+    console.log('Added img to: ', noteObject.title); //!  DEBUGGING
 
     // IF this is a new note and the user hasn't set the title to something, we need to give it a default title so it can appear in the sidebar.:
     if (noteObject.title == '') {
@@ -133,7 +133,9 @@ function imgToNote(noteObject) {
 
   const addImgBtn = document.querySelector('.add-img_btn');
   addImgBtn.addEventListener('click', (e) => {
-    console.log('Clicked: "Add image"  noteID:', e.target.dataset.noteId); //!  DEBUGGING
+    // console.log('Clicked: "Add image"  noteID:', e.target.dataset.noteId); //!  DEBUGGING
+    console.log('About to add image to: ', noteObject.title); //!  DEBUGGING
+    console.log('Note ID: ', noteObject.id); //!  DEBUGGING
     e.stopPropagation();
     renderAddImgModal()
   });
