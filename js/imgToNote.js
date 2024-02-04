@@ -32,21 +32,33 @@ function imgToNote(noteObject) {
         // Check if url contains real image or not
         checkIfImageExists(imageUrl, (exists) => {
           if (exists) {
-            //  Show the preview by creating an 'img' element with the source being the provided url
-            imagePreviewContainer.innerHTML = `
-            <img src="${imageUrl}" alt="image from user" width="250">
-          `;
-            //  Enable the "Add Image To Note" button
-            addImgToNoteBtn.disabled = false;
+            //  Check if image is a duplicate
+            checkForDuplicateImages(noteObject,  imageUrl, (duplicate) => {
+              if (!duplicate){
+                //  Show the preview by creating an 'img' element with the source being the provided url
+                imagePreviewContainer.innerHTML = `
+                <img src="${imageUrl}" alt="image from user" width="250">
+              `;
+                //  Enable the "Add Image To Note" button
+                addImgToNoteBtn.disabled = false;
+    
+                // If there isn't a eventlistener already
+                if (!addImgToNoteBtn.clickEventAdded) {
+                  //   Add a click event listener that adds the image to the note when clicked
+                  addImgToNoteBtn.addEventListener('click', () => {
+                    handleAddImageToNote(noteObject, imageUrl);
+                  });
+                }
+                addImgToNoteBtn.clickEventAdded = true; //  Mark this so we don't add the event listener again next time
+              } else {
+                console.error('Image Already exist in this note.');
+                imagePreviewContainer.innerHTML = `
+                <img src="${imageUrl}" alt="image from user" width="250" style="filter: grayscale(100%);">
+                <p>This image was already added to this note</p>`;
 
-            // If there isn't a eventlistener already
-            if (!addImgToNoteBtn.clickEventAdded) {
-              //   Add a click event listener that adds the image to the note when clicked
-              addImgToNoteBtn.addEventListener('click', () => {
-                handleAddImageToNote(noteObject, imageUrl);
-              });
-            }
-            addImgToNoteBtn.clickEventAdded = true; //  Mark this so we don't add the event listener again next time
+                addImgToNoteBtn.disabled = true; //  Disable the "Add Image To Note" button
+              }
+            });
           } else {
             //  show message if the link doesn't contain any image
             console.error('Image does not exist.');
@@ -105,6 +117,19 @@ function imgToNote(noteObject) {
       };
     }
   }
+// function to check if image is a duplicate
+function checkForDuplicateImages(noteObject, imageURL, callback){
+  // check if any images in noteObject match current imageURL
+  for (let i=0;i<noteObject.images.length;i++){
+    let item = noteObject.images[i];
+    if (item === imageURL) {
+      callback(true);
+      return;
+    }
+  }
+  callback(false);
+  }
+
 
   function handleAddImageToNote(noteObject, imageUrl) {
     addImageToNote(noteObject, imageUrl);
@@ -124,9 +149,9 @@ function imgToNote(noteObject) {
     console.log('Added img to: ', noteObject.title); //!  DEBUGGING
 
     // IF this is a new note and the user hasn't set the title to something, we need to give it a default title so it can appear in the sidebar.:
-    if (noteObject.title == '') {
-      noteObject.title = 'New note';
-    }
+    // if (noteObject.title == '') {
+    //   noteObject.title = 'New note';
+    // }
     renderNotesAsideList();
   }
   //*-------------------------------------------------------------------------*//
