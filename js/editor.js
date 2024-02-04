@@ -63,7 +63,7 @@ function renderNotesMain(noteObject) {
                         <span id="tags_container"></span>
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
-                    <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
+                    <button class="button add-img_btn">Add image</button>
                     <div class="add-img_modal"></div>    
                     <div id="dynamic-image-carousel_container">
                     <!--THIS IS THE AREA FOR THE IMAGE CAROUSEL THAS EXIST IF THERE IS ANY IMAGES IN THE NOTE-->
