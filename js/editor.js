@@ -64,6 +64,7 @@ function renderNotesMain(noteObject) {
                         <button class="button" id="add-tagg_btn">+</button>
                     </div>
                     <button class="button add-img_btn" data-note-id="${noteObject.id}" >Add image</button>
+                    <div class="add-img_modal"></div>    
                     <div id="dynamic-image-carousel_container">
                     <!--THIS IS THE AREA FOR THE IMAGE CAROUSEL THAS EXIST IF THERE IS ANY IMAGES IN THE NOTE-->
                     </div>
@@ -138,17 +139,14 @@ function renderNotesMain(noteObject) {
 
   /* ------THEMES for each note---(Dropdown)--- */
   noteThemes(noteObject);
+  
+  /* ------add IMAGE to note------ */
+  imgToNote(noteObject);
+
+
 }
 
-// Add image - BUTTON
-displayContainer.addEventListener('click', (event) => {
-  const addImgBtn = event.target.closest('.add-img_btn');
 
-  if (addImgBtn) {
-    console.log('klickat på Add Image');
-    renderAddImgModal(event.target.dataset.noteId);
-  }
-});
 
 /** ******************* End of main function *********************
  **************************************************************** */
