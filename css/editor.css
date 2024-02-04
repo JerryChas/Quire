@@ -7,18 +7,18 @@
   height: 100%;
 }
 
-#editor-tool-bar{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+#editor-tool-bar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-#dropdown{
-    padding: .3rem;
-    border: none;
-    border-radius: 5px;
-    background: lightgray;
+#dropdown {
+  padding: .3rem;
+  border: none;
+  border-radius: 5px;
+  background: lightgray;
 }
 
 #editor button {
@@ -30,7 +30,6 @@
    The document page is inside the wrapping and is hiding behind the scroll bar iff it is to long
    This is begus we dont want the document to extend the mage if it is too long for the screen   */
 #document_wrapping-container {
-  height: 100%;
   overflow: auto;
   /* background-color: green; */
 }
@@ -41,7 +40,6 @@
   margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  height: 100vh;
 
   display: grid;
   grid-template-areas:
@@ -114,26 +112,27 @@
   padding-bottom: 3rem;
 }
 
-.editorbutton{
-    margin: .5rem;
-    border-radius: 5px;
-    border: none;
-    background: lightgray;
+.editorbutton {
+  margin: .5rem;
+  border-radius: 5px;
+  border: none;
+  background: lightgray;
 }
 
-.editorbutton:hover{
-    background: gray;
-    cursor: pointer;
+
+.editorbutton:hover {
+  background: gray;
+  cursor: pointer;
 }
 
 
 #note-body-text {
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
 }
 
 #water-mark {
-    display: none;
+  display: none;
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -141,6 +140,7 @@
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 @media (max-width: 600px) {
+
   #note-document h1,
   #note-document #meta-information_div,
   #note-document #note-body-text {
@@ -149,3 +149,7 @@
   }
 }
 
+/**********  TextStyleEditor  ***********/
+.activeTextStyle {
+  background-color: lightblue;
+}

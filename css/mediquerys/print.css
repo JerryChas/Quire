@@ -1,15 +1,3 @@
-/* 
-Som användare vill jag kunna skriva ut en anteckning och att den då ser ut som på skärmen när jag skrev den,
-men utan menyer och verktygskontroller i appen
-*/
-
-
-/* todo: ta bort meny */
-/* todo: ta bort verktygsfält */
-/*  todo: addera liten vattenstämlel*/
-
-
-
 @media print {
 
     /* hide nav and aside */
@@ -45,6 +33,10 @@ men utan menyer och verktygskontroller i appen
 
     /* hide everything in meta-information but not the things in :not() */
     #meta-information_div>:not(#date-stamp_div, #dynamic-image-carousel_container) {
+        display: none;
+    }
+
+    #add-new_btn {
         display: none;
     }
 
