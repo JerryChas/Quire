@@ -16,8 +16,8 @@
     /* for safety rasons if any theeme had backround color we set wrapping and document bgcolor to white and also black text */
     #document_wrapping-container,
     #note-document {
-        background-color: white;
-        color: black;
+        background-color: white !important;
+        color: black !important;
         height: fit-content;
     }
 
