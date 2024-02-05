@@ -109,7 +109,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     title: 'Mitt nya projekt: Digitalt anteckningsblock',
     id: 999999999910,
     dateCreated: '2024-02-10',
-    dateLastEdited: '2024-02-15',
+    dateLastEdited: '2024-01-15',
     isFavourite: false,
     images: [],
     bodyText:
@@ -145,8 +145,14 @@ const addNewBtn = document.getElementById('add-new_btn');
 
 //Saves id to note and saves it to localStorage
 function saveNotesToLocalStorage() {
+  sortNotesByLastEdited()
   localStorage.setItem('notes', JSON.stringify(notes));
 }
+
+function sortNotesByLastEdited() {
+return notes.sort((a, b) => {
+  return new Date(a.dateLastEdited) > new Date(b.dateLastEdited) ? -1 : 1;
+});}
 
 // Gets current date
 function getDateStamp() {
