@@ -154,23 +154,6 @@ return notes.sort((a, b) => {
   return new Date(a.dateLastEdited) > new Date(b.dateLastEdited) ? -1 : 1;
 });}
 
-// // Gets current date and time
-// function getDateTimeStamp() {
-//   const now = new Date();
-
-//   // Makes date and time to string
-//   const dateTime = now.toLocaleString('sv-SE', {
-//     year: 'numeric',
-//     month: 'numeric',
-//     day: 'numeric',
-
-//     hour: 'numeric',
-//     minute: 'numeric',
-//     second: 'numeric',
-//   });
-
-//   return dateTime;
-// }
 
 // Function to get current date and time
 function getDateTimeStamp() {
