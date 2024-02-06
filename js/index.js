@@ -247,8 +247,6 @@ addNewBtn.addEventListener('click', () => {
     bodyText: '',
   };
 
-  notes.push(newNote);
-
   // Uppdatera local storage med de nya noterna
   saveNotesToLocalStorage();
   // Rendrera det nya anteckningsformuläret
