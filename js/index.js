@@ -134,7 +134,9 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     images: [],
     bodyText:
       'En spännande start som fullstack utvecklare! Delar med mig av mina upplevelser, lärdomar och några kodsnuttar från min första vecka i branschen.',
+    tags: ["hej"],
   },
+
   //!-----------------------------------------------------------------------------------------------------!//
 ];
 
