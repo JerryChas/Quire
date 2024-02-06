@@ -63,7 +63,9 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
+                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(' ')[0]} | Last edited ${
+    noteObject.dateLastEdited.split(' ')[0]
+  }</p>
                     <div>
                         <span>Tags:</span>
                         <span id="tags_container"></span>
