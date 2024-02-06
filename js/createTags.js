@@ -5,11 +5,39 @@ function tagFunctionality(noteObject) {
     console.log(tagsLabelSpan)
     // console.log(addTagsButton)
 
-    addTagsButton.addEventListener("click", () => {
 
-        tagsLabelSpan.innerHTML += `<input type="text" id="tag-input">`
-        const tagInput = document.getElementById("tag-input");
-        tagInput.focus();
+    addTagsButton.addEventListener("click", (e) => {
+        //chack if it already exixt in the spa:
+        const tagInputField = document.getElementById("tag-input");
+        //om existingInputfield bär värde så lägger vi inte till den igen: 
+        if (!tagInputField) {
+            tagsLabelSpan.innerHTML += `<input type="text" id="tag-input">`
+            const tagInput = document.getElementById("tag-input");
+            addTagsButton.innerHTML = "Add tag"
+            tagInput.focus();
+        }
+
+        //hooking upp ways to save:
+        addTagsButton.addEventListener("click", saveTagInput)
+
     });
+
+    function saveTagInput() {
+        console.log("saraspara")
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
