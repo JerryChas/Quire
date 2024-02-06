@@ -154,18 +154,42 @@ return notes.sort((a, b) => {
   return new Date(a.dateLastEdited) > new Date(b.dateLastEdited) ? -1 : 1;
 });}
 
-// Gets current date
-function getDateStamp() {
+// // Gets current date and time
+// function getDateTimeStamp() {
+//   const now = new Date();
+
+//   // Makes date and time to string
+//   const dateTime = now.toLocaleString('sv-SE', {
+//     year: 'numeric',
+//     month: 'numeric',
+//     day: 'numeric',
+
+//     hour: 'numeric',
+//     minute: 'numeric',
+//     second: 'numeric',
+//   });
+
+//   return dateTime;
+// }
+
+// Function to get current date and time
+function getDateTimeStamp() {
   const now = new Date();
 
-  //Makes date to string
-  const date = now.toLocaleDateString('sv-SE', {
+  // Get date and time
+  const dateTime = now.toLocaleString('sv-SE', {
     year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
   });
 
-  return date;
+  // Extract date part only
+  const date = dateTime.split(',')[0]; // Split on comma to separate date and time, and take the date part
+
+  return dateTime;
 }
 
 let note;
@@ -240,7 +264,7 @@ imgae URL:
 // When click you get the form (PEN)
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
-  dateToday = getDateStamp();
+  dateToday = getDateTimeStamp();
   let newID = generateID();
 
   let newNote = {
