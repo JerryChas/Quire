@@ -61,7 +61,7 @@ function renderNotesMain(noteObject) {
                     <div>
                         <span>Tags:</span>
                         <span id="tags_container"></span>
-                        <button class="button" id="add-tagg_btn">+</button>
+                        <button class="button" id="add-tag_btn">+</button>
                     </div>
                     <button class="button add-img_btn">Add image</button>
                     <div class="add-img_modal"></div>    
@@ -135,7 +135,7 @@ function renderNotesMain(noteObject) {
 
 
   //Activate/access the function for rendering optional textstyle
-    activatingRichTextStyle();
+  activatingRichTextStyle();
 
 
   // funktionaliity to print BUttoN
@@ -144,9 +144,12 @@ function renderNotesMain(noteObject) {
 
   /* ------THEMES for each note---(Dropdown)--- */
   noteThemes(noteObject);
-  
+
   /* ------add IMAGE to note------ */
   imgToNote(noteObject);
+
+  // Activate tag-functionality:
+  tagFunctionality(noteObject);
 
 
 }
