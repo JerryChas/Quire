@@ -4,7 +4,6 @@
 //Calling the render funktion with dubby data:
 //This is dummy data just for development state:
 
-
 // renderNotesMain({
 //   title: "Mit första inlägg med en bild och så med",
 //   id: 9999999,
@@ -34,6 +33,13 @@ function renderNotesMain(noteObject) {
         <button class="editorbutton option-button" id="underline"><i class="fa-solid fa-underline" style="color: #000000;"></i></button> 
         <button class="editorbutton" id="print"><i class="fa-solid fa-print" style="color: #000000;"></i></button>
         <select id="dropdown">
+        </select>
+        <select name="font" id="font-dropdown" class="editorbutton">
+        <option value="" selected disabled hidden>Choose font</option>
+        <option value="font1" id="font1">Courier Prime</option>
+        <option value="font2" id="font2">Dancing Script</option>
+        <option value="font3" id="font3">Nunito</option>
+        <option value="font4" id="font4">Wavefont</option>
         </select>
         </div>
 
@@ -84,29 +90,29 @@ function renderNotesMain(noteObject) {
     </div>`;
 
   //adding dynamic place holders:
-  const headdingTextField = document.getElementById('note-headding_container');
-  const bodyTextField = document.getElementById('note-body-text');
-  const defaultheading = 'New note';
+  const headdingTextField = document.getElementById("note-headding_container");
+  const bodyTextField = document.getElementById("note-body-text");
+  const defaultheading = "New note";
   placeholderLogic(headdingTextField, defaultheading);
   placeholderLogic(bodyTextField, "What's on your mind?...");
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
   //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
-  const noteDocument = document.getElementById('note-document');
-  noteDocument.addEventListener('input', (e) => {
+  const noteDocument = document.getElementById("note-document");
+  noteDocument.addEventListener("input", (e) => {
     // console.log(e)
     // console.log(e.target)
     // console.log(e.target.innerHTML)
 
     switch (e.target.id) {
-      case 'note-headding_container':
+      case "note-headding_container":
         noteObject.title = e.target.textContent;
-        console.log('heddingen redigerades');
+        console.log("heddingen redigerades");
         break;
-      case 'note-body-text':
+      case "note-body-text":
         noteObject.bodyText = e.target.innerHTML;
-        console.log('bodytexten redigerades');
+        console.log("bodytexten redigerades");
         break;
 
       default:
@@ -116,7 +122,7 @@ function renderNotesMain(noteObject) {
     //fallback:
     //setting default headding, if there is none from the user:
     if (noteObject.title == false) {
-      noteObject.title = 'New note';
+      noteObject.title = "New note";
     }
 
     // Call the save function:
@@ -133,26 +139,21 @@ function renderNotesMain(noteObject) {
   //call the function that listening for klick on the star:
   toggleFavorite(noteObject);
 
-
   //Activate/access the function for rendering optional textstyle
-    activatingRichTextStyle();
-
+  activatingRichTextStyle();
 
   // funktionaliity to print BUttoN
   const printBtn = document.getElementById("print");
-  printBtn.addEventListener("click", () => { print() })
+  printBtn.addEventListener("click", () => {
+    print();
+  });
 
   /* ------THEMES for each note---(Dropdown)--- */
   noteThemes(noteObject);
-  
+
   /* ------add IMAGE to note------ */
   imgToNote(noteObject);
-
-
 }
-
-
-
 
 /** ******************* End of main function *********************
  **************************************************************** */
@@ -187,25 +188,25 @@ function placeholderLogic(textfield, placeholdertext) {
   // --- change color.
   if (textfield.innerHTML == false) {
     textfield.innerHTML = placeholdertext;
-    textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+    textfield.style.color = "rgba(125, 125, 125, 0.500)";
     textfield.dataset.isFilled = false;
   }
   // when focused and dataset.isFilled=false...
   // --- removse the placeholder color.
   // --- remove the placeholdertext.
-  textfield.addEventListener('focus', () => {
-    if (textfield.dataset.isFilled === 'false') {
-      textfield.removeAttribute('style');
-      textfield.innerHTML = '';
+  textfield.addEventListener("focus", () => {
+    if (textfield.dataset.isFilled === "false") {
+      textfield.removeAttribute("style");
+      textfield.innerHTML = "";
       textfield.dataset.isFilled = true;
     }
   });
   // when the use unfocus the field and there still is no headding...
   // --- Whe do the same thing as in the first step.
-  textfield.addEventListener('blur', () => {
+  textfield.addEventListener("blur", () => {
     if (textfield.innerHTML == false) {
       textfield.innerHTML = placeholdertext;
-      textfield.style.color = 'rgba(125, 125, 125, 0.500)';
+      textfield.style.color = "rgba(125, 125, 125, 0.500)";
       textfield.dataset.isFilled = false;
     }
   });
