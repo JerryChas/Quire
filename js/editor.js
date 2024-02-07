@@ -36,10 +36,10 @@ function renderNotesMain(noteObject) {
         </select>
         <select name="font" id="font-dropdown" class="editorbutton">
         <option value="" selected disabled hidden>Choose font</option>
-        <option value="font1" id="font1">Courier Prime</option>
-        <option value="font2" id="font2">Dancing Script</option>
-        <option value="font3" id="font3">Nunito</option>
-        <option value="font4" id="font4">Wavefont</option>
+        <option value="Courier Prime" id="font1">Courier Prime</option>
+        <option value="Dancing Script" id="font2">Dancing Script</option>
+        <option value="Nunito" id="font3">Nunito</option>
+        <option value="Wavefont" id="font4">Wavefont</option>
         </select>
         </div>
 
@@ -97,6 +97,22 @@ function renderNotesMain(noteObject) {
   const defaultheading = "New note";
   placeholderLogic(headdingTextField, defaultheading);
   placeholderLogic(bodyTextField, "What's on your mind?...");
+
+  //Gets font options from drop down menu
+  function getFont() {
+    let fontSelector = document.getElementById("font-dropdown");
+    return fontSelector.value;
+  }
+
+  //Applies the font to the bodytext
+  function applyFont() {
+    let chosenFont = getFont();
+    let noteText = document.getElementById("note-body-text");
+  
+    noteText.style.fontFamily = chosenFont;
+  }
+
+  document.getElementById("font-dropdown").addEventListener("click", applyFont);
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
