@@ -35,7 +35,7 @@ function renderNotesMain(noteObject) {
         <select id="dropdown">
         </select>
         <select name="font" id="font-dropdown" class="editorbutton">
-        <option value="" selected disabled hidden>Choose font</option>
+        <option value="" selected disabled hidden>Change font</option>
         <option value="Courier Prime" id="font1">Courier Prime</option>
         <option value="Dancing Script" id="font2">Dancing Script</option>
         <option value="Nunito" id="font3">Nunito</option>
@@ -63,9 +63,8 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(' ')[0]} | Last edited ${
-    noteObject.dateLastEdited.split(' ')[0]
-  }</p>
+                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(' ')[0]} | Last edited ${noteObject.dateLastEdited.split(' ')[0]
+    }</p>
                     <div>
                         <span id="tags_label">Tags: </span>
                         <button class="button" id="add-tag_btn">+</button>
@@ -108,20 +107,20 @@ function renderNotesMain(noteObject) {
   function applyFont() {
     let chosenFont = getFont();
     let noteText = document.getElementById("note-body-text");
-  
+
     noteText.style.fontFamily = chosenFont;
 
     noteObject.font = chosenFont;
-    
+
     saveNote(noteObject);
   }
 
-  if(noteObject.font){
+  if (noteObject.font) {
     let noteText = document.getElementById('note-body-text');
     noteText.style.fontFamily = noteObject.font;
   }
 
-  document.getElementById("font-dropdown").addEventListener("click", applyFont);
+  document.getElementById("font-dropdown").addEventListener("change", applyFont);
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
