@@ -34,6 +34,29 @@ const moaStatisticsCard = document.getElementById("statistics-moa_container");
 //---------------------------------------------------------------
 // ALICIA's script-space
 
+let noteCalculation = JSON.parse(localStorage.getItem('notes')) || [];
+
+function calculateNote(){
+
+  // Doin the math
+  const totalCharacters = notes.reduce((total, note) => total + note.bodyText.length,0);
+
+  // Average
+  const averageCharacters = totalCharacters / notes.length;
+
+  return averageCharacters;
+}
+
+const averageChars = calculateNote();
+
+console.log(Math.ceil(averageChars));
+
+aliciaStatisticsCard.innerHTML = `
+<h2>The average number of characters in your notes is ${Math.ceil(
+  averageChars
+)}!🌟 </h2><br>
+<p>🎉 Congratulations on maintaining a consistent effort in your note-taking journey! 🚀 The average character count in your notes reflects your dedication to capturing meaningful thoughts and details. Each character is a testament to your commitment to self-reflection, learning, and creativity. Keep up the fantastic work! 🌟 Remember, every character counts, and your notes are shaping a richer narrative for yourself. Embrace the power of your words, and let your notes continue to be a source of inspiration and growth. You're doing amazing! 🌈✨</p>
+`; 
 //---------------------------------------------------------------
 // EMIL's script-space
 
