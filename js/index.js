@@ -33,7 +33,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     ],
     bodyText:
       'Kolla vad många bilder på gulliga katter jag hittat på internet! Jag älskar katter :) 🐈',
-    tags: ['katt', 'bilder', 'gullig', 'internet', 'intresse', 'gemensamtagg1', 'gemensamtagg2']
+    tags: ['katt', 'bilder', 'gullig', 'internet', 'intresse', , 'gemensamtagg1', 'gemensamtagg2']
   },
   {
     title: 'only one 🐈‍⬛ 📷',

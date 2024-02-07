@@ -2,8 +2,24 @@ function tagFunctionality(noteObject) {
 
     const addTagsButton = document.getElementById("add-tag_btn");
     const tagsLabelSpan = document.getElementById("tags_label")
-    console.log(tagsLabelSpan)
+    const tagsContainer = document.getElementById("tags_container");
+    // console.log(tagsContainer)
+    // console.log(tagsLabelSpan)
     // console.log(addTagsButton)
+
+
+    let tagsToRender = noteObject.tags.map((tag) => {
+        return `<span class="small-tag-labels">
+            <p>${tag}</p><span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
+            </span>`
+    }).join("");
+
+    console.log(tagsToRender);
+
+    tagsContainer.innerHTML = tagsToRender
+
+
+
 
 
     addTagsButton.addEventListener("click", (e) => {
@@ -62,5 +78,7 @@ function tagFunctionality(noteObject) {
         }
         tagInputField.value = "";
     }
+
+
 
 }

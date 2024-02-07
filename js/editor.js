@@ -60,8 +60,8 @@ function renderNotesMain(noteObject) {
                     <p id="date-stamp_div">Created ${noteObject.dateCreated} | Last edited ${noteObject.dateLastEdited}</p>
                     <div>
                         <span id="tags_label">Tags: </span>
-                        <span id="tags_container"></span>
                         <button class="button" id="add-tag_btn">+</button>
+                        <span id="tags_container"></span>
                     </div>
                     <button class="button add-img_btn">Add image</button>
                     <div class="add-img_modal"></div>    
