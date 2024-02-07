@@ -82,4 +82,30 @@ function tagFunctionality(noteObject) {
         }
     }
 
+    //deletefunctionality:
+    tagsContainer.addEventListener("click", (e) => {
+        // if the targes has a dataset.deleteTag. we do stuff....
+        // ..means.. if the target is a delede-button. we do stuff....
+        if (e.target.dataset.deleteTag) {
+
+            //macing a new Updated array containing all tags except of the one to delete:
+            const updatedTagsArray = noteObject.tags.filter((tag) => {
+                return tag !== e.target.dataset.deleteTag;
+            })
+
+            //updating the note w the updated array:
+            noteObject.tags = updatedTagsArray
+
+            //Save note for updating the date :)
+            saveNote(noteObject)
+            //Save all notes to local storage
+            saveNotesToLocalStorage();
+            // Reset input field value
+
+            //render the tags to page again:
+            renderTags(noteObject);
+
+        }
+    })
+
 }
