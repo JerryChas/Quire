@@ -61,7 +61,7 @@ function renderNotesMain(noteObject) {
                     <div>
                         <span id="tags_label">Tags: </span>
                         <button class="button" id="add-tag_btn">+</button>
-                        <span id="tags_container"></span>
+                        <div id="tags_container"></div>
                     </div>
                     <button class="button add-img_btn">Add image</button>
                     <div class="add-img_modal"></div>    

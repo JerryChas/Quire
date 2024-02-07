@@ -9,9 +9,10 @@ function tagFunctionality(noteObject) {
 
 
     let tagsToRender = noteObject.tags.map((tag) => {
-        return `<span class="small-tag-labels">
-            <p>${tag}</p><span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
-            </span>`
+        return `<div class="small-tag-labels">
+                    <span>${tag}</span>
+                    <span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
+                </div>`
     }).join("");
 
     console.log(tagsToRender);
