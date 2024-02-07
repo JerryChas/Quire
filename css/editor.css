@@ -133,6 +133,43 @@
   display: none;
 }
 
+
+
+
+/* TAG SECTION  TAG SECTION  TAG SECTION */
+#tags_container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 85%;
+}
+
+.small-tag-labels {
+  background-color: rgba(125, 125, 125, 0.500);
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.0rem 0.2rem 0.5rem;
+}
+
+.tag-labels-delete-buttons {
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  /* background-color: green; */
+  color: rgba(125, 125, 125, 0.700);
+
+}
+
+.tag-labels-delete-buttons:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
 #font-dropdown {
   padding: 0.35rem;
   font-size: 0.8rem;
@@ -157,6 +194,7 @@
 #font4 {
   font-family: Wavefont;
 }
+
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 

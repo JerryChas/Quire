@@ -18,6 +18,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     images: [],
     bodyText:
       'Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.',
+    tags: ['blogg', 'första', 'erfarenheter', 'intresse', 'gemensamtagg1', 'gemensamtagg2']
   },
   {
     title: '🐈 MÅNGA bilder ',
@@ -32,6 +33,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     ],
     bodyText:
       'Kolla vad många bilder på gulliga katter jag hittat på internet! Jag älskar katter :) 🐈',
+    tags: ['katt', 'bilder', 'gullig', 'internet', 'intresse', , 'gemensamtagg1', 'gemensamtagg2']
   },
   {
     title: 'only one 🐈‍⬛ 📷',
@@ -44,6 +46,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     ],
     bodyText:
       'Gulligaste katten jag sett. Den förtjänar en egen anteckning. <br> Kolla också vad häftig denhär appen är som inte visar några thumbnails eller pilar när det bara finns EN bild :) WOW!',
+    tags: ['katt', 'gullig', 'appen', 'gemensamtagg1', 'gemensamtagg2']
   },
   {
     title: 'Min resa till fjällen',
@@ -134,7 +137,9 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     images: [],
     bodyText:
       'En spännande start som fullstack utvecklare! Delar med mig av mina upplevelser, lärdomar och några kodsnuttar från min första vecka i branschen.',
+    tags: ["hej"],
   },
+
   //!-----------------------------------------------------------------------------------------------------!//
 ];
 

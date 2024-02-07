@@ -67,9 +67,9 @@ function renderNotesMain(noteObject) {
     noteObject.dateLastEdited.split(' ')[0]
   }</p>
                     <div>
-                        <span>Tags:</span>
-                        <span id="tags_container"></span>
-                        <button class="button" id="add-tagg_btn">+</button>
+                        <span id="tags_label">Tags: </span>
+                        <button class="button" id="add-tag_btn">+</button>
+                        <div id="tags_container"></div>
                     </div>
                     <button class="button add-img_btn">Add image</button>
                     <div class="add-img_modal"></div>    
@@ -180,6 +180,11 @@ function renderNotesMain(noteObject) {
 
   /* ------add IMAGE to note------ */
   imgToNote(noteObject);
+
+  // Activate tag-functionality:
+  tagFunctionality(noteObject);
+
+
 }
 
 /** ******************* End of main function *********************
