@@ -129,7 +129,7 @@ form {
     margin-left: 0;
     margin-top: 0;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
 
   input[type='text'] {
