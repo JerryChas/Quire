@@ -31,35 +31,36 @@ function tagFunctionality(noteObject) {
     function saveTagInput() {
         const tagInputField = document.getElementById("tag-input");
 
-        // erase empry space in start and end
+        // erase empty space in start and end
         let tagToSave = tagInputField.value.trim();
 
         // if there is any real value we put the tag into the noteobject:...
-        // if there is a array already:
+        if (tagToSave) {
+            // if there is a array already ...:
+            if (!Array.isArray(noteObject.tags)) {
+                //... if not, we create ant put the tag in...
+                noteObject.tags = [tagToSave];
+                // console.log(noteObject)
 
-        console.log("finns den i arrayen redan?")
-        console.log(noteObject.tags.includes(tagToSave))
-
-        if (!Array.isArray(noteObject.tags)) {
-            noteObject.tags = [tagToSave];
-            // console.log(noteObject)
-
-            //else we push it in to a array with force :) :
-        } else {
-            noteObject.tags.push(tagToSave);
-            // console.log(noteObject)
+                //if there is a array, we push it in to a array with force :) :
+            } else {
+                //...We check if the value exist in the array...
+                if (noteObject.tags.includes(tagToSave)) {
+                    //... if it exist we do nothing...
+                    return;
+                } else {
+                    //... if it does not exist we push it in.
+                    noteObject.tags.push(tagToSave);
+                    // console.log(noteObject)
+                }
+            }
+            //Save note for updating the date :)
+            saveNote(noteObject)
+            //Save all notes to local storage
+            saveNotesToLocalStorage();
+            // Reset input field value
         }
-
-        //Save note for updating the date :)
-        saveNote(noteObject)
-        //Save all notes to local storage
-        saveNotesToLocalStorage();
-
-
-        // TODO : Om taggen finns gör vi inget.
-
-        //sen rendera till sidan
-        //sen radera de som finns
+        tagInputField.value = "";
     }
 
 }
