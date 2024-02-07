@@ -110,6 +110,15 @@ function renderNotesMain(noteObject) {
     let noteText = document.getElementById("note-body-text");
   
     noteText.style.fontFamily = chosenFont;
+
+    noteObject.font = chosenFont;
+    
+    saveNote(noteObject);
+  }
+
+  if(noteObject.font){
+    let noteText = document.getElementById('note-body-text');
+    noteText.style.fontFamily = noteObject.font;
   }
 
   document.getElementById("font-dropdown").addEventListener("click", applyFont);
