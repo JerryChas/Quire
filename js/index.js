@@ -112,7 +112,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     title: 'Mitt nya projekt: Digitalt anteckningsblock',
     id: 999999999910,
     dateCreated: '2024-02-10',
-    dateLastEdited: '2024-02-15',
+    dateLastEdited: '2024-01-15',
     isFavourite: false,
     images: [],
     bodyText:
@@ -150,21 +150,34 @@ const addNewBtn = document.getElementById('add-new_btn');
 
 //Saves id to note and saves it to localStorage
 function saveNotesToLocalStorage() {
+  sortNotesByLastEdited()
   localStorage.setItem('notes', JSON.stringify(notes));
 }
 
-// Gets current date
-function getDateStamp() {
+function sortNotesByLastEdited() {
+return notes.sort((a, b) => {
+  return new Date(a.dateLastEdited) > new Date(b.dateLastEdited) ? -1 : 1;
+});}
+
+
+// Function to get current date and time
+function getDateTimeStamp() {
   const now = new Date();
 
-  //Makes date to string
-  const date = now.toLocaleDateString('sv-SE', {
+  // Get date and time
+  const dateTime = now.toLocaleString('sv-SE', {
     year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
   });
 
-  return date;
+  // Extract date part only
+  const date = dateTime.split(',')[0]; // Split on comma to separate date and time, and take the date part
+
+  return dateTime;
 }
 
 let note;
@@ -239,7 +252,7 @@ imgae URL:
 // When click you get the form (PEN)
 addNewBtn.addEventListener('click', () => {
   console.log('klick');
-  dateToday = getDateStamp();
+  dateToday = getDateTimeStamp();
   let newID = generateID();
 
   let newNote = {
@@ -251,8 +264,6 @@ addNewBtn.addEventListener('click', () => {
     images: [],
     bodyText: '',
   };
-
-  notes.push(newNote);
 
   // Uppdatera local storage med de nya noterna
   saveNotesToLocalStorage();

@@ -75,13 +75,37 @@
     </ul>
   </nav>
   <main>
-    <!-- Input tag for search box -->
-    <input id="searchBox" type="text" placeholder="Search for your favorite notes.." />
-    <!-- Button to start your search -->
-    <button id="search_btn" type="submit"><i class="fa fa-search"></i></button>
-    <!-- Box to show the search results -->
-    <div id="showSearchResults"></div>
     <div id="display_container">
+    
+      <div class="search-input_container">
+        <!-- Radio input to filter search results -->
+        <form>
+          <label>
+            <input type="radio" name="searchParam" value="words">
+            <span>Word</span>
+          </label>
+          <label>
+            <input type="radio" name="searchParam" value="sentences">
+            <span>Phrase</span>
+          </label>
+          <label>
+            <input type="radio" name="searchParam" value="date">
+            <span>Date</span>
+          </label>
+          <label>
+            <input type="radio" name="searchParam" value="tags">
+            <span>Tags</span>
+          </label>
+        </form>
+      
+        <!-- Input tag for search box -->
+        <input id="searchBox" type="text" placeholder="Search for your favorite notes.." />
+      
+      </div>
+    
+      <!-- Box to show the search results -->
+      <div id="showSearchResults"></div>
+    
       <button id="add-new_btn">Tryck här</button>
       <div id="welcome" class="welcome"></div>
     </div>

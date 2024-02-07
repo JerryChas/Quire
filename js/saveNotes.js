@@ -12,7 +12,7 @@ const testObj = {
 // Function to save notes 
 function saveNote(obj) {
   // Change last edited date
-obj.dateLastEdited = getDateStamp();
+obj.dateLastEdited = getDateTimeStamp();
 
 // Call the search function
 searchId(obj);
@@ -22,13 +22,13 @@ If it exists we replace it */
 function searchId(objToSave) {
   let noteIndex;
   noteIndex = notes.findIndex((note) => {
-  obj.dateLastEdited = getDateStamp();
+  obj.dateLastEdited = getDateTimeStamp();
    return objToSave.id === note.id;
   }
   )
   // If it doesn't exist, push into notes
   if (noteIndex < 0) {
-    obj.dateCreated = getDateStamp();
+    obj.dateCreated = getDateTimeStamp();
     obj.id = generateID();
     notes.push(obj);
   }
