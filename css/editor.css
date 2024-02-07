@@ -196,11 +196,13 @@
 }
 
 
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 @media (max-width: 600px) {
+
   #note-document h1,
   #note-document #meta-information_div,
   #note-document #note-body-text {
