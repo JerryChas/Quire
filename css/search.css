@@ -1,9 +1,21 @@
+/* #display_container {
+border: 1px solid black;
+} */
+
+.search-input_container{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  max-width: 500px;
+  margin: 2.5rem;
+}
+
 input[type='text'] {
   padding: 0.5rem;
-  margin-left: 2rem;
-  margin-top: 3rem;
+  /* margin-left: 3rem; */
+  /* margin-top: .5rem; */
   font-size: 1.0625rem;
-  width: 50%;
+  width: 100%;
   cursor: pointer;
 }
 
@@ -24,14 +36,57 @@ input[type='text'] {
   height: auto;
 }
 
+
+form {
+  display: flex;
+  align-self: end;
+  margin-left: 3rem;
+  
+  label {
+    margin: .5rem 0;
+    
+    input[type='radio'] {
+      display: none;
+  
+      &:checked  {
+        
+        + span {
+          background-color: #153955;
+            box-shadow: 0px 0px 0px 1px #0f283b;
+          font-weight: bold;
+          
+        }
+      }
+    }
+    span {
+      margin-bottom: 5px;
+        user-select: none;
+        cursor: pointer;
+      
+        background-color: #2d7cb9;
+        color: rgb(255, 255, 255);
+        border: 1px solid lightgray;
+        padding: .2rem;
+        border-radius: 30px;
+        font-family: "Noto Sans", sans-serif;
+        box-shadow: 1px 1px 0px 1px #0f283b;
+        font-size: 0.7rem;
+        cursor: pointer;
+        margin: 0.5rem;
+    }
+
+  }
+  
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for tablet 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
  @media (max-width: 768px) {
   #searchBox {
-    margin-left: 4rem;
-    width: 70%;
+    /* margin-left: 4rem; */
+    /* width: 70%; */
   }
 
   #showSearchResults {
@@ -60,7 +115,13 @@ input[type='text'] {
 
   #searchBox {
     margin-left: 0;
-    width: 60%;
+    /* width: 60%; */
+  }
+
+  .search-input_container{
+    max-width: 320px;
+    margin-top: .2rem;
+    
   }
 
   #showSearchResults {
@@ -68,6 +129,7 @@ input[type='text'] {
     margin-left: 0;
     margin-top: 0;
     width: 100%;
+    border: 1px solid black;
   }
 
   input[type='text'] {

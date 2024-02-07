@@ -16,9 +16,9 @@ function performSearch() {
   let searchInputValue = searchInput.value;
   console.log(`User Input: ${searchInputValue}`);
 
-  // Clean the search input by removing special characters and trimming whitespace
-  let cleanedSearchInput = searchInputValue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
-  console.log(`Cleaned search: ${cleanedSearchInput}`);
+  // get cleaned input 
+  const cleanedSearchInput = cleanSearchInput(searchInputValue);
+  
 
   // Split the cleaned search input into terms and remove empty terms
   let searchTerms = cleanedSearchInput.split(' ').filter((term) => term !== '');
@@ -73,6 +73,14 @@ function performSearch() {
   renderSearchResults(searchResultArray);
 }
 
-// Perform search on input AND click
+function cleanSearchInput(inputvalue) {
+  // Clean the search input by removing special characters and trimming whitespace
+  let cleanedSearchInput = inputvalue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
+  console.log(`Cleaned search: ${cleanedSearchInput}`);
+
+  return cleanedSearchInput;
+}
+
+// Perform search on input //!AND click"?
 searchInput.addEventListener('input', performSearch);
-searchBtn.addEventListener('click', performSearch);
+//! searchBtn.addEventListener('click', performSearch);
