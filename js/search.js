@@ -3,6 +3,7 @@
 // Get input element from the DOM
 const searchInput = document.getElementById('searchBox');
 const searchBtn = document.getElementById('search_btn');
+const radioButtons = document.querySelectorAll('input[name="searchParam"]');
 
 //*---------------------------FUNCTIONS---------------------------*//
 
@@ -10,15 +11,20 @@ const searchBtn = document.getElementById('search_btn');
 function performSearch() {
   // Clear the console for better readability
   console.clear();
+  
+  let checkedFilter = handleCheckedFilter();
+  console.log(checkedFilter)
+
 
   //* Handle input
+  
+
   // User input
   let searchInputValue = searchInput.value;
   console.log(`User Input: ${searchInputValue}`);
 
-  // get cleaned input 
+  // get cleaned input
   const cleanedSearchInput = cleanSearchInput(searchInputValue);
-  
 
   // Split the cleaned search input into terms and remove empty terms
   let searchTerms = cleanedSearchInput.split(' ').filter((term) => term !== '');
@@ -73,6 +79,15 @@ function performSearch() {
   renderSearchResults(searchResultArray);
 }
 
+function handleCheckedFilter() {
+  // let checkedValue = ''; 
+  const checkedRadioButton = document.querySelector('input[name="searchParam"]:checked');
+  
+  checkedValue = checkedRadioButton.value;
+
+  return checkedValue;
+}
+
 function cleanSearchInput(inputvalue) {
   // Clean the search input by removing special characters and trimming whitespace
   let cleanedSearchInput = inputvalue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
@@ -80,7 +95,11 @@ function cleanSearchInput(inputvalue) {
 
   return cleanedSearchInput;
 }
+//*----------------------------------------------------------------*//
 
-// Perform search on input //!AND click"?
-searchInput.addEventListener('input', performSearch);
-//! searchBtn.addEventListener('click', performSearch);
+
+// Perform search on input 
+searchInput.addEventListener('input', () => {
+  performSearch();
+} );
+
