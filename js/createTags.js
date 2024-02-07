@@ -7,21 +7,8 @@ function tagFunctionality(noteObject) {
     // console.log(tagsLabelSpan)
     // console.log(addTagsButton)
 
-
-    let tagsToRender = noteObject.tags.map((tag) => {
-        return `<div class="small-tag-labels">
-                    <span>${tag}</span>
-                    <span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
-                </div>`
-    }).join("");
-
-    console.log(tagsToRender);
-
-    tagsContainer.innerHTML = tagsToRender
-
-
-
-
+    //render the tags when de note displays at first... :) 
+    renderTags(noteObject);
 
     addTagsButton.addEventListener("click", (e) => {
         //chack if it already exixt in the span:
@@ -78,8 +65,21 @@ function tagFunctionality(noteObject) {
             // Reset input field value
         }
         tagInputField.value = "";
+        renderTags(noteObject);
     }
 
-
+    function renderTags(noteObject) {
+        //if there is any tags:
+        if (noteObject.tags) {
+            const tagsToRender = noteObject.tags.map((tag) => {
+                return `<div class="small-tag-labels">
+                    <span>${tag}</span>
+                    <span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
+                </div>`
+            }).join("");
+            // console.log(tagsToRender);
+            tagsContainer.innerHTML = tagsToRender;
+        }
+    }
 
 }

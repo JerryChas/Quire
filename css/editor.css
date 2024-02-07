@@ -135,8 +135,12 @@
   display: none;
 }
 
+
+
 /* TAG SECTION  TAG SECTION  TAG SECTION */
 #tags_container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
