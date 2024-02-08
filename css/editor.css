@@ -36,7 +36,7 @@
 
 #note-document {
   /* background-color: rgb(255, 255, 255); */
-  width: clamp(1px, 90%, 9000px);
+  width: clamp(1px, 90%, 900px);
   margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
