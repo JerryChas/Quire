@@ -52,7 +52,7 @@ form {
       padding: .2rem;
       border-radius: 30px;
       font-family: "Noto Sans", sans-serif;
-      box-shadow: 1px 1px 0px 1px #0f283b;
+      box-shadow: 1px 1px 3px .5px #0f283b;
       font-size: 0.7rem;
       cursor: pointer;
       margin: 0.5rem;
