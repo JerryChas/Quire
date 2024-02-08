@@ -72,28 +72,38 @@ function cleanSearchInput(inputvalue, checkedFilter) {
 }
 
 function performFilteredSearch(checkedFilter, cleanedSearchInput) {
+  let search;
   switch (checkedFilter) {
     case 'sentences':
       // Perform search for whole sentences
-      
+
       return notes.filter(
         (p) =>
           p.title.toLowerCase().includes(cleanedSearchInput) || p.bodyText.toLowerCase().includes(cleanedSearchInput)
       );
 
     case 'words':
-      
-      let words = cleanedSearchInput.split(' ');
+      search = cleanedSearchInput.split(' ');
+      console.log(search);
       return notes.filter((p) =>
-        words.some((word) => p.title.toLowerCase().includes(word) || p.bodyText.toLowerCase().includes(word))
+        search.some((word) => p.title.toLowerCase().includes(word) || p.bodyText.toLowerCase().includes(word))
       );
 
     case 'date':
       // Perform search for date
       return notes.filter((p) => p.dateCreated.includes(cleanedSearchInput));
+
+    case 'tags':
+      search = cleanedSearchInput.split(' ');
+      console.log(search)
+      
+      
+      return notes.filter((note) =>
+        note.tags && search.some((tag) => note.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase())))
+      );
+
     default:
-      return 
-       
+      return;
   }
 }
 //*----------------------------------------------------------------*//
