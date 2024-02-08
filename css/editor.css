@@ -15,6 +15,7 @@
   position: sticky;
   height: fit-content;
   top: 0px;
+  -webkit-backdrop-filter: blur(1000px);
   backdrop-filter: blur(1000px);
   z-index: 999;
 }
