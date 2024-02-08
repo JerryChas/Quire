@@ -79,14 +79,21 @@
 #note-document h1,
 #note-document #meta-information_div,
 #note-document #note-body-text {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+#note-document ul,
+#note-document ol {
+  padding: 1.5rem;
 }
 
 #favourite-icon-container svg {
   height: 2rem;
   overflow: visible;
   margin-left: 1rem;
+  margin-right: 1rem;
+
 }
 
 #favourite-icon-container svg path {
@@ -209,9 +216,30 @@
     padding-left: 0;
     padding-right: 0;
   }
-}
 
-/**********  TextStyleEditor  ***********/
-.activeTextStyle {
-  background-color: lightblue;
+
+  #note-document {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  #note-document ul,
+  #note-document ol {
+    padding: 1rem;
+  }
+
+  #display_container {
+    padding: 0px;
+  }
+
+  #favourite-icon-container svg {
+    margin-left: 0px;
+    margin-right: 0px;
+
+  }
+
+  /**********  TextStyleEditor  ***********/
+  .activeTextStyle {
+    background-color: lightblue;
+  }
 }
