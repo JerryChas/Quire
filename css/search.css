@@ -41,43 +41,40 @@ form {
   display: flex;
   align-self: end;
   margin-left: 3rem;
-  
+
   label {
-    margin: .5rem 0;
+    user-select: none;
+      cursor: pointer;
     
-    input[type='radio'] {
-      display: none;
-  
-      &:checked  {
-        
-        + span {
-          background-color: #153955;
-            box-shadow: 0px 0px 0px 1px #0f283b;
-          font-weight: bold;
-          
-        }
+      background-color: #2d7cb9;
+      color: rgb(255, 255, 255);
+      border: 1px solid lightgray;
+      padding: .2rem;
+      border-radius: 30px;
+      font-family: "Noto Sans", sans-serif;
+      box-shadow: 1px 1px 3px .5px #0f283b;
+      font-size: 0.7rem;
+      cursor: pointer;
+      margin: 0.5rem;
+  }
+
+  input[type='radio'] {
+    display: none;
+
+    &:checked {
+      + label {
+        background-color: #153955;
+        box-shadow: 0px 0px 0px 1px #0f283b;
+        font-weight: bold;
+        transform: translate(2px, 2px);
+        box-shadow: -.5px -.5px 0px .5px #0f283b;
+        border: none;
       }
     }
-    span {
-      margin-bottom: 5px;
-        user-select: none;
-        cursor: pointer;
       
-        background-color: #2d7cb9;
-        color: rgb(255, 255, 255);
-        border: 1px solid lightgray;
-        padding: .2rem;
-        border-radius: 30px;
-        font-family: "Noto Sans", sans-serif;
-        box-shadow: 1px 1px 0px 1px #0f283b;
-        font-size: 0.7rem;
-        cursor: pointer;
-        margin: 0.5rem;
-    }
-
-  }
-  
-}
+  }  
+}  
+ 
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for tablet 
