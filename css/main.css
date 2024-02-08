@@ -16,9 +16,15 @@ body {
 nav {
   background-color: #397fff;
   overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: auto;
   height: 100vh;
   position: sticky;
   top: 0px;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 /* aside styling */
