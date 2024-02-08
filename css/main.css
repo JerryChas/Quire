@@ -19,6 +19,12 @@ nav {
   height: 100vh;
   position: sticky;
   top: 0px;
+  overflow-y: scroll;
+  scroll-behavior: auto;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 /* aside styling */
