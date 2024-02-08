@@ -12,6 +12,12 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  height: fit-content;
+  top: 0px;
+  -webkit-backdrop-filter: blur(1000px);
+  backdrop-filter: blur(1000px);
+  z-index: 999;
 }
 
 #dropdown {
@@ -79,14 +85,21 @@
 #note-document h1,
 #note-document #meta-information_div,
 #note-document #note-body-text {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+#note-document ul,
+#note-document ol {
+  padding: 1.5rem;
 }
 
 #favourite-icon-container svg {
   height: 2rem;
   overflow: visible;
   margin-left: 1rem;
+  margin-right: 1rem;
+
 }
 
 #favourite-icon-container svg path {
@@ -133,6 +146,43 @@
   display: none;
 }
 
+
+
+
+/* TAG SECTION  TAG SECTION  TAG SECTION */
+#tags_container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 85%;
+}
+
+.small-tag-labels {
+  background-color: rgba(125, 125, 125, 0.500);
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.0rem 0.2rem 0.5rem;
+}
+
+.tag-labels-delete-buttons {
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  /* background-color: green; */
+  color: rgba(125, 125, 125, 0.700);
+
+}
+
+.tag-labels-delete-buttons:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
 #font-dropdown {
   padding: 0.35rem;
   font-size: 0.8rem;
@@ -158,20 +208,44 @@
   font-family: Wavefont;
 }
 
+
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 @media (max-width: 600px) {
+
   #note-document h1,
   #note-document #meta-information_div,
   #note-document #note-body-text {
     padding-left: 0;
     padding-right: 0;
   }
-}
 
-/**********  TextStyleEditor  ***********/
-.activeTextStyle {
-  background-color: lightblue;
+
+  #note-document {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  #note-document ul,
+  #note-document ol {
+    padding: 1.7rem;
+  }
+
+  #display_container {
+    padding: 0px;
+  }
+
+  #favourite-icon-container svg {
+    margin-left: 0px;
+    margin-right: 0px;
+
+  }
+
+  /**********  TextStyleEditor  ***********/
+  .activeTextStyle {
+    background-color: lightblue;
+  }
 }

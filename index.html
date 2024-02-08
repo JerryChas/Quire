@@ -1,113 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-911QDKJDBF", { debug_mode: true });
-    </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link rel="icon" href="data:," />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link id="theme-style" rel="stylesheet" href="#" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/editor.css" />
-    <link rel="stylesheet" href="css/mediquerys/print.css" />
-    <link rel="stylesheet" href="css/imageCarousel.css" />
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/4af35ea7d6.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- SCRIPT -->
-    <script src="js/changeTheme.js" defer></script>
-    <script src="js/index.js" defer></script>
-    <script src="js/asidenotes.js" defer></script>
-    <script src="js/welcome.js" defer></script>
-    <script src="js/editor.js" defer></script>
-    <script src="js/saveNotes.js" defer></script>
-    <script src="js/togglefavorites.js" defer></script>
-    <script src="js/imageCarousel.js" defer></script>
-    <script src="js/notesThemes.js" defer></script>
-    <script src="js/imgToNote.js" defer></script>
-    <script src="js/textstyleeditor.js" defer></script>
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Dancing+Script&family=Nunito&family=Wavefont:wght@100&display=swap"
-      rel="stylesheet"
-    />
-    <title>Quire - Startsida</title>
-  </head>
 
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="index.html" class="navIcons">
-            <i class="fa-brands fa-quora fa-4x"></i>
-          </a>
-          <div class="line"></div>
-        </li>
-        <li>
-          <a href="search.html" class="navIcons">
-            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-          </a>
-          <div class="line"></div>
-        </li>
-        <li>
-          <a href="favorites.html" class="navIcons">
-            <i class="fa-regular fa-star fa-2x"></i>
-          </a>
-          <div class="line"></div>
-        </li>
-        <li>
-          <a href="statistics.html" class="navIcons">
-            <i class="fa-solid fa-chart-simple fa-2x"> </i>
-          </a>
-          <div class="line"></div>
-        </li>
-        <li>
-          <a href="settings.html" class="navIcons">
-            <i class="fa-solid fa-gear fa-2x"></i>
-          </a>
-          <div class="line"></div>
-        </li>
-        <li class="navIcons" id="info-btn">
-          <i class="fa-solid fa-info fa-2x"></i>
-          <div class="line"></div>
-        </li>
-      </ul>
-    </nav>
-    <main>
-      <aside>
-        <ul id="notes-list_ul"></ul>
-      </aside>
-      <button id="add-new_btn"><span id="button-text">Tryck här</span></button>
-      <div id="display_container">
-        <div id="welcome" class="welcome"></div>
-      </div>
-    </main>
-  </body>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-911QDKJDBF", { debug_mode: true });
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" href="data:," />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link id="theme-style" rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/editor.css" />
+  <link rel="stylesheet" href="css/mediquerys/print.css" />
+  <link rel="stylesheet" href="css/imageCarousel.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <script src="js/changeTheme.js" defer></script>
+  <script src="js/index.js" defer></script>
+  <script src="js/asidenotes.js" defer></script>
+  <script src="js/welcome.js" defer></script>
+  <script src="js/editor.js" defer></script>
+  <script src="js/saveNotes.js" defer></script>
+  <script src="js/togglefavorites.js" defer></script>
+  <script src="js/imageCarousel.js" defer></script>
+  <script src="js/notesThemes.js" defer></script>
+  <script src="js/imgToNote.js" defer></script>
+  <script src="js/textstyleeditor.js" defer></script>
+  <script src="js/createTags.js" defer></script>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Dancing+Script&family=Nunito&family=Wavefont:wght@100&display=swap"
+    rel="stylesheet" />
+  <title>Quire - Startsida</title>
+
+</head>
+
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html" class="navIcons">
+          <i class="fa-brands fa-quora fa-4x"></i>
+        </a>
+        <div class="line"></div>
+      </li>
+      <li>
+        <a href="search.html" class="navIcons">
+          <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        </a>
+        <div class="line"></div>
+      </li>
+      <li>
+        <a href="favorites.html" class="navIcons">
+          <i class="fa-regular fa-star fa-2x"></i>
+        </a>
+        <div class="line"></div>
+      </li>
+      <li>
+        <a href="statistics.html" class="navIcons">
+          <i class="fa-solid fa-chart-simple fa-2x"> </i>
+        </a>
+        <div class="line"></div>
+      </li>
+      <li>
+        <a href="settings.html" class="navIcons">
+          <i class="fa-solid fa-gear fa-2x"></i>
+        </a>
+        <div class="line"></div>
+      </li>
+      <li class="navIcons" id="info-btn">
+        <i class="fa-solid fa-info fa-2x"></i>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <aside>
+      <ul id="notes-list_ul"></ul>
+    </aside>
+    <button id="add-new_btn"><span id="button-text">Tryck här</span></button>
+    <div id="display_container">
+      <div id="welcome" class="welcome"></div>
+    </div>
+  </main>
+</body>
+
 </html>
