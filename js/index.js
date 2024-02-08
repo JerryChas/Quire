@@ -16,6 +16,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '1995-12-25',
     isFavourite: true,
     images: [],
+    tags: ['Banan'],
     bodyText:
       'Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.',
   },
@@ -30,8 +31,8 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
       'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png',
       'https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg',
     ],
-    bodyText:
-      'Kolla vad många bilder på gulliga katter jag hittat på internet! Jag älskar katter :) 🐈',
+    tags: ['Lingon', 'Blåbär'],
+    bodyText: 'Kolla vad många bilder på gulliga katter jag hittat på internet! Jag älskar katter :) 🐈',
   },
   {
     title: 'only one 🐈‍⬛ 📷',
@@ -39,9 +40,8 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateCreated: '1995-12-25',
     dateLastEdited: '1995-12-25',
     isFavourite: true,
-    images: [
-      'https://fourfriends.se/wp-content/uploads/2018/10/neva-masquerade-kitten-fourfriends.jpg'
-    ],
+    images: ['https://fourfriends.se/wp-content/uploads/2018/10/neva-masquerade-kitten-fourfriends.jpg'],
+    tags: ['Lingon', 'Fisk'],
     bodyText:
       'Gulligaste katten jag sett. Den förtjänar en egen anteckning. <br> Kolla också vad häftig denhär appen är som inte visar några thumbnails eller pilar när det bara finns EN bild :) WOW!',
   },
@@ -52,6 +52,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2023-05-15',
     isFavourite: false,
     images: [],
+    tags: [],
     bodyText:
       'En fantastisk resa till fjällen! Jag ville uppleva naturens skönhet och lugn. Denna resa har gett mig minnen för livet. Här delar jag med mig av mina upplevelser och bilder från vackra platser.',
   },
@@ -62,6 +63,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2024-01-26',
     isFavourite: true,
     images: [],
+    tags: [],
     bodyText:
       'Idag hade jag en intensiv dag med kodning. Arbetade med spännande projekt och löste knepiga problem. Här delar jag med mig av min dag och några kodsnuttar.',
   },
@@ -72,6 +74,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2023-08-20',
     isFavourite: false,
     images: [],
+    tags: [],
     bodyText:
       'Läsning är en passion! Här är några av mina favoritböcker. Delar med mig av recensioner och varför jag älskar varje bok.',
   },
@@ -82,6 +85,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2023-03-05',
     isFavourite: true,
     images: [],
+    tags: [],
     bodyText:
       'Att laga mat är lika roligt som att koda! Delar med mig av mitt bästa recept på Pasta Carbonara. Steg för steg guide och läckra bilder.',
   },
@@ -112,6 +116,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2024-01-15',
     isFavourite: false,
     images: [],
+    tags: [],
     bodyText:
       'Arbetar på ett spännande projekt! Ett digitalt anteckningsblock som förenklar livet. Delar med mig av mina framsteg och några kodsnuttar från projektet.',
   },
@@ -122,6 +127,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2023-09-28',
     isFavourite: true,
     images: [],
+    tags: [],
     bodyText:
       'Staden har så många underbara platser att erbjuda. Här delar jag med mig av mina favoritplatser och varför de är speciella för mig.',
   },
@@ -132,6 +138,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [
     dateLastEdited: '2022-01-26',
     isFavourite: false,
     images: [],
+    tags: [],
     bodyText:
       'En spännande start som fullstack utvecklare! Delar med mig av mina upplevelser, lärdomar och några kodsnuttar från min första vecka i branschen.',
   },
