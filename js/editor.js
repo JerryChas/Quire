@@ -185,34 +185,73 @@ function renderNotesMain(noteObject) {
   tagFunctionality(noteObject);
 
   // ------------------------------------ Function to convert regular text to Markdown ------------------------------------
-function convertToMarkdown(text) {
-  // Replace HTML tags with Markdown syntax
-  text = text.replace(/<b>(.*?)<\/b>/gi, '**$1**')
-    .replace(/<i>(.*?)<\/i>/gi, '*$1*')
-    .replace(/<s>(.*?)<\/s>/gi, '~~$1~~')
-    .replace(/<code>(.*?)<\/code>/gi, '`$1`')
-    .replace(/<blockquote>(.*?)<\/blockquote>/gi, '\n> $1\n')
-    .replace(/<ul>(.*?)<\/ul>/gi, '\n$1\n')
-    .replace(/<li>(.*?)<\/li>/gi, '\n* $1')
-    .replace(/<ol>(.*?)<\/ol>/gi, '\n$1\n')
-    .replace(/<li>(.*?)<\/li>/gi, '\n1. $1');
+  function convertToMarkdown(text) {
+    // Replace HTML tags with Markdown syntax
+    text = text.replace(/<b>(.*?)<\/b>/gi, '**$1**')
+      .replace(/<i>(.*?)<\/i>/gi, '*$1*')
+      .replace(/<s>(.*?)<\/s>/gi, '~~$1~~')
+      .replace(/<code>(.*?)<\/code>/gi, '`$1`')
+      .replace(/<blockquote>(.*?)<\/blockquote>/gi, '\n> $1\n')
+      .replace(/<ul>(.*?)<\/ul>/gi, '\n$1\n')
+      .replace(/<li>(.*?)<\/li>/gi, '\n* $1')
+      .replace(/<ol>(.*?)<\/ol>/gi, '\n$1\n')
+      .replace(/<li>(.*?)<\/li>/gi, '\n1. $1');
 
-  return text;
-}
+    return text;
+  }
 
-// ------------------------------------ Function to convert Markdown to regular text ---------------------------------------
-function convertFromMarkdown(markdownText) {
-  // Replace Markdown syntax with HTML tags
-  markdownText = markdownText.replace(/\*\*(.*?)\*\*/gi, '<b>$1</b>')
-    .replace(/\*(.*?)\*/gi, '<i>$1</i>')
-    .replace(/~~(.*?)~~/gi, '<s>$1</s>')
-    .replace(/`(.*?)`/gi, '<code>$1</code>')
-    .replace(/\n> (.*?)\n/gi, '<blockquote>$1</blockquote>')
-    .replace(/\n\*(.*?)\n/gi, '<ul><li>$1</li></ul>')
-    .replace(/\n\d\.(.*?)\n/gi, '<ol><li>$1</li></ol>');
+  // ------------------------------------ Function to convert Markdown to regular text ---------------------------------------
+  function convertFromMarkdown(markdownText) {
+    // Replace Markdown syntax with HTML tags
+    markdownText = markdownText.replace(/\*\*(.*?)\*\*/gi, '<b>$1</b>')
+      .replace(/\*(.*?)\*/gi, '<i>$1</i>')
+      .replace(/~~(.*?)~~/gi, '<s>$1</s>')
+      .replace(/`(.*?)`/gi, '<code>$1</code>')
+      .replace(/\n> (.*?)\n/gi, '<blockquote>$1</blockquote>')
+      .replace(/\n\*(.*?)\n/gi, '<ul><li>$1</li></ul>')
+      .replace(/\n\d\.(.*?)\n/gi, '<ol><li>$1</li></ol>');
 
-  return markdownText;
-}
+    return markdownText;
+  }
+
+  // ===================================
+  // ======= VIKTORS CUSTOM GTAG =======
+  noteDocument.addEventListener("keydown", (event) => {
+
+    /* min Förklaring: 
+    Jag tänkter att man som administratör eller ytvecklare av systemet 
+    här kan se vilken tid på dagen som användarna är mest aktiv i.
+    Man kan även med denna gtag se vilken sorts användning användaren 
+    ägnar sig åt. skapande eller raderande :) 
+    Enligt internet kan man i google analytics sedan skapa diagram som 
+    visualiserar när på dygnet användaren är mest aktiv, samt om den 
+    lägger till eller tar bort grejjor.*/
+
+    //geting the current time in  hours and minutes: 
+    let editTime = new Date();
+    const hour = editTime.getHours();
+    const minute = editTime.getMinutes();
+    editTime = hour + "." + minute;
+
+    let editType;
+    //define edit type
+    if (event.key == "Backspace") {
+      editType = "DELETE"
+    } else {
+      editType = "WRITE"
+    }
+
+    // console.log(editTime);
+    // console.log(editType);
+
+    gtag("event", "edit_note", {
+      "edit_time": editTime,
+      "edit-type": editType
+    });
+
+  });
+  // ------- End of Viktors gtag -------
+  // ===================================
 
 }
 
