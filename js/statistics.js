@@ -42,6 +42,15 @@ aliciaStatisticsCard.innerHTML = `
 <p>🎉 Congratulations on maintaining a consistent effort in your note-taking journey! 🚀 The average character count in your notes reflects your dedication to capturing meaningful thoughts and details. Each character is a testament to your commitment to self-reflection, learning, and creativity. Keep up the fantastic work! 🌟 Remember, every character counts, and your notes are shaping a richer narrative for yourself. Embrace the power of your words, and let your notes continue to be a source of inspiration and growth. You're doing amazing! 🌈✨</p>
 `;
 //---------------------------------------------------------------
+
+let numberOfFavorites = noteCalculation.filter((favorite) => favorite.isFavourite == true);
+
+statisticsCard2.innerHTML = `
+<h2>You have ${numberOfFavorites.length} favorite notes!🌟</h2><br>
+<p>Wow!👌 Your collection of favorite notes is a testament to the valuable insights and information you've curated.📖 Each favorite note represents a gem of knowledge or inspiration that has captured your attention and resonated with you. Keep nurturing this collection and let it continue to serve as a source of motivation, learning, and creativity.🖌️ With every favorite note, you're building a personalized library of wisdom within Quire, your trusted digital companion for organizing and accessing your most cherished ideas.💫🌈</p>
+`;
+//---------------------------------------------------------------
+
 /* PAULINA's script-space
 Statistics for total number of notes */
 
