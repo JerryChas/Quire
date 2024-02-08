@@ -16,6 +16,9 @@ body {
 nav {
   background-color: #397fff;
   overflow: hidden;
+  height: 100vh;
+  position: sticky;
+  top: 0px;
 }
 
 /* aside styling */
@@ -23,10 +26,12 @@ nav {
 aside {
   background-color: #e8b546;
   width: 12em;
-  max-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
   scroll-behavior: auto;
   color: black;
+  position: sticky;
+  top: 0px;
 }
 
 aside::-webkit-scrollbar {
@@ -192,6 +197,8 @@ input:hover {
     max-height: 4rem;
     overflow-x: scroll;
     overflow-y: hidden;
+    position: unset;
+    top: unset;
   }
 
   .line {
@@ -209,6 +216,8 @@ input:hover {
   nav {
     grid-column: span 2;
     max-height: 5rem;
+    position: unset;
+    top: unset;
   }
 
   aside ul,

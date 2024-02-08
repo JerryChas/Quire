@@ -12,6 +12,11 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  height: fit-content;
+  top: 0px;
+  backdrop-filter: blur(1000px);
+
 }
 
 #dropdown {
