@@ -219,8 +219,8 @@ function renderNotesMain(noteObject) {
   noteDocument.addEventListener("keydown", (event) => {
 
     /* min Förklaring: 
-    Jag tänkter att man som administratör eller ytvecklare av systemet 
-    här kan se vilken tid på dagen som användarna är mest aktiv i.
+    Jag tänkter att man som administratör eller utvecklare av systemet 
+    här kan se vilken tid på dagen som användarna är mest aktiv .
     Man kan även med denna gtag se vilken sorts användning användaren 
     ägnar sig åt. skapande eller raderande :) 
     Enligt internet kan man i google analytics sedan skapa diagram som 
@@ -246,7 +246,7 @@ function renderNotesMain(noteObject) {
 
     gtag("event", "edit_note", {
       "edit_time": editTime,
-      "edit-type": editType
+      "edit_type": editType
     });
 
   });
