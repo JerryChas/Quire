@@ -12,8 +12,9 @@ function performSearch() {
   // Clear the console for better readability
   console.clear();
   
+  //Get filter param
   let checkedFilter = handleCheckedFilter();
-  console.log(checkedFilter)
+  console.log('Filtered by: ',checkedFilter)
 
 
   //* Handle input
@@ -23,53 +24,23 @@ function performSearch() {
   let searchInputValue = searchInput.value;
   console.log(`User Input: ${searchInputValue}`);
 
-  // get cleaned input
-  const cleanedSearchInput = cleanSearchInput(searchInputValue);
+  // get cleaned input depending on filter
+  const cleanedSearchInput = cleanSearchInput(searchInputValue, checkedFilter);
+  console.log('Cleaned search: ', cleanedSearchInput)
 
-  // Split the cleaned search input into terms and remove empty terms
-  let searchTerms = cleanedSearchInput.split(' ').filter((term) => term !== '');
-
-  // Check if the search input is within double quotes and treat it as a whole phrase
-  let phraseSearch = false;
-  if (searchTerms.length > 1 && searchTerms[0].startsWith('"') && searchTerms[searchTerms.length - 1].endsWith('"')) {
-    phraseSearch = true;
-    searchTerms = [searchTerms.join(' ')];
-  }
-
-  // Remove quotes from the stored search term
-  searchTerms = searchTerms.map((term) => term.replace(/"/g, ''));
-
-  console.log(`Searching for: `);
-  console.log(searchTerms);
-
-  //* Search object
+//* Search object
   let searchResultArray;
 
+
+  
+  searchResultArray = performFilteredSearch(checkedFilter, cleanedSearchInput);
+
+  
+  
   // Check if there are no search terms
-  if (searchTerms.length === 0) {
+  if (cleanedSearchInput.length === 0) {
     // If there are no search terms, nothing will display
     searchResultArray = [];
-  } else {
-    // Perform the search on the temporary array
-    searchResultArray = notes.filter((p) => {
-      return searchTerms.every((term) => {
-        let termLower = term.toLowerCase();
-        return (
-          (phraseSearch &&
-            (p.title.toLowerCase().includes(termLower) || p.bodyText.toLowerCase().includes(termLower))) ||
-          (!phraseSearch &&
-            (p.title
-              .toLowerCase()
-              .split(' ')
-              .some((word) => word.startsWith(termLower)) ||
-              p.bodyText
-                .toLowerCase()
-                .split(' ')
-                .some((word) => word.startsWith(termLower)) ||
-              p.dateCreated.includes(termLower)))
-        );
-      });
-    });
   }
 
   console.log('Found: ');
@@ -88,12 +59,42 @@ function handleCheckedFilter() {
   return checkedValue;
 }
 
-function cleanSearchInput(inputvalue) {
-  // Clean the search input by removing special characters and trimming whitespace
-  let cleanedSearchInput = inputvalue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
-  console.log(`Cleaned search: ${cleanedSearchInput}`);
+function cleanSearchInput(inputvalue, checkedFilter) {
+  switch (checkedFilter) {
+    
+    case 'date':
+      // Keep only numbers and hyphens for date search
+      return inputvalue.replace(/[^0-9-]/g, ' ').trim();
+    default:
+      // Default behavior: remove special characters and trim whitespace
+      return inputvalue.replace(/[^0-9a-öA-Ö" "]/g, ' ').trim();
+  }
+}
 
-  return cleanedSearchInput;
+function performFilteredSearch(checkedFilter, cleanedSearchInput) {
+  switch (checkedFilter) {
+    case 'sentences':
+      // Perform search for whole sentences
+      
+      return notes.filter(
+        (p) =>
+          p.title.toLowerCase().includes(cleanedSearchInput) || p.bodyText.toLowerCase().includes(cleanedSearchInput)
+      );
+
+    case 'words':
+      
+      let words = cleanedSearchInput.split(' ');
+      return notes.filter((p) =>
+        words.some((word) => p.title.toLowerCase().includes(word) || p.bodyText.toLowerCase().includes(word))
+      );
+
+    case 'date':
+      // Perform search for date
+      return notes.filter((p) => p.dateCreated.includes(cleanedSearchInput));
+    default:
+      return 
+       
+  }
 }
 //*----------------------------------------------------------------*//
 
