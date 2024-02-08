@@ -1,45 +1,29 @@
-// VARIABLEs:
-
 // Variable holding Alicia's panel section
 const aliciaStatisticsCard = document.getElementById(
   "statistics-alicia_container"
 );
-
-// Variable holding Emil's panel section
-const emilStatisticsCard = document.getElementById("statistics-emil_container");
-
-// Variable holding Jerry's panel section
-const jerryStatisticsCard = document.getElementById(
-  "statistics-jerry_container"
-);
-
-// Variable holding Ibrahim's panel section
-const ibrahimStatisticsCard = document.getElementById(
-  "statistics-ibrahim_container"
-);
-
-// Variable holding Viktor's panel section
-const viktorStatisticsCard = document.getElementById(
-  "statistics-viktor_container"
-);
+const statisticsCard1 = document.getElementById("statistics-1");
+const statisticsCard2 = document.getElementById("statistics-2");
+const statisticsCard3 = document.getElementById("statistics-3");
+const statisticsCard4 = document.getElementById("statistics-4");
 
 // Variable holding Paulina's panel section
 const paulinaStatisticsCard = document.getElementById(
   "statistics-paulina_container"
 );
-
-// Variable holding Moa's panel section
-const moaStatisticsCard = document.getElementById("statistics-moa_container");
+const statisticsCard5 = document.getElementById("statistics-5");
 
 //---------------------------------------------------------------
 // ALICIA's script-space
 
-let noteCalculation = JSON.parse(localStorage.getItem('notes')) || [];
+let noteCalculation = JSON.parse(localStorage.getItem("notes")) || [];
 
-function calculateNote(){
-
+function calculateNote() {
   // Doin the math
-  const totalCharacters = notes.reduce((total, note) => total + note.bodyText.length,0);
+  const totalCharacters = notes.reduce(
+    (total, note) => total + note.bodyText.length,
+    0
+  );
 
   // Average
   const averageCharacters = totalCharacters / notes.length;
@@ -56,19 +40,7 @@ aliciaStatisticsCard.innerHTML = `
   averageChars
 )}!🌟 </h2><br>
 <p>🎉 Congratulations on maintaining a consistent effort in your note-taking journey! 🚀 The average character count in your notes reflects your dedication to capturing meaningful thoughts and details. Each character is a testament to your commitment to self-reflection, learning, and creativity. Keep up the fantastic work! 🌟 Remember, every character counts, and your notes are shaping a richer narrative for yourself. Embrace the power of your words, and let your notes continue to be a source of inspiration and growth. You're doing amazing! 🌈✨</p>
-`; 
-//---------------------------------------------------------------
-// EMIL's script-space
-
-//---------------------------------------------------------------
-// JERRY's script-space
-
-//---------------------------------------------------------------
-// IBRAHIM's script-space
-
-//---------------------------------------------------------------
-// VIKTOR's script-space
-
+`;
 //---------------------------------------------------------------
 /* PAULINA's script-space
 Statistics for total number of notes */
@@ -87,4 +59,18 @@ paulinaStatisticsCard.innerHTML = `
 `;
 
 //----------------------------------------------------------------
-// MOA's script-space
+
+// Get notes from localStorage
+const noteImages = JSON.parse(localStorage.getItem("notes")) || [];
+let totalImages = 0;
+
+// Looping through the images in notes
+for (const noteImages of notes) {
+  // Adding it to the variable
+  totalImages += noteImages.images.length;
+}
+
+statisticsCard1.innerHTML = `
+<h2>You have added ${totalImages} images! 📸</h2><br>
+<p>Embark on a visual journey within your digital notebook! 🚀📸✨ Each image holds a unique story, a vivid memory, or an inspiring moment.🌟 As you explore the statistics revealing the countless snapshots captured in your notes, remember that every image is a testament to the richness of your experiences. 🎉 Cherish the visual tapestry you've woven, and let it inspire you to create more vibrant and unforgettable entries. Your digital notebook is a canvas of memories, and each picture is a brushstroke painting the narrative of your life. 🌈 Keep clicking, keep capturing, and keep filling your notebook with the colors of your journey! 📸✨ <b>#PicturePerfect #DigitalMemories</b></p>
+`;
