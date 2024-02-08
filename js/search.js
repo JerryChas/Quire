@@ -12,13 +12,11 @@ function performSearch() {
   // Clear the console for better readability
   console.clear();
   
+  //* Handle input
+  
   //Get filter param
   let checkedFilter = handleCheckedFilter();
   console.log('Filtered by: ',checkedFilter)
-
-
-  //* Handle input
-  
 
   // User input
   let searchInputValue = searchInput.value;
@@ -28,15 +26,12 @@ function performSearch() {
   const cleanedSearchInput = cleanSearchInput(searchInputValue, checkedFilter);
   console.log('Cleaned search: ', cleanedSearchInput)
 
-//* Search object
+  //* Search objects
   let searchResultArray;
 
-
-  
+  //  Get search results
   searchResultArray = performFilteredSearch(checkedFilter, cleanedSearchInput);
 
-  
-  
   // Check if there are no search terms
   if (cleanedSearchInput.length === 0) {
     // If there are no search terms, nothing will display
@@ -50,6 +45,7 @@ function performSearch() {
   renderSearchResults(searchResultArray);
 }
 
+// get filter radio buttons
 function handleCheckedFilter() {
   // let checkedValue = ''; 
   const checkedRadioButton = document.querySelector('input[name="searchParam"]:checked');
@@ -59,6 +55,7 @@ function handleCheckedFilter() {
   return checkedValue;
 }
 
+//  Clean search input value based on selected filter
 function cleanSearchInput(inputvalue, checkedFilter) {
   switch (checkedFilter) {
     
@@ -71,18 +68,19 @@ function cleanSearchInput(inputvalue, checkedFilter) {
   }
 }
 
+//  Peform search based on selected filter
 function performFilteredSearch(checkedFilter, cleanedSearchInput) {
   let search;
   switch (checkedFilter) {
     case 'sentences':
       // Perform search for whole sentences
-
       return notes.filter(
         (p) =>
           p.title.toLowerCase().includes(cleanedSearchInput) || p.bodyText.toLowerCase().includes(cleanedSearchInput)
       );
 
     case 'words':
+      //   Perform search of individual words
       search = cleanedSearchInput.split(' ');
       console.log(search);
       return notes.filter((p) =>
@@ -94,17 +92,33 @@ function performFilteredSearch(checkedFilter, cleanedSearchInput) {
       return notes.filter((p) => p.dateCreated.includes(cleanedSearchInput));
 
     case 'tags':
+      //  Perform search of tags
       search = cleanedSearchInput.split(' ');
-      console.log(search)
-      
-      
-      return notes.filter((note) =>
-        note.tags && search.some((tag) => note.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase())))
+      console.log(search);
+      return notes.filter(
+        (note) => note.tags && search.some((tag) => note.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase())))
       );
 
     default:
       return;
   }
+}
+
+//! THIS FUNCTION IS "NOT" AVALIBLE YET (experimental)
+//  function to display search terms for user
+function displayUserSearch(userSearch) {
+  const userSearchDiv = document.querySelector('.user-search_container');
+  userSearchDiv.innerHTML = "";
+
+  userSearch.forEach((term) => {
+    console.log(term);
+    userSearchDiv.innerHTML += `
+      <span class="user-search-term">
+      "${term}"
+      </span>
+    `
+  });
+  
 }
 //*----------------------------------------------------------------*//
 
