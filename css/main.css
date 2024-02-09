@@ -31,13 +31,14 @@ nav::-webkit-scrollbar {
 
 aside {
   background-color: #e8b546;
-  width: 15em;
+  width: 12em;
   height: 100vh;
   overflow-y: scroll;
   scroll-behavior: auto;
   color: black;
   position: sticky;
   top: 0px;
+  flex-shrink: 0;
 }
 
 aside::-webkit-scrollbar {
@@ -52,7 +53,8 @@ aside::-webkit-scrollbar {
   margin: 0.7em;
   white-space: nowrap;
 }
-  /* Styling for active note in aside */
+
+/* Styling for active note in aside */
 .activeNote {
   color: white;
 }
