@@ -20,13 +20,31 @@ const notesListUl = document.getElementById('notes-list_ul');
  function renderNotesAsideList() {
         notesListUl.innerHTML = "";
  notes.forEach((note) => {
-        const notesList = document.createElement('li');
-        notesList.textContent = note.title;
-        if (notesList.textContent.length >= 17) {
-            notesList.textContent = notesList.textContent.substring(0, 17) + "...";
-        }
 
-        //La till klassnamn för att redigera stil i css
+   const notesList = document.createElement('li');
+   notesList.textContent = note.title;
+   if (notesList.textContent.length >= 17) {
+     notesList.textContent = notesList.textContent.substring(0, 17) + '...';
+   }
+
+   // Button to delete a specific note
+   const delBtn = document.createElement('span');
+   delBtn.textContent = 'X';
+   delBtn.classList.add('delBtn');
+   notesList.appendChild(delBtn);
+   
+
+   // When click on delete button
+   delBtn.addEventListener('click', (e) => {
+     e.stopPropagation(); // Stop the event from propagating up the DOM tree
+     console.log(`Delete ${note.title}`);
+     // Remove the note from array and local storage
+     removeNoteFromArrayAndLocalStorage(note);
+     renderNotesAsideList();
+   });
+
+
+       //La till klassnamn för att redigera stil i css
         notesList.className = 'aside-note_li';
         notesListUl.appendChild(notesList);
 
@@ -51,6 +69,7 @@ notesList.addEventListener('click', (event) => {
 });
 
     });
+
 }
 renderNotesAsideList();
 //variabel för att hämta containern där notes ska finnas i main
