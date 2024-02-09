@@ -109,7 +109,7 @@ function performFilteredSearch(checkedFilter, cleanedSearchInput) {
 
     case 'words':
       //   Perform search of individual words
-      // search = cleanedSearchInput.split(' ');
+      
       console.log(search);
       return notes.filter((note) =>
         search.every((word) => note.title.toLowerCase().includes(word) ||
@@ -122,7 +122,7 @@ function performFilteredSearch(checkedFilter, cleanedSearchInput) {
 
     case 'tags':
       //  Perform search of tags
-      // search = cleanedSearchInput.split(' ');
+      
       console.log(search);
       return notes.filter(
         (note) => note.tags && search.some((tag) => note.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase())))
