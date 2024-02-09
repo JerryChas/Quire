@@ -34,9 +34,34 @@ activeTagUl.innerHTML = '';
     allTheTags.forEach(tag => {
         const tagsLi = document.createElement('li');
         tagsLi.textContent = tag;
+        // tagsLi.classList = 'active-tags_li';
+        tagsLi.classList = 'active-tags_li';
         activeTagUl.appendChild(tagsLi);
+
+        tagsLi.addEventListener('click', getDuplicateTags);
     });
 };
 
 window.onload = displayactiveTags;
+
+function getDuplicateTags(e) {
+    let filteredNotesTags = [];
+
+    console.log(e.target.innerHTML)
+    let targetValue = e.target.innerHTML;
+
+    notes.forEach((note) => {
+    if(note.tags){
+       if(note.tags.includes(targetValue)){
+            filteredNotesTags.push(note)
+            renderSearchResults(filteredNotesTags);
+       }
+    }   
+    })
+    // console.log(filteredNotesTags);
+    //  
+}
+//funktion som loopar igenom notes och en ifsats som kollar om det är samma tagg på flera notes
+//Eventlistener till tagsLi ('click' )
+
 

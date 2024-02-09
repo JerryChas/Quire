@@ -1,6 +1,16 @@
-/* #display_container {
-border: 1px solid black;
-} */
+#display_container {
+display: flex;
+justify-content: space-around;
+align-items: flex-start; 
+flex-wrap: wrap;
+} 
+
+.search-content{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 70%;
+}
 
 .search-input_container{
   display: flex;
@@ -79,6 +89,31 @@ form {
   
 }
 
+/* ACTIVE TAGS SECTION */
+.active-tag_h3 {
+  border: solid #2d7cb9 1px;
+  max-width: 100%;
+  text-align: center;
+  padding: 0.3rem;
+  
+}
+#active-tag_ul .active-tags_li{
+  list-style: none;
+  border: solid #2d7cb9 1px;
+}
+.active-tag_section{
+  margin-top: 3rem; 
+  display: flex;
+  flex-direction: column;
+  border: solid #2d7cb9 2px;
+  width: 20%;
+  margin-right: 3em;
+  height: 30em;
+  overflow: scroll;
+  scrollbar-color:white #2d7cb9 ;
+  /* scrollbar-width: thin; */
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for tablet 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -139,5 +174,25 @@ form {
   img[alt="Searching cat"] {
     max-width: 100%;
     max-height: 70vh;
+  }
+
+  #active-tag_ul{
+    display: flex;
+    flex-direction: column;  
+  }
+  .active-tags_li{
+    width: 100%;
+  }
+  .active-tag_section{
+    width: 20vh;
+  }
+  nav{
+    width: 100%;
+  }
+  .search-content{
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }
