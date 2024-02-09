@@ -52,6 +52,10 @@ aside::-webkit-scrollbar {
   margin: 0.7em;
   white-space: nowrap;
 }
+  /* Styling for active note in aside */
+.activeNote {
+  color: white;
+}
 
 /* Base style for all headings */
 h1,
