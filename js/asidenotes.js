@@ -28,6 +28,7 @@ function removeNoteFromArrayAndLocalStorage(specificNote) {
    delBtn.textContent = 'X';
    delBtn.classList.add('delBtn');
    notesList.appendChild(delBtn);
+   
 
    // When click on delete button
    delBtn.addEventListener('click', (e) => {
