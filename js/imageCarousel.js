@@ -83,8 +83,55 @@ function renderImageCarousel(noteID) {
         deleteCurrentImage(currentImg)
     });
 
+    // --------------------------------------------------
+    // DELETE FUNCTION
 
 
+    // when user cklicks on delete image: 
+    function deleteCurrentImage(currentImg) {
+        /* Denhär funktionen får via currentImg veta 2 saker:
+         -- currentImg.noteId är det id som noten har i vår stora databas.
+         -- currentImg.imgUrl är den specifika urlen som bilden kommer från.
+         */
+
+        //ask the user if they really want to delete:
+        let wantTodelete = confirm(`Do you really want to delete This awesome image? 📷 `)
+
+        if (wantTodelete) {
+            alert(`Okay....delete delete... ⚙️ 🔧 🙂`);
+
+            // console.log("--------------------------------------");
+            // console.log("alla bilder i noten:", currentNote.images);
+            // console.log("just denhär bildens url:", currentImg.imgUrl);
+            // console.log("index av denhär bilden:", currentNote.images.indexOf(currentImg.imgUrl));
+            // console.log("--------------------------------------.. things happening..");
+
+            //Find the index of the image to remove:
+            let indexOfImgaToRemove = currentNote.images.indexOf(currentImg.imgUrl);
+
+            // console.log("index to remove: ", indexOfImgaToRemove);
+
+            // deleting ONE thing in the note.images w start at the index that we defined:
+            currentNote.images.splice(indexOfImgaToRemove, 1);
+
+            // console.log("UPPDATERAT: alla bilder i noten:", currentNote.images);
+            // console.log("--------------------------------------");
+
+        }
+        //call function that render the image-carousel if there is any images in the note:
+        if (currentNote.images.length > 0) {
+            renderImageCarousel(currentNote.id);
+        } else {
+            // else we emtying the carousel div:
+            const imgCarouselContainer = document.getElementById("dynamic-image-carousel_container")
+            imgCarouselContainer.innerHTML = "";
+            // console.log("de finns inga bilder.")
+        }
+        //savetoLocalstorage
+        saveNotesToLocalStorage()
+    }
+    // end of deletefunktion
+    // --------------------------------------------------
 
 
     // *********************************************************************
