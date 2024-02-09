@@ -109,9 +109,23 @@ function renderNotesMain(noteObject) {
     let chosenFont = getFont();
     let noteText = document.getElementById("note-body-text");
 
+    let fontSize = '16px';
+
+    //Changes the fontsize based on type of font
+    if(chosenFont === 'Wavefont'){
+      fontSize = '50px';
+    }
+
+    if(chosenFont === 'Dancing Script'){
+      fontSize = '22px';
+    }
+
+    console.log(fontSize);
+
     noteText.style.fontFamily = chosenFont;
 
     noteObject.font = chosenFont;
+    noteText.style.fontSize = fontSize;
 
     saveNote(noteObject);
   }
