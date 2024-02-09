@@ -35,12 +35,14 @@ function renderNotesMain(noteObject) {
         <select id="dropdown">
         </select>
         <select name="font" id="font-dropdown" class="editorbutton">
-        <option value="" selected disabled hidden>Choose font</option>
+        <option value="" selected disabled hidden>Change font</option>
+        <option value="" id="font0">Default font</option>
         <option value="Courier Prime" id="font1">Courier Prime</option>
         <option value="Dancing Script" id="font2">Dancing Script</option>
         <option value="Nunito" id="font3">Nunito</option>
         <option value="Wavefont" id="font4">Wavefont</option>
         </select>
+        <button id="markdownbutton" class="editorbutton">Markdown</button> 
         </div>
 
         <div id="document_wrapping-container">
@@ -52,7 +54,9 @@ function renderNotesMain(noteObject) {
 
             <div id="note-document" class="note-document">
 
-                <h1 id="note-headding_container" contenteditable="true">${noteObject.title}</h1>
+                <h1 id="note-headding_container" contenteditable="true">${
+                  noteObject.title
+                }</h1>
 
                 <div id="favourite-icon-container">
                 <svg id="favourite-icon" xmlns="http://www.w3.org/2000/svg"
@@ -63,8 +67,10 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(' ')[0]} | Last edited ${
-    noteObject.dateLastEdited.split(' ')[0]
+                    <p id="date-stamp_div">Created ${
+                      noteObject.dateCreated.split(" ")[0]
+                    } | Last edited ${
+    noteObject.dateLastEdited.split(" ")[0]
   }</p>
                     <div>
                         <span id="tags_label">Tags: </span>
@@ -108,20 +114,34 @@ function renderNotesMain(noteObject) {
   function applyFont() {
     let chosenFont = getFont();
     let noteText = document.getElementById("note-body-text");
-  
+
+    let fontSize = '16px';
+
+    //Changes the fontsize based on type of font
+    if(chosenFont === 'Wavefont'){
+      fontSize = '50px';
+    }
+
+    if(chosenFont === 'Dancing Script'){
+      fontSize = '22px';
+    }
+
+    console.log(fontSize);
+
     noteText.style.fontFamily = chosenFont;
 
     noteObject.font = chosenFont;
-    
+    noteText.style.fontSize = fontSize;
+
     saveNote(noteObject);
   }
 
-  if(noteObject.font){
+  if (noteObject.font) {
     let noteText = document.getElementById('note-body-text');
     noteText.style.fontFamily = noteObject.font;
   }
 
-  document.getElementById("font-dropdown").addEventListener("click", applyFont);
+  document.getElementById("font-dropdown").addEventListener("change", applyFont);
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
@@ -184,6 +204,74 @@ function renderNotesMain(noteObject) {
   // Activate tag-functionality:
   tagFunctionality(noteObject);
 
+  // ------------------------------------ Function to convert regular text to Markdown ------------------------------------
+  function convertToMarkdown(text) {
+    // Replace HTML tags with Markdown syntax
+    text = text.replace(/<b>(.*?)<\/b>/gi, '**$1**')
+      .replace(/<i>(.*?)<\/i>/gi, '*$1*')
+      .replace(/<s>(.*?)<\/s>/gi, '~~$1~~')
+      .replace(/<code>(.*?)<\/code>/gi, '`$1`')
+      .replace(/<blockquote>(.*?)<\/blockquote>/gi, '\n> $1\n')
+      .replace(/<ul>(.*?)<\/ul>/gi, '\n$1\n')
+      .replace(/<li>(.*?)<\/li>/gi, '\n* $1')
+      .replace(/<ol>(.*?)<\/ol>/gi, '\n$1\n')
+      .replace(/<li>(.*?)<\/li>/gi, '\n1. $1');
+
+    return text;
+  }
+
+  // ------------------------------------ Function to convert Markdown to regular text ---------------------------------------
+  function convertFromMarkdown(markdownText) {
+    // Replace Markdown syntax with HTML tags
+    markdownText = markdownText.replace(/\*\*(.*?)\*\*/gi, '<b>$1</b>')
+      .replace(/\*(.*?)\*/gi, '<i>$1</i>')
+      .replace(/~~(.*?)~~/gi, '<s>$1</s>')
+      .replace(/`(.*?)`/gi, '<code>$1</code>')
+      .replace(/\n> (.*?)\n/gi, '<blockquote>$1</blockquote>')
+      .replace(/\n\*(.*?)\n/gi, '<ul><li>$1</li></ul>')
+      .replace(/\n\d\.(.*?)\n/gi, '<ol><li>$1</li></ol>');
+
+    return markdownText;
+  }
+
+  // ===================================
+  // ======= VIKTORS CUSTOM GTAG =======
+  noteDocument.addEventListener("keydown", (event) => {
+
+    /* min Förklaring: 
+    Jag tänkter att man som administratör eller utvecklare av systemet 
+    här kan se vilken tid på dagen som användarna är mest aktiv .
+    Man kan även med denna gtag se vilken sorts användning användaren 
+    ägnar sig åt. skapande eller raderande :) 
+    Enligt internet kan man i google analytics sedan skapa diagram som 
+    visualiserar när på dygnet användaren är mest aktiv, samt om den 
+    lägger till eller tar bort grejjor.*/
+
+    //geting the current time in  hours and minutes: 
+    let editTime = new Date();
+    const hour = editTime.getHours();
+    const minute = editTime.getMinutes();
+    editTime = hour + "." + minute;
+
+    let editType;
+    //define edit type
+    if (event.key == "Backspace") {
+      editType = "DELETE"
+    } else {
+      editType = "WRITE"
+    }
+
+    // console.log(editTime);
+    // console.log(editType);
+
+    gtag("event", "edit_note", {
+      "edit_time": editTime,
+      "edit_type": editType
+    });
+
+  });
+  // ------- End of Viktors gtag -------
+  // ===================================
 
 }
 

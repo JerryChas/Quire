@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-911QDKJDBF', { 'debug_mode':true });
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link rel="icon" href="data:," />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link id="theme-style" rel="stylesheet" href="#"/>
-    <link rel="stylesheet" href="css/search.css" />
-    <link rel="stylesheet" href="css/searchResultCardsAndPreviewModal.css" />
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
-    <!-- SCRIPT -->
-    <script src="js/changeTheme.js" defer></script>
-    <script src="js/index.js" defer></script>
-    <script src="js/displaySearchResults.js" defer></script>
-    <script src="js/search.js" defer></script>
-    <script src="js/activeTags.js" defer></script>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-911QDKJDBF', { 'debug_mode': true });
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" href="data:," />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link id="theme-style" rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="css/search.css" />
+  <link rel="stylesheet" href="css/searchResultCardsAndPreviewModal.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <script src="js/changeTheme.js" defer></script>
+  <script src="js/index.js" defer></script>
+  <script src="js/displaySearchResults.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/activeTags.js" defer></script>
+
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,34 +79,36 @@
   </nav>
   <main>
     <div id="display_container">
+
     <div class="search-content">
+
       <div class="search-input_container">
         <!-- Radio input to filter search results -->
         <form>
-          <label>
-            <input type="radio" name="searchParam" value="words">
-            <span>Word</span>
-          </label>
-          <label>
-            <input type="radio" name="searchParam" value="sentences">
-            <span>Phrase</span>
-          </label>
-          <label>
-            <input type="radio" name="searchParam" value="date">
-            <span>Date</span>
-          </label>
-          <label>
-            <input type="radio" name="searchParam" value="tags">
-            <span>Tags</span>
-          </label>
+          <input type="radio" id="word" name="searchParam" value="words">
+          <label for="word"><span>Words</span></label>
+
+          <input type="radio" id="phrase" name="searchParam" value="sentences">
+          <label for="phrase"><span>Phrase</span></label>
+        
+          <input type="radio" id="date" name="searchParam" value="date">
+          <label for="date"><span>Date</span></label>
+        
+          <input type="radio" id="tags" name="searchParam" value="tags">
+          <label for="tags"><span>Tags</span></label>
         </form>
       
         <!-- Input tag for search box -->
         <input id="searchBox" type="text" placeholder="Search for your favorite notes.." />
-      
+        
+        <!-- !Not avalible  yet! -->
+        <div style="display: none;" class="user-search_container">
+        </div>
+
       </div>
-    
+
       <!-- Box to show the search results -->
+
         <div id="showSearchResults"></div>
       </div>
       <!-- Box to show active tags -->
