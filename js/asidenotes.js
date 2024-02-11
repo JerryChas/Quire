@@ -1,21 +1,23 @@
 //  let notes = [
-//     {
-//         title: "titel1",
-//         id: 1,
-//         dateCreated: "1995-12-25",
-//         dateLastEdited: "1995-12-25",
-//         bodyText: "lorem ipsum jadi jadi 1"
-//     },
-//     {
-//         title: "titel2",
-//         id: 2,
-//         dateCreated: "1995-12-26",
-//         dateLastEdited: "1995-12-26",
-//         bodyText: "lorem ipsum jadi jadi 2"
-//     },
-
-const notesListUl = document.getElementById('notes-list_ul');
-
+  //     {
+    //         title: "titel1",
+    //         id: 1,
+    //         dateCreated: "1995-12-25",
+    //         dateLastEdited: "1995-12-25",
+    //         bodyText: "lorem ipsum jadi jadi 1"
+    //     },
+    //     {
+      //         title: "titel2",
+      //         id: 2,
+      //         dateCreated: "1995-12-26",
+      //         dateLastEdited: "1995-12-26",
+      //         bodyText: "lorem ipsum jadi jadi 2"
+      //     },
+      
+      
+      const displayContainer = document.getElementById('display_container');
+      const notesListUl = document.getElementById('notes-list_ul');
+      
 //Funktion för att rendera ut listan med notes i aside
  function renderNotesAsideList() {
         notesListUl.innerHTML = "";
@@ -27,22 +29,8 @@ const notesListUl = document.getElementById('notes-list_ul');
      notesList.textContent = notesList.textContent.substring(0, 17) + '...';
    }
 
-   // Button to delete a specific note
-   const delBtn = document.createElement('span');
-   delBtn.textContent = 'X';
-   delBtn.classList.add('delBtn');
-   notesList.appendChild(delBtn);
-   
-
-   // When click on delete button
-   delBtn.addEventListener('click', (e) => {
-     e.stopPropagation(); // Stop the event from propagating up the DOM tree
-     console.log(`Delete ${note.title}`);
-     // Remove the note from array and local storage
-     removeNoteFromArrayAndLocalStorage(note);
-     renderNotesAsideList();
-   });
-
+    //* Apply "DELETE BUTTONS"
+    applyDeleteBtns(notesList, note);
 
        //La till klassnamn för att redigera stil i css
         notesList.className = 'aside-note_li';
@@ -71,9 +59,38 @@ notesList.addEventListener('click', (event) => {
     });
 
 }
+
+//* Function to remove a note from array and update local storage
+function removeNoteFromArrayAndLocalStorage(specificNote) {
+  //  Find the index of that specific object in the array
+  const index = notes.indexOf(specificNote);
+  if (index !== -1) { // Check if the object exists in the array
+    notes.splice(index, 1); //  Remove it from the array
+    saveNotesToLocalStorage(); // Save the updated array back into local storage
+    console.log(`Deleted: `, specificNote); //! DEBUGGING
+  }
+}
+
+//* Create deletebtns w/ function, and  append them to each li element
+function applyDeleteBtns(applyTo, noteObj) {
+  // Button to delete a specific note
+  const delBtn = document.createElement('span');
+  delBtn.textContent = 'X';
+  delBtn.classList.add('delBtn');
+  applyTo.appendChild(delBtn);
+
+  // When click on delete button
+  delBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Stop the event from propagating up the DOM tree
+    removeNoteFromArrayAndLocalStorage(noteObj); // delete note
+    renderNotesAsideList(); //  Update the list with new data
+  });
+}
+
+
+
+//*-------------------------------------------------------*//
 renderNotesAsideList();
-//variabel för att hämta containern där notes ska finnas i main
-const displayContainer = document.getElementById('display_container');
 
 
 
