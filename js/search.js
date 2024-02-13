@@ -152,6 +152,7 @@ function displayUserSearch(userSearch) {
 // Perform search on input 
 searchInput.addEventListener('input', () => {
   performSearch();
+  measureFilterSearch(); // Gtag (jerry)
 } );
 
 
@@ -170,3 +171,24 @@ radioBtns.forEach((btn) => {
 
 
 })
+
+
+//*---------------------------JERRYS CUSTOM EVENT _ GOOGLE ANALYTICS ---------------------------*//
+ // This function measures filtered searches in Google Analytics.
+// It sends an event to Google Analytics each time a search is performed with a specific filter.
+// The event is tracked under the category "Search" with the label "Search with:" followed by the specific filter being used.
+// This allows for tracking the number of searches made with different filters in Google Analytics.
+
+function measureFilterSearch() {
+  //Get filter 
+  let checkedFilter = handleCheckedFilter();
+  console.log('Filtered by: ', checkedFilter); //! DEBUGGING
+
+  //Create G-tag
+  gtag('event', 'filtered_search', {
+  'event_category': 'Search',
+  'event_label': `Search with:, ${checkedFilter}`
+  });
+}
+
+//*------------------------------------ END OF CUSTOM EVENT ------------------------------------*//
