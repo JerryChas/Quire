@@ -282,3 +282,24 @@ function getWelcomeAgain() {
 
   window.location.href = "./index.html";
 }
+
+
+//*---------------------------JERRYS CUSTOM EVENT _ GOOGLE ANALYTICS ---------------------------*//
+// custom event for google analytics that trigger when user change between pages in the app
+// ..and also count which page is visiting most
+
+const pages = document.querySelectorAll("nav a"); // Get all <a> elements in nav section
+
+// click event for each page-link
+pages.forEach((page) => {
+  
+  page.addEventListener("click", () => {
+    console.log('Page clicked: ', page.getAttribute('href')); //! DEBUGGING
+
+    // G-TAG
+    gtag('event', 'Page_Viewed', {
+      'event_label': page.getAttribute('href'), // The label showing what part of the app the user viewed.
+    })
+  })
+})
+//*------------------------------------ END OF CUSTOM EVENT ------------------------------------*//
