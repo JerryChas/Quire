@@ -182,12 +182,10 @@ radioBtns.forEach((btn) => {
 function measureFilterSearch() {
   //Get filter 
   let checkedFilter = handleCheckedFilter();
-  console.log('Filtered by: ', checkedFilter); //! DEBUGGING
 
   //Create G-tag
   gtag('event', 'filtered_search', {
-  'event_category': 'Search',
-  'event_label': `Search with:, ${checkedFilter}`
+    'Filter': checkedFilter
   });
 }
 
