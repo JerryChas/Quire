@@ -83,34 +83,9 @@ searchResultContainer.addEventListener('click', (event) => {
       return (note.id == noteIdeToDisplay);
     });
 
-    //adding html for modal:
-    searchResultContainer.innerHTML += `
-    <div id="preview-background-plate">
-        <div id="preview-container">
-        <div id="modal-exit-button">X</div>
-            <h2>${noteToPreview.title}</h2>
-            <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
-            <p id="preview-body-text">${noteToPreview.bodyText}</p>
-            <button class="button">Edit</button>
-        </div>
-    </div>`
+    //calling th preview Modal:
+    previewModal(noteToPreview)
 
-    //store the background plate ande exit-button in a variable.
-    const backgroundPlate = document.getElementById("preview-background-plate");
-    const modalExitBtn = document.getElementById("modal-exit-button");
-
-    //if background or cross is clicked the modal closes:
-    backgroundPlate.addEventListener("click", (event) => {
-      if (!event.target.closest("#preview-container")) {
-        exitModal();
-      }
-
-    });
-    modalExitBtn.addEventListener("click", exitModal);
-
-    function exitModal() {
-      backgroundPlate.remove();
-    };
 
     console.log(event.target.dataset)
 
