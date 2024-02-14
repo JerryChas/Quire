@@ -16,12 +16,20 @@ function renderFavorites() {
 
     //For each favorite note, it creates a div with title and content
     favorites.forEach((favNote) => {
-      const favoriteNote = document.createElement("div");
-      favoriteNote.classList.add("favorite-note");
+      const favoriteNote = document.createElement('div');
+      favoriteNote.classList.add('favorite-note');
+
+      // Creating a snippet of the body text to display in the card:
+      let bodyTextSnippet = favNote.bodyText.substring(0, 100);
+    
+      //Adding dots in the end if necessary
+      if (favNote.bodyText.length > 100) {
+        bodyTextSnippet += ' ...';
+      }
 
       favoriteNote.innerHTML = `
                 <h5 id="favtitle">${favNote.title}</h5>
-                <p id="favcontent">${favNote.bodyText}</p>
+                <p id="favcontent">${bodyTextSnippet}</p>
                 `;
 
       favoritesContainer.appendChild(favoriteNote);
