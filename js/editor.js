@@ -234,25 +234,7 @@ function renderNotesMain(noteObject) {
     return markdownText;
   }
 
-  document.getElementById("editorbutton").addEventListener("click", function() {
-    console.log("Knappen klickades");
-  });
-  
-  
-  function renderMarkdown() {
-    const contentDiv = document.getElementById('editorContent');
-    const markdownDiv = document.getElementById('markdownContent');
-    let content = contentDiv.innerHTML;
-    
-  
-    if (content.includes('<') && content.includes('>')) {
-      let markdown = convertToMarkdown(content);
-      markdownDiv.textContent = markdown;
-    } else {
-      let html = convertFromMarkdown(contentDiv.textContent);
-      markdownDiv.innerHTML = html;
-    }
-  }
+
 
 
 
