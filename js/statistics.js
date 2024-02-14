@@ -162,6 +162,18 @@ Embrace your words, for in them, you find the power to shape worlds and inspire 
 Keep writing, keep expressing, and let your most used word be the anthem of your creativity. 🚀📖✨🌈 <b>#SpeakYourTruth #ExpressYourself</b></p>
 `;
 
+ function
+
+
+//IBRAS kod som lyssnar eften knappen add new button!
+document.getElementById('add-new_btn').addEventListener('click', function() {
+  gtag('event', 'click', {
+      'event_category': 'Button',
+      'event_label': 'Add New',
+      'value': 1
+  });
+});
+
 //______________________________________________________________________
 
 function calculateWords(){
@@ -192,3 +204,4 @@ statisticsCard5.innerHTML = `
 <p>🚀 Wow, you've crafted a digital tapestry of thoughts and ideas, each word a brushstroke painting the vibrant landscape of your journey. 🌈✨ Your dedication to expressing yourself through words shines in the average word count of your notes— a testament to the depth and richness of your reflections. 🌟 Embrace the power of your narrative, and let each word be a stepping stone towards self-discovery and creativity. 🎉 Keep writing, keep expressing, and watch as your digital notebook becomes a masterpiece of your unique voice! 🖋️💫 Remember, every word carries a universe within it, and your notes are a constellation of your extraordinary story. 🌌✨ <b>#WordArtistry #ExpressYourJourney</b></p>
 `;
 
+ main

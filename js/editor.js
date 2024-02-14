@@ -234,6 +234,15 @@ function renderNotesMain(noteObject) {
     return markdownText;
   }
 
+
+
+
+
+
+
+
+
+
   // ===================================
   // ======= VIKTORS CUSTOM GTAG =======
   noteDocument.addEventListener("keydown", (event) => {
