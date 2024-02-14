@@ -28,7 +28,7 @@ main {
 
   /* DELETE NOTE BUTTON */
   .delBtn {
-    opacity: 0;
+    opacity: .2;
     cursor:pointer;
     position: absolute;
     right: -.6rem;
