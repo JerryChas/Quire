@@ -30,6 +30,11 @@ function applyTheme(theme) {
 
     // Save the selected theme to localStorage
     saveThemePreference(theme);
+    // Emil's G-Tag - With this custom event we can track how often the user changes the main theme on the app.
+    gtag('event', 'button_click', {
+        'event_category': 'theme_changes',
+        'event_label': 'user_change'
+    });
 }
 
 function saveThemePreference(theme) {

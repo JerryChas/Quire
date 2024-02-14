@@ -239,36 +239,7 @@ function getInputs() {
   notes.push(note);
 }
 
-//! -- DETTA ÄR EN TEMPORÄR FUNKTION SOM SKA BYTAS UT. NÄR MAN KLICKAR PÅ DELETEKNAPPEN ANROPAS DENNA FUNKTION SOM JUST NU BARA VISAR EN DIALOGRUTA FÖR ATT MARKERA ATT HÄR SKA HÄNDA GREJJOR:
 
-//temporary function for the delete-button
-function deleteCurrentImage(currentImg) {
-  /* Denhär funktionen får via currentImg veta 2 saker:
-
-   -- currentImg.noteId är det id som noten har i vår stora databas.
-   -- currentImg.imgUrl är den specifika urlen som bilden kommer från.
-   
-   . med detta kan vi på gå in i databasen och hämta rätt note och sedan radera den bild som matchar currentImg.imgUrl.
-
-   . sedan måste vi kalla på en funktion som renderar ut alla bilder igen i noten för att få visuell uppdatering i domen. med detta komando : renderImageCarousel(currentImg.noteId);
-   */
-
-  /// MEEEEEEn undertiden får funktionen göra detta:
-  let wantTodelete =
-    confirm(`This functionality is not working yet. But we can pretend...
-Do you really want to delete this image? 
-        
-note ID: 
-    ${currentImg.noteId}
-
-imgae URL: 
-    ${currentImg.imgUrl}`);
-
-  if (wantTodelete) {
-    alert(`Okay.... delete delete... ⚙️ 🔧 🙂`);
-  }
-  renderImageCarousel(currentImg.noteId);
-}
 //* ---------------------------------------------------------------------*//
 
 // When click you get the form (PEN)
@@ -310,4 +281,10 @@ function getWelcomeAgain() {
   localStorage.removeItem("visited");
 
   window.location.href = "./index.html";
+
+  //Moas gtagg
+  //För att kolla hur lättförstålig vår applikation är/hur många som behöver instruktionerna igen
+  gtag('event', 'information-button_click', {
+    'label': 'get-information-button'
+  })
 }

@@ -148,7 +148,7 @@ const wordNote = JSON.parse(localStorage.getItem("notes")) || [];
 const mostUsedWord = findMostUsedWord(wordNote);
 
 statisticsCard4.innerHTML = `
-<h2>Your most used word is ${mostUsedWord}</h2><br>
+<h2>Your most used word is: <i>${mostUsedWord}</i> !</h2><br>
 <p>In the realm of your digital notebook, one word stands tall, echoing the essence of your thoughts, dreams, and reflections. That word, the most frequently used, weaves a tapestry of your journey—one keystroke at a time.
 
 Embrace it, celebrate it, for within its syllables lies the heartbeat of your creativity. It's more than letters on a screen; it's a testament to the depth of your expressions. This word, a silent companion in your musings, has become a beacon illuminating the path of your storytelling.
@@ -162,6 +162,7 @@ Embrace your words, for in them, you find the power to shape worlds and inspire 
 Keep writing, keep expressing, and let your most used word be the anthem of your creativity. 🚀📖✨🌈 <b>#SpeakYourTruth #ExpressYourself</b></p>
 `;
 
+ function
 
 
 //IBRAS kod som lyssnar eften knappen add new button!
@@ -172,3 +173,35 @@ document.getElementById('add-new_btn').addEventListener('click', function() {
       'value': 1
   });
 });
+
+//______________________________________________________________________
+
+function calculateWords(){
+  //Gets notes from LS
+  const calcNote = JSON.parse(localStorage.getItem("notes")) || [];
+
+  //Calculates the total amount of words
+  const totalWords = calcNote.reduce((total, note) => {
+    const words = note.bodyText.split(/\s+/);
+    return total + words.length;
+  }, 0);
+
+  //Calculates the genomsnittliga amount of words
+  const averageWords = totalWords / calcNote.length || 0;
+
+  return averageWords;
+};
+
+const averageWords = calculateWords();
+
+console.log(Math.ceil(averageWords));
+
+//Shows it on the page
+statisticsCard5.innerHTML = `
+<h2>The average amount of words in your notes are ${Math.ceil(
+  averageWords
+)}!</h2><br>
+<p>🚀 Wow, you've crafted a digital tapestry of thoughts and ideas, each word a brushstroke painting the vibrant landscape of your journey. 🌈✨ Your dedication to expressing yourself through words shines in the average word count of your notes— a testament to the depth and richness of your reflections. 🌟 Embrace the power of your narrative, and let each word be a stepping stone towards self-discovery and creativity. 🎉 Keep writing, keep expressing, and watch as your digital notebook becomes a masterpiece of your unique voice! 🖋️💫 Remember, every word carries a universe within it, and your notes are a constellation of your extraordinary story. 🌌✨ <b>#WordArtistry #ExpressYourJourney</b></p>
+`;
+
+ main

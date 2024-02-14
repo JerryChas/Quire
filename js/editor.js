@@ -36,6 +36,7 @@ function renderNotesMain(noteObject) {
         </select>
         <select name="font" id="font-dropdown" class="editorbutton">
         <option value="" selected disabled hidden>Change font</option>
+        <option value="" id="font0">Default font</option>
         <option value="Courier Prime" id="font1">Courier Prime</option>
         <option value="Dancing Script" id="font2">Dancing Script</option>
         <option value="Nunito" id="font3">Nunito</option>
@@ -53,7 +54,9 @@ function renderNotesMain(noteObject) {
 
             <div id="note-document" class="note-document">
 
-                <h1 id="note-headding_container" contenteditable="true">${noteObject.title}</h1>
+                <h1 id="note-headding_container" contenteditable="true">${
+                  noteObject.title
+                }</h1>
 
                 <div id="favourite-icon-container">
                 <svg id="favourite-icon" xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +67,11 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(' ')[0]} | Last edited ${noteObject.dateLastEdited.split(' ')[0]
-    }</p>
+                    <p id="date-stamp_div">Created ${
+                      noteObject.dateCreated.split(" ")[0]
+                    } | Last edited ${
+    noteObject.dateLastEdited.split(" ")[0]
+  }</p>
                     <div>
                         <span id="tags_label">Tags: </span>
                         <button class="button" id="add-tag_btn">+</button>
@@ -109,9 +115,23 @@ function renderNotesMain(noteObject) {
     let chosenFont = getFont();
     let noteText = document.getElementById("note-body-text");
 
+    let fontSize = '16px';
+
+    //Changes the fontsize based on type of font
+    if(chosenFont === 'Wavefont'){
+      fontSize = '50px';
+    }
+
+    if(chosenFont === 'Dancing Script'){
+      fontSize = '22px';
+    }
+
+    console.log(fontSize);
+
     noteText.style.fontFamily = chosenFont;
 
     noteObject.font = chosenFont;
+    noteText.style.fontSize = fontSize;
 
     saveNote(noteObject);
   }
