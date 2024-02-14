@@ -38,6 +38,7 @@ aside {
   color: black;
   position: sticky;
   top: 0px;
+  flex-shrink: 0;
 }
 
 aside::-webkit-scrollbar {
@@ -51,6 +52,11 @@ aside::-webkit-scrollbar {
   list-style: none;
   margin: 0.7em;
   white-space: nowrap;
+}
+
+/* Styling for active note in aside */
+.activeNote {
+  color: white;
 }
 
 /* Base style for all headings */

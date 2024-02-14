@@ -3,7 +3,7 @@
 // Get input element from the DOM
 const searchInput = document.getElementById('searchBox');
 const searchBtn = document.getElementById('search_btn');
-const radioButtons = document.querySelectorAll('input[name="searchParam"]');
+const radioBtns = document.querySelectorAll('input[name="searchParam"]');
 
 //*---------------------------FUNCTIONS---------------------------*//
 
@@ -47,18 +47,22 @@ function performSearch() {
 
 // get filter radio buttons
 function handleCheckedFilter() {
-  // let checkedValue = ''; 
   const checkedRadioButton = document.querySelector('input[name="searchParam"]:checked');
-  
-  checkedValue = checkedRadioButton.value;
 
-  return checkedValue;
+  if (!checkedRadioButton) {
+    return 'noFilter';
+  }
+
+  return checkedRadioButton.value;
 }
 
 //  Clean search input value based on selected filter
 function cleanSearchInput(inputvalue, checkedFilter) {
+  
   switch (checkedFilter) {
-    
+    case 'noFilter':
+      return inputvalue.trim();
+
     case 'date':
       // Keep only numbers and hyphens for date search
       return inputvalue.replace(/[^0-9-]/g, ' ').trim();
@@ -70,37 +74,59 @@ function cleanSearchInput(inputvalue, checkedFilter) {
 
 //  Peform search based on selected filter
 function performFilteredSearch(checkedFilter, cleanedSearchInput) {
+  
   let search;
+  search = cleanedSearchInput.toLowerCase().split(' ');
   switch (checkedFilter) {
+    case 'noFilter':
+      //   Perform search without filter
+      console.log(search);
+      return notes.filter((note) => {
+        
+        return search.some((term) => {
+          // Search in title and bodytext
+          const titleMatch = note.title.toLowerCase().includes(term);
+          const bodyTextMatch = note.bodyText.toLowerCase().includes(term);
+
+          // Search in date
+          const dateMatch = note.dateCreated.includes(term) || note.dateLastEdited.includes(term);
+
+          // Search in tags
+          const tagMatch = note.tags && note.tags.some((tag) => tag && tag.toLowerCase().includes(term));
+
+          // Returnera true om någon av ovanstående matcher
+          return titleMatch || bodyTextMatch || dateMatch || tagMatch;
+        });
+      });
+
     case 'sentences':
       // Perform search for whole sentences
       return notes.filter(
-        (p) =>
-          p.title.toLowerCase().includes(cleanedSearchInput) || p.bodyText.toLowerCase().includes(cleanedSearchInput)
+        (note) =>
+          note.title.toLowerCase().includes(cleanedSearchInput) ||
+          note.bodyText.toLowerCase().includes(cleanedSearchInput)
       );
 
     case 'words':
       //   Perform search of individual words
-      search = cleanedSearchInput.split(' ');
+      
       console.log(search);
-      return notes.filter((p) =>
-        search.some((word) => p.title.toLowerCase().includes(word) || p.bodyText.toLowerCase().includes(word))
+      return notes.filter((note) =>
+        search.every((word) => note.title.toLowerCase().includes(word) ||
+        note.bodyText.toLowerCase().includes(word))
       );
 
     case 'date':
       // Perform search for date
-      return notes.filter((p) => p.dateCreated.includes(cleanedSearchInput));
+      return notes.filter((note) => note.dateCreated.includes(cleanedSearchInput));
 
     case 'tags':
       //  Perform search of tags
-      search = cleanedSearchInput.split(' ');
+      
       console.log(search);
       return notes.filter(
         (note) => note.tags && search.some((tag) => note.tags.some((t) => t.toLowerCase().includes(tag.toLowerCase())))
       );
-
-    default:
-      return;
   }
 }
 
@@ -126,5 +152,41 @@ function displayUserSearch(userSearch) {
 // Perform search on input 
 searchInput.addEventListener('input', () => {
   performSearch();
+  measureFilterSearch(); // Gtag (jerry)
 } );
 
+
+let lastCheckedBtn = null
+radioBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn === lastCheckedBtn && btn.checked) {
+      btn.checked = false
+      lastCheckedBtn = null
+    } else {
+      lastCheckedBtn = btn;
+    }
+    
+    performSearch();
+  })
+
+
+})
+
+
+//*---------------------------JERRYS CUSTOM EVENT _ GOOGLE ANALYTICS ---------------------------*//
+ // This function measures filtered searches in Google Analytics.
+// It sends an event to Google Analytics each time a search is performed with a specific filter.
+// The event is tracked under the category "Search" with the label "Search with:" followed by the specific filter being used.
+// This allows for tracking the number of searches made with different filters in Google Analytics.
+
+function measureFilterSearch() {
+  //Get filter 
+  let checkedFilter = handleCheckedFilter();
+
+  //Create G-tag
+  gtag('event', 'filtered_search', {
+    'Filter': checkedFilter
+  });
+}
+
+//*------------------------------------ END OF CUSTOM EVENT ------------------------------------*//

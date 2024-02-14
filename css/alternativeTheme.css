@@ -60,3 +60,8 @@ input:hover {
   #add-new_btn:hover {
     background-color: white; 
   }
+
+  /* Styling for active note in aside */
+  .activeNote {
+    color: black;
+  }
