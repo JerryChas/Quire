@@ -18,10 +18,12 @@ function renderFavorites() {
     favorites.forEach((favNote) => {
       const favoriteNote = document.createElement('div');
       favoriteNote.classList.add('favorite-note');
+      //Adding dataset to identidy the note:
+      favoriteNote.setAttribute('data-note-id', favNote.id);
 
       // Creating a snippet of the body text to display in the card:
       let bodyTextSnippet = favNote.bodyText.substring(0, 100);
-    
+
       //Adding dots in the end if necessary
       if (favNote.bodyText.length > 100) {
         bodyTextSnippet += ' ...';
