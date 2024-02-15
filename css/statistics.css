@@ -24,6 +24,17 @@
   padding: 1rem;
 }
 
+#adminpanel_card {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem
+}
+
+#adminpanel_card img {
+  height: 4rem;
+}
+
 @media (max-width: 800px) {
   #statistics-card_container {
     column-count: unset;

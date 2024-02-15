@@ -278,4 +278,10 @@ function getWelcomeAgain() {
   localStorage.removeItem("visited");
 
   window.location.href = "./index.html";
+
+  //Moas gtagg
+  //För att kolla hur lättförstålig vår applikation är/hur många som behöver instruktionerna igen
+  gtag('event', 'information-button_click', {
+    'label': 'get-information-button'
+  })
 }

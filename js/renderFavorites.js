@@ -15,11 +15,18 @@ function renderFavorites() {
 
     //For each favorite note, it creates a div with title and content
     favorites.forEach((favNote) => {
-      const favoriteNote = document.createElement("div");
-      favoriteNote.classList.add("favorite-note");
+      const favoriteNote = document.createElement('div');
+      favoriteNote.classList.add('favorite-note');
+
+      // Creating a snippet of the body text to display in the card:
+      let bodyTextSnippet = favNote.bodyText.substring(0, 100);
+    
+      //Adding dots in the end if necessary
+      if (favNote.bodyText.length > 100) {
+        bodyTextSnippet += ' ...';
+      }
 
       favoriteNote.innerHTML = `
-                <h5 id="favtitle">${favNote.title}</h5>
                 <div id="favourite-icon-div">
                 <svg class="favorite-icon2" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
