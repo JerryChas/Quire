@@ -16,7 +16,7 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
     dateLastEdited: "1995-12-25",
     isFavourite: true,
     images: [],
-    tags: ['Banan'],
+    tags: ["Banan"],
     bodyText:
       "Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.",
     tags: [
@@ -52,7 +52,6 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
       "gemensamtagg1",
       "gemensamtagg2",
     ],
-
   },
   {
     title: "only one 🐈‍⬛ 📷",
@@ -239,14 +238,12 @@ function getInputs() {
   notes.push(note);
 }
 
-
 //* ---------------------------------------------------------------------*//
 
 // When click you get the form (PEN)
 addNewBtn.addEventListener("click", () => {
   // Paulinas custom event
-  gtag("event", "click", {
-    event_category: "pen_click",
+  gtag("event", "pen_click", {
     event_label: "create_note",
   });
 
