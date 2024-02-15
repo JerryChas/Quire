@@ -16,6 +16,10 @@ if (quireTheme) {
     document.getElementById('bubblegumTheme').addEventListener('click', () => {
         applyTheme('css/bubblegumtheme.css')
     })
+
+    document.getElementById('halloweenTheme').addEventListener('click', () => {
+        applyTheme('css/halloweentheme.css')
+    })
 } 
 
 function applyTheme(theme) {
