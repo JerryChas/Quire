@@ -36,39 +36,40 @@ function renderFavorites() {
 
       favoritesContainer.appendChild(favoriteNote);
 
-      //------------------------------------
-      // Calling modal based of clicked card.:
-      // Calling modal based of clicked card.:
-      // Calling modal based of clicked card.:
-      // Calling modal based of clicked card.:
-      // Calling modal based of clicked card.:
-      favoritesContainer.addEventListener('click', (event) => {
-        console.log("vi är inne i klick")
-
-        //storing clicked card:
-        const clickedCard = event.target.closest('.favorite-note');
-
-        //if the clicked element is a valid card we will show the modal....
-        //(else, the value of clickedCard is false).
-        if (clickedCard) {
-
-          //storing dataset.noteID.
-          const noteIdeToDisplay = clickedCard.dataset.noteId;
-          //console.log(noteIdeToDisplay);
-          console.log(clickedCard.dataset);
-
-          // finding the note to preview in modal:
-          const noteToPreview = notes.find((note) => {
-            return (note.id == noteIdeToDisplay);
-          });
-
-          //calling th preview Modal:
-          previewModal(noteToPreview)
-
-        }
-      });
-      //--------------end of modal calling--------------
     });
+
+    //------------------------------------
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    favoritesContainer.addEventListener('click', (event) => {
+      console.log("vi är inne i klick")
+
+      //storing clicked card:
+      const clickedCard = event.target.closest('.favorite-note');
+
+      //if the clicked element is a valid card we will show the modal....
+      //(else, the value of clickedCard is false).
+      if (clickedCard) {
+
+        //storing dataset.noteID.
+        const noteIdeToDisplay = clickedCard.dataset.noteId;
+        //console.log(noteIdeToDisplay);
+        console.log(clickedCard.dataset);
+
+        // finding the note to preview in modal:
+        const noteToPreview = notes.find((note) => {
+          return (note.id == noteIdeToDisplay);
+        });
+
+        //calling th preview Modal:
+        previewModal(noteToPreview)
+
+      }
+    });
+    //--------------end of modal calling--------------
 
     // If you don't have a favorite, this renders
   } else {
