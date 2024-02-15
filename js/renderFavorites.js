@@ -49,8 +49,10 @@ function renderFavorites() {
       }
 
       favoritesContainer.appendChild(favoriteNote);
-      
-      starBtn.addEventListener("click", () => {
+
+      starBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
         let changedNote = notes.find((note) => {
           return note.id == favNote.id;
         });
@@ -100,7 +102,7 @@ function renderFavorites() {
         previewModal(noteToPreview)
 
       }
-      
+
     });
     //--------------end of modal calling--------------
 
