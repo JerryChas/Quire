@@ -7,10 +7,14 @@
 }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+
   min-height: 100vh;
   display: grid;
   grid-template-columns: 5em auto;
+}
+
+html {
+  font-family: "Noto Sans", sans-serif;
 }
 
 nav {

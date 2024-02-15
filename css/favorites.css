@@ -6,38 +6,68 @@
   padding: 0;
 }
 
-body{
-    font-family: 'Noto Sans', sans-serif;
+body {
+  font-family: "Noto Sans", sans-serif;
 }
 
-.your_favorites{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    height: 100%;
+.your_favorites {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
 }
 
-.favorite-note{
-    border: 2px solid;
-    height: 40%;
-    width: 90%;
-    padding: 1rem;
-    border-radius: 10px;
+.favorite-note {
+  border: 2px solid;
+  height: 40%;
+  width: 90%;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
-#favorites{
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 1.5rem;
+#favorites {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1.5rem;
 }
 
-#favtitle{
-    font-size: 1.3rem;
+#favtitle {
+  font-size: 1.3rem;
 }
 
 .no_favorites {
-    text-align: center;
+  text-align: center;
+}
+
+.favorite-note {
+  display: flex;
+  flex-direction: column;
+}
+
+#favourite-icon-div {
+  width: 2.5rem;
+  align-self: flex-end;
+  margin-right: 2rem;
+}
+
+#favourite-icon-div svg {
+  height: 2rem;
+  overflow: visible;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#favourite-icon-div svg path {
+  fill: none;
+  stroke: rgba(125, 125, 125, 0.5);
+  stroke-width: 30px;
+}
+
+#favourite-icon-div svg path:hover {
+  fill: rgba(125, 125, 125, 0.1);
+  stroke: rgba(125, 125, 125);
+  cursor: pointer;
 }
