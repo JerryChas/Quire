@@ -1,0 +1,22 @@
+/* =============================== */
+/* ***** SEARCH RESULT CARDS ***** */
+
+.result-card {
+
+    background-color: #eeeeee;
+    overflow: hidden;
+    border-radius: 3px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0.5rem;
+}
+
+.result-card:hover,
+#modal-exit-button:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+
+.date-information {
+    font-size: 0.8em;
+    color: #555555;
+}

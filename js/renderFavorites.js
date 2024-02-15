@@ -17,10 +17,12 @@ function renderFavorites() {
     favorites.forEach((favNote) => {
       const favoriteNote = document.createElement('div');
       favoriteNote.classList.add('favorite-note');
+      //Adding dataset to identidy the note:
+      favoriteNote.setAttribute('data-note-id', favNote.id);
 
       // Creating a snippet of the body text to display in the card:
       let bodyTextSnippet = favNote.bodyText.substring(0, 100);
-    
+
       //Adding dots in the end if necessary
       if (favNote.bodyText.length > 100) {
         bodyTextSnippet += ' ...';
@@ -47,9 +49,7 @@ function renderFavorites() {
       }
 
       favoritesContainer.appendChild(favoriteNote);
-
-
-
+      
       starBtn.addEventListener("click", () => {
         let changedNote = notes.find((note) => {
           return note.id == favNote.id;
@@ -67,7 +67,42 @@ function renderFavorites() {
           starBtn.style.fill = "#FFFFFF";
         }
       });
+
     });
+
+    //------------------------------------
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    // Calling modal based of clicked card.:
+    favoritesContainer.addEventListener('click', (event) => {
+      console.log("vi är inne i klick")
+
+      //storing clicked card:
+      const clickedCard = event.target.closest('.favorite-note');
+
+      //if the clicked element is a valid card we will show the modal....
+      //(else, the value of clickedCard is false).
+      if (clickedCard) {
+
+        //storing dataset.noteID.
+        const noteIdeToDisplay = clickedCard.dataset.noteId;
+        //console.log(noteIdeToDisplay);
+        console.log(clickedCard.dataset);
+
+        // finding the note to preview in modal:
+        const noteToPreview = notes.find((note) => {
+          return (note.id == noteIdeToDisplay);
+        });
+
+        //calling th preview Modal:
+        previewModal(noteToPreview)
+
+      }
+      
+    });
+    //--------------end of modal calling--------------
 
     // If you don't have a favorite, this renders
   } else {

@@ -51,71 +51,57 @@ function renderSearchResults(notesArrayToDisplay) {
   if (searchResultContainer.innerHTML == "") {
     searchResultContainer.innerHTML = displayCatHTML;
   }
+  else { // ======================================================
+    // ======================================================
+    // * LOGIC FOR MODAL DISPLAY:
+
+    // Render preview-modal based of clicked result card.:
+    searchResultContainer.addEventListener('click', (event) => {
+      console.log("vi är inne i klick")
+      /*  storing the value of dataset.noteId that is associated 
+        with the closest parent of class .result-card (i therer is any) */
+
+      //storing clicked card:
+      const clickedCard = event.target.closest('.result-card');
+
+      //if the clicked element is a result-card we will show the modal....
+      //(else, the value of clickedCard is false).
+      if (clickedCard) {
+
+        //storing dataset.noteID.
+        const noteIdeToDisplay = clickedCard.dataset.noteId;
+        //console.log(noteIdeToDisplay);
+
+        console.log(clickedCard.dataset);
+
+
+        // finding the note to preview in modal:
+        const noteToPreview = searchResultsArray.find((note) => {
+          return (note.id == noteIdeToDisplay);
+        });
+
+        //calling th preview Modal:
+        previewModal(noteToPreview)
+
+
+        console.log(event.target.dataset)
+
+      }
+    });
+  }
+
+
+
+
+
 }
 
 
-// ======================================================
-// ======================================================
-// * LOGIC FOR MODAL DISPLAY:
-
-// Render preview-modal based of clicked result card.:
-searchResultContainer.addEventListener('click', (event) => {
-
-  /*  storing the value of dataset.noteId that is associated 
-    with the closest parent of class .result-card (i therer is any) */
-
-  //storing clicked card:
-  const clickedCard = event.target.closest('.result-card');
-
-  //if the clicked element is a result-card we will show the modal....
-  //(else, the value of clickedCard is false).
-  if (clickedCard) {
-
-    //storing dataset.noteID.
-    const noteIdeToDisplay = clickedCard.dataset.noteId;
-    //console.log(noteIdeToDisplay);
-
-    console.log(clickedCard.dataset);
 
 
-    // finding the note to preview in modal:
-    const noteToPreview = searchResultsArray.find((note) => {
-      return (note.id == noteIdeToDisplay);
-    });
 
-    //adding html for modal:
-    searchResultContainer.innerHTML += `
-    <div id="preview-background-plate">
-        <div id="preview-container">
-        <div id="modal-exit-button">X</div>
-            <h2>${noteToPreview.title}</h2>
-            <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
-            <p id="preview-body-text">${noteToPreview.bodyText}</p>
-            <button class="button">Edit</button>
-        </div>
-    </div>`
 
-    //store the background plate ande exit-button in a variable.
-    const backgroundPlate = document.getElementById("preview-background-plate");
-    const modalExitBtn = document.getElementById("modal-exit-button");
 
-    //if background or cross is clicked the modal closes:
-    backgroundPlate.addEventListener("click", (event) => {
-      if (!event.target.closest("#preview-container")) {
-        exitModal();
-      }
-
-    });
-    modalExitBtn.addEventListener("click", exitModal);
-
-    function exitModal() {
-      backgroundPlate.remove();
-    };
-
-    console.log(event.target.dataset)
-
-  }
-});
 
 
 
