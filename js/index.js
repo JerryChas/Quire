@@ -288,3 +288,31 @@ function getWelcomeAgain() {
     'label': 'get-information-button'
   })
 }
+
+// Get note element from other pages
+function getSelectedNoteElementFromOtherPage(noteToGet) {
+  const noteELements = document.querySelectorAll(".aside-note_li");
+  
+  noteELements.forEach((noteElement) => {
+    
+    // if element  has a data-id attribute that matches the argument we are looking for...
+    if (parseInt(noteElement.dataset.noteid) == noteToGet.id) {
+      
+      noteElement.classList.add('activeNote'); //  ...then add an active class to it!
+      
+    }
+  })
+  
+}
+
+//  rendering the main part of the notes formularium with all the information about one specific note
+window.onload = () => {
+  const selectedNote = JSON.parse(localStorage.getItem('selectedNote')); //  getting the the note that is supposed to be shown
+  if (selectedNote) {
+  
+    renderNotesMain(selectedNote) // rendering the selected note in the main area
+    getSelectedNoteElementFromOtherPage(selectedNote) // Get aside note and apply activeNote-class
+    
+    localStorage.removeItem('selectedNote'); // clear key from local storage
+  }
+};
