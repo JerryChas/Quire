@@ -12,6 +12,10 @@ if (quireTheme) {
     document.getElementById("melonTheme").addEventListener("click", function () {
         applyTheme('css/alternativeTheme.css');
     });
+
+    document.getElementById('bubblegumTheme').addEventListener('click', () => {
+        applyTheme('css/bubblegumtheme.css')
+    })
 } 
 
 function applyTheme(theme) {
