@@ -28,7 +28,7 @@ main {
 
   /* DELETE NOTE BUTTON */
   .delBtn {
-    opacity: 0;
+    opacity: .2;
     cursor:pointer;
     position: absolute;
     right: -.6rem;
@@ -50,6 +50,23 @@ main {
   }
 }
 
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+ media query for tablet 
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+@media (max-width: 800px) {
+  .aside-note_li {
+
+    .delBtn {
+      opacity: 1;
+    }
+    
+  }
+
+}
+
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
  media query for mobile 
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -70,6 +87,13 @@ main {
 
   .aside-note_li {
     border-bottom: none;
+
+    .delBtn {
+      right: -.5rem;
+      top: -1rem;
+      font-size: .5rem;
+    }
+
   }
 
   .aside-note_li::after {

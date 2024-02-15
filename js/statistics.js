@@ -57,7 +57,7 @@ statisticsCard2.innerHTML = `
 Statistics for total number of notes */
 
 // Get notes from localStorage
-const notesLocal = JSON.parse(localStorage.getItem("notes"));
+const notesLocal = JSON.parse(localStorage.getItem("notes")) || [];
 
 // Count the length of notes
 let notesLength = notesLocal.length;
