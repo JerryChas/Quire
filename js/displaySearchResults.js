@@ -91,7 +91,7 @@ searchResultContainer.addEventListener('click', (event) => {
             <h2>${noteToPreview.title}</h2>
             <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
             <p id="preview-body-text">${noteToPreview.bodyText}</p>
-            <button class="button">Edit</button>
+            <button class="button edit_btn">Edit</button>
         </div>
     </div>`
 
@@ -114,8 +114,23 @@ searchResultContainer.addEventListener('click', (event) => {
 
     console.log(event.target.dataset)
 
+    //When  click on "edit" button, it will take you to an Edit page with that note
+    clickButton('.edit_btn', noteToPreview)
+
   }
 });
 
+// Store selected note and go to index.html
+function storeNoteAndGoToEditor(noteObject) {
 
+  localStorage.setItem('selectedNote', JSON.stringify(noteObject));
 
+  window.location.href = 'index.html';
+}
+
+//  Function for "click n go" -to index.html with specific note
+function clickButton(button, noteObject) {
+  const trigger = document.querySelector(button);
+
+  trigger.addEventListener('click', () => storeNoteAndGoToEditor(noteObject))
+}
