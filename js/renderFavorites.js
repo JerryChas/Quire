@@ -36,7 +36,11 @@ function renderFavorites() {
 
       favoritesContainer.appendChild(favoriteNote);
 
-
+      //------------------------------------
+      // Calling modal based of clicked card.:
+      // Calling modal based of clicked card.:
+      // Calling modal based of clicked card.:
+      // Calling modal based of clicked card.:
       // Calling modal based of clicked card.:
       favoritesContainer.addEventListener('click', (event) => {
         console.log("vi är inne i klick")
@@ -63,6 +67,7 @@ function renderFavorites() {
 
         }
       });
+      //--------------end of modal calling--------------
     });
 
     // If you don't have a favorite, this renders
