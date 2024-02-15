@@ -1,0 +1,78 @@
+nav {
+    background-color: #d73060;
+  }
+
+i{
+  color: #FFB3C1;
+}
+  
+  /* aside styling */
+  aside{
+    background-color: #ffb3c1;
+    color: #501e27;
+  }
+  
+  /* Base style for buttons */
+  .button {
+    background-color: #FF8FA3;
+    color: #800F2F;
+  }
+  
+  .button:hover {
+      background-color: #7cb59b;
+      /* color: #929785; */
+    }
+  
+  /* Hover Styling */
+  input:hover {
+      background-color: #ffb7ab;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #e06fa4;
+      opacity: 0.8;
+    }
+  
+  .line {
+    background: linear-gradient(to right, transparent, #e06fa4, transparent);
+  }
+  
+  .navIcons:hover {
+    background-color: #e06fa4;
+    opacity: 0.8;
+  }
+  
+  input:hover {
+      background-color: #e06fa4;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #e06fa4;
+      opacity: 0.8;
+    }
+  
+  #add-new_btn {
+      color: #df6ea1;
+      background-color: #800F2F;
+    }
+    
+    #add-new_btn:hover {
+      background-color: rgb(241, 36, 128); 
+    }
+  
+    .activeNote {
+      color: #FF758F;
+    }
+
+    #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
+      border: solid #FF758F 1px;
+      scrollbar-color:#FF4D6D #FF758F ;
+    }
+
+    #display_container{
+      background-color: #fccfd8;
+      min-height: 100%;
+    }
+
