@@ -8,25 +8,38 @@ if (quireTheme) {
     document.getElementById("quireTheme").addEventListener("click", function () {
         applyTheme('./css/main.css');
     });
-    
+
     document.getElementById("melonTheme").addEventListener("click", function () {
         applyTheme('./css/alternativeTheme.css');
     });
 
     document.getElementById('bubblegumTheme').addEventListener('click', () => {
         applyTheme('./css/bubblegumtheme.css')
-    })
+    });
 
     document.getElementById('halloweenTheme').addEventListener('click', () => {
         applyTheme('./css/halloweentheme.css')
+    });
+
+    document.getElementById('pixelTheme').addEventListener('click', () => {
+        applyTheme('./css/pixeltheme.css')
     })
 
+    document.getElementById('snowstorTheme').addEventListener('click', () => {
+        applyTheme('./css/snowstormTheme.css')
+    })
+
+    document.getElementById('pastellTheme').addEventListener('click', () => {
+        applyTheme('./css/pastelltheme.css')
+    });
+      
     document.getElementById('polkagrisTheme').addEventListener('click', () => {
         applyTheme('./css/polkagrisTheme.css')
-    })
+    });
 
     document.getElementById('darkmodeTheme').addEventListener('click', () => {
         applyTheme('./css/darkmodeTheme.css')
+
     })
 
     document.getElementById('summerTheme').addEventListener('click', () => {
@@ -41,12 +54,12 @@ function applyTheme(theme) {
 
     // Create a new link element for the selected theme
     const newTheme = document.createElement('link');
-    newTheme .id = 'theme-style';
-    newTheme .rel = 'stylesheet';
-    newTheme .href = theme;
+    newTheme.id = 'theme-style';
+    newTheme.rel = 'stylesheet';
+    newTheme.href = theme;
 
     // Append the new link element to the head of the document
-    document.head.appendChild(newTheme );
+    document.head.appendChild(newTheme);
 
     // Save the selected theme to localStorage
     saveThemePreference(theme);

@@ -1,0 +1,94 @@
+nav {
+    background-color: #a9dac1;
+  }
+
+nav i{
+  color: #ffffff;
+}
+
+body{
+color: rgb(102, 99, 99);
+}
+
+  aside{
+    background-color: #92bea7;
+    color: #ffffff;
+    
+  }
+  
+  /* Base style for buttons */
+  .button {
+    background-color: #d6afda;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  
+  .button:hover {
+      background-color: #7cb59b;
+      /* color: #929785; */
+    }
+  
+  /* Hover Styling */
+  input:hover {
+      background-color: #caa6d1;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #34b625;
+      opacity: 0.8;
+    }
+  
+  .line {
+    background: linear-gradient(to right, transparent, #b8dfc2, transparent);
+  }
+  
+  .navIcons:hover {
+    background-color: #dfbbdd;
+    opacity: 0.8;
+  }
+  
+  input:hover {
+      background-color: #a7e7c0;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #dfbbdd;
+      opacity: 0.8;
+    }
+  
+  #add-new_btn {
+      color: #000000;
+      background-color: #a9dac1;
+    }
+    
+    #add-new_btn:hover {
+      background-color: #dfbbdd; 
+    }
+  
+    .activeNote {
+      color: #dfbbdd;
+    }
+
+    #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
+      border: solid #dfbbdd 1px;
+      scrollbar-color:#dfbbdd #dfbbdd ;
+      background-color: #dfbbdd;
+    }
+
+    #display_container{
+      min-height: 100%;
+      background-image: url(https://images.unsplash.com/photo-1517639493569-5666a7b2f494?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .aside-note_li {
+        border-bottom: 1px solid #b7d4aa;
+    }
+
+    #date-stamp_div{
+    color: black;
+    font-weight: bold;
+    } 
