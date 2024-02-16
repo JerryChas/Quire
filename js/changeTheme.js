@@ -20,6 +20,10 @@ if (quireTheme) {
     document.getElementById('halloweenTheme').addEventListener('click', () => {
         applyTheme('./css/halloweentheme.css')
     })
+
+    document.getElementById('polkagrisTheme').addEventListener('click', () => {
+        applyTheme('./css/polkagrisTheme.css')
+    })
 } 
 
 function applyTheme(theme) {
