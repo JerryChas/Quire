@@ -162,15 +162,26 @@ Embrace your words, for in them, you find the power to shape worlds and inspire 
 Keep writing, keep expressing, and let your most used word be the anthem of your creativity. 🚀📖✨🌈 <b>#SpeakYourTruth #ExpressYourself</b></p>
 `;
 
+//IBRAHIM
+document.addEventListener('DOMContentLoaded', function() {
+  const statsDiv = document.getElementById('statistics-3');
 
-//IBRAS kod som lyssnar eften knappen add new button!
-document.getElementById('add-new_btn').addEventListener('click', function () {
-  gtag('event', 'click', {
-    'event_category': 'Button',
-    'event_label': 'Add New',
-    'value': 1
-  });
+  const observer = new IntersectionObserver(function(entries) {
+    if(entries[0].isIntersecting === true) {
+      console.log('Statistics div is now visible');
+
+      // Send a custom event to Google Analytics
+      gtag('event', 'view_statistics', {
+        'event_category': 'Engagement',
+        'event_label': 'Statistics Section',
+      });
+    }
+  }, { threshold: [0.5] });
+
+  observer.observe(statsDiv);
 });
+
+
 
 //______________________________________________________________________
 
