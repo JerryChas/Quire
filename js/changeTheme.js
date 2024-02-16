@@ -8,7 +8,7 @@ if (quireTheme) {
     document.getElementById("quireTheme").addEventListener("click", function () {
         applyTheme('./css/main.css');
     });
-    
+
     document.getElementById("melonTheme").addEventListener("click", function () {
         applyTheme('./css/alternativeTheme.css');
     });
@@ -24,6 +24,11 @@ if (quireTheme) {
     document.getElementById('pixelTheme').addEventListener('click', () => {
         applyTheme('./css/pixeltheme.css')
     })
+
+    document.getElementById('snowstorTheme').addEventListener('click', () => {
+        applyTheme('./css/snowstormTheme.css')
+    })
+
     document.getElementById('pastellTheme').addEventListener('click', () => {
         applyTheme('./css/pastelltheme.css')
     });
@@ -37,6 +42,7 @@ if (quireTheme) {
     });
 };
 
+
 function applyTheme(theme) {
     // Remove the existing theme stylesheet
     const currentTheme = document.getElementById('theme-style');
@@ -44,12 +50,12 @@ function applyTheme(theme) {
 
     // Create a new link element for the selected theme
     const newTheme = document.createElement('link');
-    newTheme .id = 'theme-style';
-    newTheme .rel = 'stylesheet';
-    newTheme .href = theme;
+    newTheme.id = 'theme-style';
+    newTheme.rel = 'stylesheet';
+    newTheme.href = theme;
 
     // Append the new link element to the head of the document
-    document.head.appendChild(newTheme );
+    document.head.appendChild(newTheme);
 
     // Save the selected theme to localStorage
     saveThemePreference(theme);
