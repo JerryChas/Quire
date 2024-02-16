@@ -54,9 +54,8 @@ function renderNotesMain(noteObject) {
 
             <div id="note-document" class="note-document">
 
-                <h1 id="note-headding_container" contenteditable="true">${
-                  noteObject.title
-                }</h1>
+                <h1 id="note-headding_container" contenteditable="true">${noteObject.title
+    }</h1>
 
                 <div id="favourite-icon-container">
                 <svg id="favourite-icon" xmlns="http://www.w3.org/2000/svg"
@@ -67,11 +66,9 @@ function renderNotesMain(noteObject) {
                 </div>
 
                 <div id="meta-information_div">
-                    <p id="date-stamp_div">Created ${
-                      noteObject.dateCreated.split(" ")[0]
-                    } | Last edited ${
-    noteObject.dateLastEdited.split(" ")[0]
-  }</p>
+                    <p id="date-stamp_div">Created ${noteObject.dateCreated.split(" ")[0]
+    } | Last edited ${noteObject.dateLastEdited.split(" ")[0]
+    }</p>
                     <div>
                         <span id="tags_label">Tags: </span>
                         <button class="button" id="add-tag_btn">+</button>
@@ -118,11 +115,11 @@ function renderNotesMain(noteObject) {
     let fontSize = '16px';
 
     //Changes the fontsize based on type of font
-    if(chosenFont === 'Wavefont'){
+    if (chosenFont === 'Wavefont') {
       fontSize = '50px';
     }
 
-    if(chosenFont === 'Dancing Script'){
+    if (chosenFont === 'Dancing Script') {
       fontSize = '22px';
     }
 

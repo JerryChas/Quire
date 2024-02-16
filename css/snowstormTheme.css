@@ -16,9 +16,17 @@ html {
   color: var(--lightgrey);
 }
 
+#date-stamp_div {
+  color: var(--lightgrey);
+}
+
 aside {
   background-color: var(--darkwhite);
   color: var(--white);
+}
+
+.activeNote {
+  color: var(--accent);
 }
 
 #display_container {
@@ -34,8 +42,66 @@ aside {
   background-color: var(--grey)
 }
 
-/* Hover Styling */
+input {
+  border: none;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+input::placeholder {
+  color: var(--white);
+}
+
 input:hover {
   background-color: var(--accent);
   opacity: 0.8;
+}
+
+
+form {
+  label {
+    background-color: var(--accent)
+  }
+}
+
+form {
+  label:hover {
+    background-color: var(--grey)
+  }
+}
+
+.line {
+  background: var(--accent)
+}
+
+.navIcons:hover {
+  background-color: var(--accent)
+}
+
+#add-new_btn {
+  color: var(--white);
+  border: none;
+  background-color: var(--accent)
+}
+
+.statistics_card {
+  background-color: var(--white);
+}
+
+#add-new_btn:hover {
+  color: var(--accent);
+}
+
+#active-tag_ul .active-tags_li,
+.active-tag_h3,
+.active-tag_section {
+  border: solid var(--darkwhite) 1px;
+  scrollbar-color: var(--accent);
+
+}
+
+.editorbutton,
+.small-tag-labels {
+  color: var(--white);
+  background-color: var(--lightgrey);
 }
