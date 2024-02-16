@@ -1,0 +1,88 @@
+nav {
+    background-color: #71b513;
+  }
+
+nav i{
+  color: #000000;
+}
+
+body{
+font-family: "Kaushan Script", cursive;
+}
+
+  aside{
+    background-color: #9423a1;
+    color: #000000;
+    
+  }
+  
+  /* Base style for buttons */
+  .button {
+    background-color: #4c1651;
+    color: #b73b06;
+  }
+  
+  .button:hover {
+      background-color: #7cb59b;
+      /* color: #929785; */
+    }
+  
+  /* Hover Styling */
+  input:hover {
+      background-color: #69037d;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #34b625;
+      opacity: 0.8;
+    }
+  
+  .line {
+    background: linear-gradient(to right, transparent, #aa3ca4, transparent);
+  }
+  
+  .navIcons:hover {
+    background-color: #aa3ca4;
+    opacity: 0.8;
+  }
+  
+  input:hover {
+      background-color: #dc6e14;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #dc6e14;
+      opacity: 0.8;
+    }
+  
+  #add-new_btn {
+      color: #000000;
+      background-color: #71b513;
+    }
+    
+    #add-new_btn:hover {
+      background-color: rgb(241, 121, 36); 
+    }
+  
+    .activeNote {
+      color: #FF758F;
+    }
+
+    #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
+      border: solid #89089a 1px;
+      scrollbar-color:#38013f #89089a ;
+      background-color: #69ba43;
+    }
+
+    #display_container{
+      min-height: 100%;
+      background-image: url(https://img.freepik.com/free-photo/halloween-composition-with-four-pumpkins-space_23-2147674329.jpg?w=1800&t=st=1707993927~exp=1707994527~hmac=1745b0e1c15535be27ee02d4ccef80037df6429741706a8d0f8e30f8dda8be9d);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .aside-note_li {
+        border-bottom: 1px solid #348e0e;
+    }

@@ -6,19 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
 const quireTheme = document.getElementById('quireTheme');
 if (quireTheme) {
     document.getElementById("quireTheme").addEventListener("click", function () {
-        applyTheme('css/main.css');
+        applyTheme('./css/main.css');
     });
     
     document.getElementById("melonTheme").addEventListener("click", function () {
-        applyTheme('css/alternativeTheme.css');
+        applyTheme('./css/alternativeTheme.css');
     });
 
     document.getElementById('bubblegumTheme').addEventListener('click', () => {
-        applyTheme('css/bubblegumtheme.css')
+        applyTheme('./css/bubblegumtheme.css')
     })
 
     document.getElementById('halloweenTheme').addEventListener('click', () => {
-        applyTheme('css/halloweentheme.css')
+        applyTheme('./css/halloweentheme.css')
     })
 } 
 
