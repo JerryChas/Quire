@@ -81,6 +81,8 @@ font-family: "Kaushan Script", cursive;
       background-image: url(https://t3.ftcdn.net/jpg/04/54/68/34/360_F_454683421_yFbnBog6eC35dNSd8vynZupluanLB4oK.jpg);
       background-repeat: no-repeat;
       background-size: cover;
+        background-position: center;
+        background-attachment: fixed; 
     }
 
     .aside-note_li {
