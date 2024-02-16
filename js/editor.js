@@ -242,7 +242,46 @@ function convertFromMarkdown(markdownText) {
 
 /** ******************* End of main function *********************
  **************************************************************** */
+// ===================================
+  // ======= VIKTORS CUSTOM GTAG =======
+  noteDocument.addEventListener("keydown", (event) => {
 
+    /* min Förklaring: 
+    Jag tänkter att man som administratör eller utvecklare av systemet 
+    här kan se vilken tid på dagen som användarna är mest aktiv .
+    Man kan även med denna gtag se vilken sorts användning användaren 
+    ägnar sig åt. skapande eller raderande :) 
+    Enligt internet kan man i google analytics sedan skapa diagram som 
+    visualiserar när på dygnet användaren är mest aktiv, samt om den 
+    lägger till eller tar bort grejjor.*/
+
+    //geting the current time in  hours and minutes: 
+    let editTime = new Date();
+    const hour = editTime.getHours();
+    const minute = editTime.getMinutes();
+    editTime = hour + "." + minute;
+
+    let editType;
+    //define edit type
+    if (event.key == "Backspace") {
+      editType = "DELETE"
+    } else {
+      editType = "WRITE"
+    }
+
+    // console.log(editTime);
+    // console.log(editType);
+
+    gtag("event", "edit_note", {
+      "edit_time": editTime,
+      "edit_type": editType
+    });
+
+  });
+  // ------- End of Viktors gtag -------
+  // ===================================
+
+//!  }  ?
 //
 //
 //
