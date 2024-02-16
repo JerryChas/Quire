@@ -1,0 +1,105 @@
+nav {
+    background-color: #8abf4a;
+    background-image: url(https://wallpapercave.com/wp/wp11704406.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-position: center;
+  
+}
+
+nav i {
+    color: #ecfdeb;
+}
+
+html, .button, h1, h2, h3, p{
+    font-family: "Micro 5", sans-serif;
+}
+
+li{
+    font-size: 1.2rem;
+}
+
+  aside{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/023/330/830/original/blue-sky-background-in-pixel-art-style-vector.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-position: center;
+    box-shadow: 4px 4px 4px 4px rgba(47, 47, 47, 0.716);
+  }
+  
+  /* Base style for buttons */
+  .button {
+    background-color: #5cbae3;
+    color: #ffffff;
+  }
+  
+  .button:hover {
+      background-color: #4bd2fb;
+      color: #929785; 
+    }
+  
+  /* Hover Styling */
+  input:hover {
+      background-color: #ffffff;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #34b625;
+      opacity: 0.8;
+    }
+  
+  .line {
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
+  }
+  
+  .navIcons:hover{
+    background-color: #50c2fb;
+    opacity: 0.8;
+  }
+  
+  input:hover, #search_btn:hover  {
+      background-color: #40d136;
+      opacity: 0.8;
+    }
+  
+  #add-new_btn {
+      color: #ffffff;
+      background-color: #2c7ae1;
+    }
+    
+    #add-new_btn:hover {
+      background-color: #5c9ef3; 
+      color: rgb(252, 223, 0);
+    }
+  
+    .activeNote {
+      color: #348b11;
+    }
+
+    #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
+      border: solid #2b6527 2px;
+      scrollbar-color:#85f92c #0affff ;
+      background-color: #77d2ff;
+      font-family: "Micro 5", sans-serif;
+      opacity: 80%;
+    }
+
+    #display_container, #statistics_container, #favorite-container{
+      min-height: 100%;
+      background-image: url(https://www.wallpaperflare.com/static/143/406/539/retro-games-pixels-clouds-pixel-art-wallpaper.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: fixed;
+      background-position: center;
+      font-family: "Micro 5", sans-serif;
+    }
+
+    .aside-note_li {
+        border-bottom: 1px solid #348e0e;
+    }
+
+    /* #date-stamp_div{
+    color: black;
+    font-weight: bold;
+    }  */
