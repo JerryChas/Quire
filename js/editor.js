@@ -231,8 +231,8 @@ function convertFromMarkdown(markdownText) {
     .replace(/\n\*(.*?)\n/gi, '<ul><li>$1</li></ul>')
     .replace(/\n\d\.(.*?)\n/gi, '<ol><li>$1</li></ol>');
 
-    return markdownText;
-  }
+  return markdownText;
+}
 
 }
 
