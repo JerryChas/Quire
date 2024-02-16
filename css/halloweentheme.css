@@ -11,7 +11,7 @@ font-family: "Kaushan Script", cursive;
 }
 
   aside{
-    background-color: #9423a1;
+    background-color: #6e1a77;
     color: #000000;
     
   }
@@ -67,18 +67,18 @@ font-family: "Kaushan Script", cursive;
     }
   
     .activeNote {
-      color: #FF758F;
+      color: #348b11;
     }
 
     #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
-      border: solid #89089a 1px;
-      scrollbar-color:#38013f #89089a ;
-      background-color: #69ba43;
+      border: solid #590863 1px;
+      scrollbar-color:#38013f #61096c ;
+      background-color: #ed8721;
     }
 
     #display_container{
       min-height: 100%;
-      background-image: url(https://img.freepik.com/free-photo/halloween-composition-with-four-pumpkins-space_23-2147674329.jpg?w=1800&t=st=1707993927~exp=1707994527~hmac=1745b0e1c15535be27ee02d4ccef80037df6429741706a8d0f8e30f8dda8be9d);
+      background-image: url(https://t3.ftcdn.net/jpg/04/54/68/34/360_F_454683421_yFbnBog6eC35dNSd8vynZupluanLB4oK.jpg);
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -86,3 +86,8 @@ font-family: "Kaushan Script", cursive;
     .aside-note_li {
         border-bottom: 1px solid #348e0e;
     }
+
+    #date-stamp_div{
+    color: black;
+    font-weight: bold;
+    } 
