@@ -1,0 +1,125 @@
+nav {
+  background-color: #58e055;
+}
+
+main {
+  background-color: #dbed84;
+}
+
+/* aside styling */
+aside {
+  background-color: #f389b4;
+  color: rgb(26, 159, 39);
+}
+
+/* Base style for buttons */
+.button {
+  background-color: #bee709;
+  color: rgb(11, 68, 15);
+  border: 1px solid #87a20d;
+}
+
+.button:hover {
+  background-color: #58770c;
+}
+
+/* Hover Styling */
+input:hover {
+  background-color: #58770c;
+}
+
+/* line to divide nav icons */
+.line {
+  background: linear-gradient(to right, transparent, #52951e, transparent);
+}
+
+/* hover effect on icons */
+.navIcons:hover {
+  background-color: #329330;
+  opacity: 0.8;
+}
+
+/* Hover Styling On Search Bar & Icon*/
+input {
+  background-color: #82ec0a;
+  opacity: 0.8;
+}
+
+/* Styling For The Pen Icon */
+#add-new_btn {
+  background-color: #e5e108;
+  color: #1b881c;
+}
+
+#add-new_btn:hover {
+  background-color: rgb(179, 162, 9);
+}
+
+/* Styling for active note in aside */
+.activeNote {
+  color: rgb(30, 63, 15);
+}
+
+.editorbutton,
+#dropdown {
+  background-color: #89da06;
+}
+
+.statistics_card {
+  background-color: #67992e;
+  border: 6px solid rgb(137, 215, 27);
+  color: rgb(33, 77, 13);
+}
+
+.aside-note_li {
+  border-bottom: 2px solid rgb(207, 54, 171);
+}
+
+.navIcons {
+  color: #d55693;
+}
+
+.navIcons:hover {
+  color: #950d6e;
+}
+
+#active-tag_ul .active-tags_li,
+.active-tag_h3,
+.active-tag_section {
+  border: solid #192c07 1px;
+  scrollbar-color: #d8f905 #265e03;
+  background-color: #72c632;
+}
+
+form {
+  label {
+    background-color: #58bc1a;
+    box-shadow: 1px 1px 3px 0.5px #fcf573;
+    color: #ffff00;
+    border: 1px solid #58d20d;
+  }
+
+  label:hover {
+    background-color: yellowgreen;
+  }
+}
+
+.result-card {
+  background-color: #7ebb0d;
+}
+
+.result-card:hover {
+  background-color: #4e8b0c;
+}
+
+.small-tag-labels {
+  background-color: #d8f11a;
+}
+
+#display_container {
+  color: rgb(30, 103, 30);
+}
+
+#favorite-container {
+  color: rgb(26, 82, 7);
+}

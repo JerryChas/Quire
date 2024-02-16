@@ -28,6 +28,10 @@ if (quireTheme) {
     document.getElementById('darkmodeTheme').addEventListener('click', () => {
         applyTheme('./css/darkmodeTheme.css')
     })
+
+    document.getElementById('summerTheme').addEventListener('click', () => {
+        applyTheme('./css/summerTheme.css')
+    })
 } 
 
 function applyTheme(theme) {
