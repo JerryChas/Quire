@@ -234,7 +234,13 @@ function convertFromMarkdown(markdownText) {
     return markdownText;
   }
 
-}
+ 
+
+const markdownbutton = document.getElementById("markdownbutton")
+console.log(markdownbutton);
+markdownbutton.addEventListener("click", function(){
+ console.log("knappen är aktiv")
+})
 
 
 
@@ -281,7 +287,9 @@ function convertFromMarkdown(markdownText) {
   // ------- End of Viktors gtag -------
   // ===================================
 
-//!  }  ?
+
+} 
+
 //
 //
 //
