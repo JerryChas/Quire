@@ -15,15 +15,33 @@ if (quireTheme) {
 
     document.getElementById('bubblegumTheme').addEventListener('click', () => {
         applyTheme('./css/bubblegumtheme.css')
-    })
+    });
 
     document.getElementById('halloweenTheme').addEventListener('click', () => {
         applyTheme('./css/halloweentheme.css')
+    });
+
+    document.getElementById('pixelTheme').addEventListener('click', () => {
+        applyTheme('./css/pixeltheme.css')
     })
+
     document.getElementById('snowstorTheme').addEventListener('click', () => {
         applyTheme('./css/snowstormTheme.css')
     })
-}
+
+    document.getElementById('pastellTheme').addEventListener('click', () => {
+        applyTheme('./css/pastelltheme.css')
+    });
+      
+    document.getElementById('polkagrisTheme').addEventListener('click', () => {
+        applyTheme('./css/polkagrisTheme.css')
+    });
+
+    document.getElementById('darkmodeTheme').addEventListener('click', () => {
+        applyTheme('./css/darkmodeTheme.css')
+    });
+};
+
 
 function applyTheme(theme) {
     // Remove the existing theme stylesheet

@@ -37,6 +37,3 @@ saveNotesToLocalStorage();
 renderNotesAsideList();
 }
 }
-
-// testing:
-// saveNote(testObj)

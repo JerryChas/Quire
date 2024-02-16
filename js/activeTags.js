@@ -13,7 +13,7 @@ const activeTagUl = document.getElementById('active-tag_ul');
 //function for displaying and going through the active tags
 const displayactiveTags = () => {
 
-// console.log('når den denna?');
+
 activeTagUl.innerHTML = '';
 
     const allTheTags = notes.reduce((acc, note)=> {
@@ -28,8 +28,6 @@ activeTagUl.innerHTML = '';
         return acc;
     }, []);
     // Functionality for rendering the all the tags in a html-li element
-    // console.log('tags:', allTheTags.length);
-    // console.log('Notes array:', notes);
     
     allTheTags.forEach(tag => {
         const tagsLi = document.createElement('li');
@@ -58,10 +56,7 @@ function getDuplicateTags(e) {
        }
     }   
     })
-    // console.log(filteredNotesTags);
-    //  
+
 }
-//funktion som loopar igenom notes och en ifsats som kollar om det är samma tagg på flera notes
-//Eventlistener till tagsLi ('click' )
 
 

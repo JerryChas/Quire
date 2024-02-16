@@ -3,9 +3,6 @@ function tagFunctionality(noteObject) {
     const addTagsButton = document.getElementById("add-tag_btn");
     const tagsLabelSpan = document.getElementById("tags_label")
     const tagsContainer = document.getElementById("tags_container");
-    // console.log(tagsContainer)
-    // console.log(tagsLabelSpan)
-    // console.log(addTagsButton)
 
     //render the tags when de note displays at first... :) 
     renderTags(noteObject);
@@ -44,7 +41,7 @@ function tagFunctionality(noteObject) {
             if (!Array.isArray(noteObject.tags)) {
                 //... if not, we create ant put the tag in...
                 noteObject.tags = [tagToSave];
-                // console.log(noteObject)
+                
 
                 //if there is a array, we push it in to a array with force :) :
             } else {
@@ -55,7 +52,7 @@ function tagFunctionality(noteObject) {
                 } else {
                     //... if it does not exist we push it in.
                     noteObject.tags.push(tagToSave);
-                    // console.log(noteObject)
+                    
                 }
             }
             //Save note for updating the date :)
@@ -77,7 +74,7 @@ function tagFunctionality(noteObject) {
                     <span class="tag-labels-delete-buttons" data-delete-tag="${tag}">X</span>
                 </div>`
             }).join("");
-            // console.log(tagsToRender);
+            
             tagsContainer.innerHTML = tagsToRender;
         }
     }

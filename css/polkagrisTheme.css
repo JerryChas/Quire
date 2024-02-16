@@ -1,0 +1,111 @@
+nav {
+  background-color: #cc1b00;
+}
+
+/* aside styling */
+aside {
+  background-color: rgb(210, 9, 9);
+  color: white;
+}
+
+/* Base style for buttons */
+.button {
+  background-color: #cb0000;
+  color: rgb(255, 255, 255);
+}
+
+.button:hover {
+  background-color: #850000;
+}
+
+/* Hover Styling */
+input:hover {
+  background-color: #ffb7ab;
+  opacity: 0.8;
+}
+
+#search_btn:hover {
+  background-color: #ec2608;
+  opacity: 0.8;
+}
+
+/* line to divide nav icons */
+.line {
+  background: linear-gradient(to right, transparent, #ff826e, transparent);
+}
+
+/* hover effect on icons */
+.navIcons:hover {
+  background-color: #b63521;
+  opacity: 0.8;
+}
+
+/* Hover Styling On Search Bar & Icon*/
+input:hover {
+  background-color: #ffa597;
+  opacity: 0.8;
+}
+
+#search_btn:hover {
+  background-color: #ff725c;
+  opacity: 0.8;
+}
+
+/* Styling For The Pen Icon */
+#add-new_btn {
+  color: #b81900;
+}
+
+#add-new_btn:hover {
+  background-color: white;
+}
+
+/* Styling for active note in aside */
+.activeNote {
+  color: black;
+}
+
+.active-tag_section {
+  border: solid #ac1212 2px;
+  scrollbar-color: white rgb(181, 9, 9);
+}
+
+.active-tag_h3,
+.active-tags_li,
+#active-tag_ul {
+  border: solid #ec0101 2px;
+}
+
+#active-tag_ul .active-tags_li {
+  border: solid #c30606 1px;
+}
+
+form {
+  label {
+    background-color: #ec0101;
+    box-shadow: 1px 1px 3px 0.5px #310101;
+  }
+}
+
+.aside-note_li:nth-child(even) {
+  background-color: rgb(210, 9, 9);
+  color: white;
+  margin: 0;
+}
+
+.aside-note_li:nth-child(odd) {
+  background-color: white;
+  color: rgb(210, 9, 9);
+  margin: 0;
+}
+
+.delBtn {
+  margin: 10px;
+}
+
+.editorbutton,
+#dropdown,
+.small-tag-labels {
+  background-color: #cb0000;
+  color: white;
+}
