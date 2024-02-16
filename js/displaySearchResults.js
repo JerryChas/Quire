@@ -1,9 +1,8 @@
-//TODO Skicka till index med sparad i local storge senast anteckning.
 
 //load the div to render to:
 const searchResultContainer = document.getElementById('showSearchResults');
 
-//---------------------------------------------------
+
 //When nothing is searched for we show this cute cat:
 //Variable for re-using this HTML-snippet:
 const displayCatHTML = `<body>
@@ -12,13 +11,13 @@ const displayCatHTML = `<body>
 
 //Rende Cute cat when entering the page:
 searchResultContainer.innerHTML = displayCatHTML;
-//---------------------------------------------------
 
 
-// ============================================
+
+
 //Storing the notes that is searched for, for late use when rendering the modal:
 let searchResultsArray;
-// ============================================
+
 
 
 //This function takes an array of notes that is suposed to be displyed:
@@ -31,7 +30,7 @@ function renderSearchResults(notesArrayToDisplay) {
   notesArrayToDisplay.forEach((note) => {
     // Creating a snippet of the body text to display in the card:
     let bodyTextSnippet = note.bodyText.substring(0, 100);
-    // console.log(note.bodyText.length);
+
     //Adding dots in the end if necessary
     if (note.bodyText.length > 100) {
       bodyTextSnippet += ' ...';
@@ -71,7 +70,7 @@ searchResultContainer.addEventListener('click', (event) => {
 
     //storing dataset.noteID.
     const noteIdeToDisplay = clickedCard.dataset.noteId;
-    //console.log(noteIdeToDisplay);
+
 
     console.log(clickedCard.dataset);
 
@@ -80,7 +79,7 @@ searchResultContainer.addEventListener('click', (event) => {
     const noteToPreview = notes.find((note) => {
       return (note.id == noteIdeToDisplay);
     });
-    // console.log(noteToPreview);
+  
     //calling th preview Modal:
     previewModal(noteToPreview)
 

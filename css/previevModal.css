@@ -45,3 +45,9 @@
     max-height: 50vh;
     overflow: auto;
 }
+
+#modal-exit-button:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}

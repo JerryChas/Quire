@@ -10,8 +10,7 @@
     margin: 0.5rem;
 }
 
-.result-card:hover,
-#modal-exit-button:hover {
+.result-card:hover {
     background-color: #dddddd;
     cursor: pointer;
 }
