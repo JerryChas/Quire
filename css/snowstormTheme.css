@@ -1,0 +1,41 @@
+html {
+  --grey: #f6f6f6f6;
+  --lightgrey: #f4f4f4f4;
+  --darkwhite: #f9f9f9;
+  --white: #ffffff;
+
+  --accent: #e2f1ff;
+}
+
+
+nav {
+  background-color: var(--lightgrey);
+}
+
+html {
+  color: var(--lightgrey);
+}
+
+aside {
+  background-color: var(--darkwhite);
+  color: var(--white);
+}
+
+#display_container {
+  background-color: var(--white);
+}
+
+/* Base style for buttons */
+.button {
+  background-color: var(--accent)
+}
+
+.button:hover {
+  background-color: var(--grey)
+}
+
+/* Hover Styling */
+input:hover {
+  background-color: var(--accent);
+  opacity: 0.8;
+}
