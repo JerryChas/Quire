@@ -1,5 +1,3 @@
-//calling function for test:
-// renderNotesMain(notes[1])
 
 /* *******************************************************************
 ** This sctipt is shameless stolen from Akshay Chandran on code pen  *
@@ -32,10 +30,6 @@ function renderImageCarousel(noteID) {
         <div class="carousel-sub-imgs" id="sub-images-area">
             <!-- THIS IS THE AREA WHERE THE THUMBNAILS WILL BE PLACED-->
     </div>`
-
-    //
-    //
-    //
 
     const mainImageContainer = document.getElementById("carousel-main-img")
     const thumbnailsArea = document.getElementById("sub-images-area")
@@ -100,22 +94,11 @@ function renderImageCarousel(noteID) {
         if (wantTodelete) {
             alert(`Okay....delete delete... ⚙️ 🔧 🙂`);
 
-            // console.log("--------------------------------------");
-            // console.log("alla bilder i noten:", currentNote.images);
-            // console.log("just denhär bildens url:", currentImg.imgUrl);
-            // console.log("index av denhär bilden:", currentNote.images.indexOf(currentImg.imgUrl));
-            // console.log("--------------------------------------.. things happening..");
-
             //Find the index of the image to remove:
             let indexOfImgaToRemove = currentNote.images.indexOf(currentImg.imgUrl);
 
-            // console.log("index to remove: ", indexOfImgaToRemove);
-
             // deleting ONE thing in the note.images w start at the index that we defined:
             currentNote.images.splice(indexOfImgaToRemove, 1);
-
-            // console.log("UPPDATERAT: alla bilder i noten:", currentNote.images);
-            // console.log("--------------------------------------");
 
         }
         //call function that render the image-carousel if there is any images in the note:
@@ -125,13 +108,12 @@ function renderImageCarousel(noteID) {
             // else we emtying the carousel div:
             const imgCarouselContainer = document.getElementById("dynamic-image-carousel_container")
             imgCarouselContainer.innerHTML = "";
-            // console.log("de finns inga bilder.")
+            
         }
-        //savetoLocalstorage
+
         saveNotesToLocalStorage()
     }
     // end of deletefunktion
-    // --------------------------------------------------
 
 
     // *********************************************************************
@@ -166,8 +148,6 @@ function renderImageCarousel(noteID) {
             changeImageTo(e.target);
 
             // sending information about the current image that is showing for the delete function:
-            // sending information about the current image that is showing for the delete function:
-            // sending information about the current image that is showing for the delete function:
             currentImg.imgUrl = e.target.src;
             // console.log(currentImg);
         }
@@ -190,8 +170,7 @@ function renderImageCarousel(noteID) {
             }
         }
 
-        // Adding buttons for image change
-        // Adding buttons for image change
+
         // Adding buttons for image change
 
         // Selections
@@ -212,8 +191,7 @@ function renderImageCarousel(noteID) {
                         currIndex += imgs.length;
                     }
                     changeImageTo(imgs[currIndex]);
-                    // sending information about the current image that is showing for the delete function:
-                    // sending information about the current image that is showing for the delete function:
+
                     // sending information about the current image that is showing for the delete function:
                     currentImg.imgUrl = current.src;
                     // console.log(currentImg);
@@ -230,11 +208,10 @@ function renderImageCarousel(noteID) {
                         currIndex -= imgs.length;
                     }
                     changeImageTo(imgs[currIndex]);
-                    // sending information about the current image that is showing for the delete function:
-                    // sending information about the current image that is showing for the delete function:
+
                     // sending information about the current image that is showing for the delete function:
                     currentImg.imgUrl = current.src;
-                    // console.log(currentImg);
+
                     break;
                 }
             }

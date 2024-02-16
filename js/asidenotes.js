@@ -1,7 +1,7 @@
 const displayContainer = document.getElementById('display_container');
 const notesListUl = document.getElementById('notes-list_ul');
 
-//Funktion för att rendera ut listan med notes i aside
+//Function for rendering out notes to aside
 function renderNotesAsideList() {
   notesListUl.innerHTML = '';
   notes.forEach((note) => {
@@ -14,14 +14,14 @@ function renderNotesAsideList() {
     // set note ID on aside note elements
     notesList.setAttribute('data-noteId', note.id);
 
-    //* Apply "DELETE BUTTONS"
+    // Apply "DELETE BUTTONS"
     applyDeleteBtns(notesList, note);
 
-    //La till klassnamn för att redigera stil i css
+    //Adding classnames
     notesList.className = 'aside-note_li';
     notesListUl.appendChild(notesList);
 
-    //En eventlistener för att kalla på renderNotesMain funktionen när man klickar på note-Li
+    //add eventlistener for calling renderNotesMain when clicking on note-Li
     notesList.addEventListener('click', () => {
       renderNotesMain(note);
       // Remove stylingclass from the previous active note
@@ -71,5 +71,4 @@ function applyDeleteBtns(applyTo, noteObj) {
   });
 }
 
-//*-------------------------------------------------------*//
 renderNotesAsideList();

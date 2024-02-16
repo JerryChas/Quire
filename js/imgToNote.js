@@ -133,12 +133,12 @@ function checkForDuplicateImages(noteObject, imageURL, callback){
 
   function handleAddImageToNote(noteObject, imageUrl) {
     addImageToNote(noteObject, imageUrl);
-    // Uppdatera local storage med de nya noterna
+    // updating localstorage with the new notes
     saveNotesToLocalStorage();
-    // Stäng modalen
+    // close modal
     toggleModal();
 
-    // Uppdatera DOM:en för att visa de nya noterna
+    // updating DOM to show new notes
     renderNotesMain(noteObject);
   }
 
