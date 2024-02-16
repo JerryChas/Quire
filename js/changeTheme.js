@@ -24,6 +24,10 @@ if (quireTheme) {
     document.getElementById('polkagrisTheme').addEventListener('click', () => {
         applyTheme('./css/polkagrisTheme.css')
     })
+
+    document.getElementById('darkmodeTheme').addEventListener('click', () => {
+        applyTheme('./css/darkmodeTheme.css')
+    })
 } 
 
 function applyTheme(theme) {
