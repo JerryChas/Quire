@@ -25,7 +25,7 @@ function calculateNote() {
     0
   );
 
-  // Average
+  // Average characters
   const averageCharacters = totalCharacters / notes.length;
 
   return averageCharacters;

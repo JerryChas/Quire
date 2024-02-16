@@ -172,7 +172,7 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
 //Save notes directly to the local storage on start so the favorites notes can be visible om favorites list :) 
 saveNotesToLocalStorage();
 
-// Hämtar knappen
+// Gets the button
 const addNewBtn = document.getElementById("add-new_btn");
 
 //* ---------- FUNCTIONS ---------- *//
@@ -264,9 +264,9 @@ addNewBtn.addEventListener("click", () => {
     bodyText: "",
   };
 
-  // Uppdatera local storage med de nya noterna
+  // Updating local storage withthe new notes
   saveNotesToLocalStorage();
-  // Rendrera det nya anteckningsformuläret
+  // Rendering noteform
   renderNotesMain(newNote);
 });
 

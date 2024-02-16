@@ -28,6 +28,7 @@ function renderFavorites() {
         bodyTextSnippet += ' ...';
       }
 
+      //Adding the star to favorites-page
       favoriteNote.innerHTML = `
                 <h5 id="favtitle">${favNote.title}</h5>
                 <div id="favourite-icon-div">
@@ -42,6 +43,7 @@ function renderFavorites() {
 
       const starBtn = favoriteNote.querySelector("#favourite-icon-path");
 
+      //If its favorite or not, change color
       if (favNote.isFavourite) {
         starBtn.style.fill = "#EFBD02";
       } else {
@@ -72,11 +74,7 @@ function renderFavorites() {
 
     });
 
-    //------------------------------------
-    // Calling modal based of clicked card.:
-    // Calling modal based of clicked card.:
-    // Calling modal based of clicked card.:
-    // Calling modal based of clicked card.:
+
     // Calling modal based of clicked card.:
     favoritesContainer.addEventListener('click', (event) => {
       console.log("vi är inne i klick")
