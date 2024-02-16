@@ -24,6 +24,10 @@ if (quireTheme) {
     document.getElementById('pixelTheme').addEventListener('click', () => {
         applyTheme('./css/pixeltheme.css')
 
+    document.getElementById('pastellTheme').addEventListener('click', () => {
+        applyTheme('./css/pastelltheme.css')
+    })
+      
     document.getElementById('polkagrisTheme').addEventListener('click', () => {
         applyTheme('./css/polkagrisTheme.css')
     })
