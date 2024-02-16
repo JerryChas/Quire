@@ -1,0 +1,93 @@
+nav {
+    background-color: #71b513;
+  }
+
+nav i{
+  color: #000000;
+}
+
+body{
+font-family: "Kaushan Script", cursive;
+}
+
+  aside{
+    background-color: #6e1a77;
+    color: #000000;
+    
+  }
+  
+  /* Base style for buttons */
+  .button {
+    background-color: #4c1651;
+    color: #b73b06;
+  }
+  
+  .button:hover {
+      background-color: #7cb59b;
+      /* color: #929785; */
+    }
+  
+  /* Hover Styling */
+  input:hover {
+      background-color: #69037d;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #34b625;
+      opacity: 0.8;
+    }
+  
+  .line {
+    background: linear-gradient(to right, transparent, #aa3ca4, transparent);
+  }
+  
+  .navIcons:hover {
+    background-color: #aa3ca4;
+    opacity: 0.8;
+  }
+  
+  input:hover {
+      background-color: #dc6e14;
+      opacity: 0.8;
+    }
+    
+    #search_btn:hover {
+      background-color: #dc6e14;
+      opacity: 0.8;
+    }
+  
+  #add-new_btn {
+      color: #000000;
+      background-color: #71b513;
+    }
+    
+    #add-new_btn:hover {
+      background-color: rgb(241, 121, 36); 
+    }
+  
+    .activeNote {
+      color: #348b11;
+    }
+
+    #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
+      border: solid #590863 1px;
+      scrollbar-color:#38013f #61096c ;
+      background-color: #ed8721;
+    }
+
+    #display_container{
+      min-height: 100%;
+      background-image: url(https://t3.ftcdn.net/jpg/04/54/68/34/360_F_454683421_yFbnBog6eC35dNSd8vynZupluanLB4oK.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .aside-note_li {
+        border-bottom: 1px solid #348e0e;
+    }
+
+    #date-stamp_div{
+    color: black;
+    font-weight: bold;
+    } 
