@@ -1,13 +1,17 @@
 nav {
     background-color: #8abf4a;
-
+    background-image: url(https://wallpapercave.com/wp/wp11704406.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-position: center;
+  
 }
 
 nav i {
     color: #ecfdeb;
 }
 
-body, .button, h1, h2, h3, .result-card, #preview-container{
+html, .button, h1, h2, h3, p{
     font-family: "Micro 5", sans-serif;
 }
 
@@ -74,9 +78,9 @@ li{
     }
 
     #active-tag_ul .active-tags_li, .active-tag_h3, .active-tag_section{
-      border: solid #40d136 4px;
-      scrollbar-color:#85f92c #77bd5e ;
-      background-color: #50c2fb;
+      border: solid #2b6527 2px;
+      scrollbar-color:#85f92c #0affff ;
+      background-color: #77d2ff;
       font-family: "Micro 5", sans-serif;
       opacity: 80%;
     }
