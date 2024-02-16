@@ -11,6 +11,9 @@ function renderNotesAsideList() {
       notesList.textContent = notesList.textContent.substring(0, 17) + '...';
     }
 
+    // set note ID on aside note elements
+    notesList.setAttribute('data-noteId', note.id);
+
     //* Apply "DELETE BUTTONS"
     applyDeleteBtns(notesList, note);
 

@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-911QDKJDBF', { 'debug_mode':true });
-    </script>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link id="theme-style" rel="stylesheet" href="#"/>
-    <link rel="stylesheet" href="css/favorites.css" />
-        <!-- Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
-    <!-- SCRIPT -->
-    <!-- <script src="js/index.js" defer></script> -->
-    <script src="js/changeTheme.js" defer></script>
-    <script src="js/renderFavorites.js" defer></script>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-911QDKJDBF', { 'debug_mode': true });
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link id="theme-style" rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="css/favorites.css" />
+  <link rel="stylesheet" href="css/previevModal.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <!-- <script src="js/index.js" defer></script> -->
+  <script src="js/changeTheme.js" defer></script>
+  <script src="js/renderFavorites.js" defer></script>
+  <script src="js/previewModal.js" defer></script>
+  <script src="js/goToNote.js" defer></script>
+
   <!--Länk till fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
     rel="stylesheet">
 
-    <title>Quire - Favorites</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html" class="navIcons">
-              <i class="fa-brands fa-quora fa-4x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="search.html" class="navIcons">
-              <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="favorites.html" class="navIcons">
-              <i class="fa-regular fa-star fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="statistics.html" class="navIcons">
-              <i class="fa-solid fa-chart-simple fa-2x">
-              </i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="settings.html" class="navIcons">
-              <i class="fa-solid fa-gear fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li class="navIcons" id="info-btn">
-            <i class="fa-solid fa-info fa-2x"></i>
-            <div class="line"></div>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div id="favorite-container"></div>
-    </main>
-  </body>
+  <title>Quire - Favorites</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html" class="navIcons">
+            <i class="fa-brands fa-quora fa-4x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="search.html" class="navIcons">
+            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="favorites.html" class="navIcons">
+            <i class="fa-regular fa-star fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="statistics.html" class="navIcons">
+            <i class="fa-solid fa-chart-simple fa-2x">
+            </i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="settings.html" class="navIcons">
+            <i class="fa-solid fa-gear fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li class="navIcons" id="info-btn">
+          <i class="fa-solid fa-info fa-2x"></i>
+          <div class="line"></div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="favorite-container"></div>
+  </main>
+</body>
+
 </html>

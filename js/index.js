@@ -16,7 +16,7 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
     dateLastEdited: "1995-12-25",
     isFavourite: true,
     images: [],
-    tags: ['Banan'],
+    tags: ["Banan"],
     bodyText:
       "Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare. Utökad text för att skapa intresse och engagemang.",
     tags: [
@@ -52,7 +52,6 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
       "gemensamtagg1",
       "gemensamtagg2",
     ],
-
   },
   {
     title: "only one 🐈‍⬛ 📷",
@@ -170,6 +169,9 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [
   //!-----------------------------------------------------------------------------------------------------!//
 ];
 
+//Save notes directly to the local storage on start so the favorites notes can be visible om favorites list :) 
+saveNotesToLocalStorage();
+
 // Hämtar knappen
 const addNewBtn = document.getElementById("add-new_btn");
 
@@ -239,14 +241,12 @@ function getInputs() {
   notes.push(note);
 }
 
-
 //* ---------------------------------------------------------------------*//
 
 // When click you get the form (PEN)
 addNewBtn.addEventListener("click", () => {
   // Paulinas custom event
-  gtag("event", "click", {
-    event_category: "pen_click",
+  gtag("event", "pen_click", {
     event_label: "create_note",
   });
 
@@ -288,3 +288,29 @@ function getWelcomeAgain() {
     'label': 'get-information-button'
   })
 }
+
+
+// Get note element from other pages
+function getSelectedNoteElementFromOtherPage(noteToGet) {
+  const noteELements = document.querySelectorAll(".aside-note_li");
+
+  noteELements.forEach((noteElement) => {
+
+    // if element  has a data-id attribute that matches the argument we are looking for...
+    if (parseInt(noteElement.dataset.noteid) == noteToGet.id) {
+      noteElement.classList.add('activeNote'); //  ...then add an active class to it!
+    }
+  })
+
+}
+
+//  rendering the main part of the notes formularium with all the information about one specific note
+window.onload = () => {
+  const selectedNote = JSON.parse(localStorage.getItem('selectedNote')); //  getting the the note that is supposed to be shown
+  if (selectedNote) {
+    renderNotesMain(selectedNote) // rendering the selected note in the main area
+    getSelectedNoteElementFromOtherPage(selectedNote) // Get aside note and apply activeNote-class
+    localStorage.removeItem('selectedNote'); // clear key from local storage
+  }
+};
+

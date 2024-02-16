@@ -21,7 +21,9 @@
   <link rel="stylesheet" href="css/main.css" />
   <link id="theme-style" rel="stylesheet" href="#" />
   <link rel="stylesheet" href="css/search.css" />
-  <link rel="stylesheet" href="css/searchResultCardsAndPreviewModal.css" />
+  <link rel="stylesheet" href="css/previevModal.css" />
+  <link rel="stylesheet" href="css/renderSearchResuts.css" />
+
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
@@ -31,6 +33,8 @@
   <script src="js/displaySearchResults.js" defer></script>
   <script src="js/search.js" defer></script>
   <script src="js/activeTags.js" defer></script>
+  <script src="js/previewModal.js" defer></script>
+  <script src="js/goToNote.js" defer></script>
 
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,34 +89,34 @@
   <main>
     <div id="display_container">
 
-    <div class="search-content">
+      <div class="search-content">
 
-      <div class="search-input_container">
-        <!-- Radio input to filter search results -->
-        <form>
-          <input type="radio" id="word" name="searchParam" value="words">
-          <label for="word"><span>Words</span></label>
+        <div class="search-input_container">
+          <!-- Radio input to filter search results -->
+          <form>
+            <input type="radio" id="word" name="searchParam" value="words">
+            <label for="word"><span>Words</span></label>
 
-          <input type="radio" id="phrase" name="searchParam" value="sentences">
-          <label for="phrase"><span>Phrase</span></label>
-        
-          <input type="radio" id="date" name="searchParam" value="date">
-          <label for="date"><span>Date</span></label>
-        
-          <input type="radio" id="tags" name="searchParam" value="tags">
-          <label for="tags"><span>Tags</span></label>
-        </form>
-      
-        <!-- Input tag for search box -->
-        <input id="searchBox" type="text" placeholder="Search for your favorite notes.." />
-        
-        <!-- !Not avalible  yet! -->
-        <div style="display: none;" class="user-search_container">
+            <input type="radio" id="phrase" name="searchParam" value="sentences">
+            <label for="phrase"><span>Phrase</span></label>
+
+            <input type="radio" id="date" name="searchParam" value="date">
+            <label for="date"><span>Date</span></label>
+
+            <input type="radio" id="tags" name="searchParam" value="tags">
+            <label for="tags"><span>Tags</span></label>
+          </form>
+
+          <!-- Input tag for search box -->
+          <input id="searchBox" type="text" placeholder="Search for your favorite notes.." />
+
+          <!-- !Not avalible  yet! -->
+          <div style="display: none;" class="user-search_container">
+          </div>
+
         </div>
 
-      </div>
-
-      <!-- Box to show the search results -->
+        <!-- Box to show the search results -->
 
         <div id="showSearchResults"></div>
       </div>
