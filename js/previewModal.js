@@ -15,7 +15,7 @@ function previewModal(noteToPreview) {
         <div id="modal-exit-button">X</div>
             <h2>${noteToPreview.title}</h2>
             <p class="date-information"> Created ${noteToPreview.dateCreated} | Last edited ${noteToPreview.dateLastEdited}</p>
-            <p id="preview-body-text">${noteToPreview.bodyText}</p>
+            <div id="preview-body-text">${noteToPreview.bodyText}</div>
             <button class="button edit_btn">Edit</button>
         </div>
     </div>`;
