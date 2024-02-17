@@ -1,23 +1,6 @@
-//Funktion för att rendera ut notes i containern i main
-
-//============================================
-//Calling the render funktion with dubby data:
-//This is dummy data just for development state:
-
-// renderNotesMain({
-//   title: "Mit första inlägg med en bild och så med",
-//   id: 9999999,
-//   dateCreated: "1995-12-25",
-//   dateLastEdited: "1995-12-25",
-//   isFavourite: true,
-//   images: ["https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVubnklMjBjYXR8ZW58MHx8MHx8fDA%3D", "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png", "https://i.pinimg.com/736x/79/a3/16/79a3168cf52edca304ff32db46e0f888.jpg"],
-//   bodyText: 'Dehär inlägget innehåller också lite bil :) Det här är det första inlägget i min blogg. Jag började skriva för att dela med mig av mina tankar, erfarenheter och äventyr. Det känns fantastiskt att ha denna möjlighet att kommunicera med er läsare.'
-// });
-
-//============================================
 
 /* ****************************************************************
- ** This is the main functtino that renders the note to the Ppage **
+ ** This is the main function that renders the note to the page **
  **************************************************************** */
 
 function renderNotesMain(noteObject) {
@@ -123,8 +106,6 @@ function renderNotesMain(noteObject) {
       fontSize = '22px';
     }
 
-    console.log(fontSize);
-
     noteText.style.fontFamily = chosenFont;
 
     noteObject.font = chosenFont;
@@ -142,21 +123,16 @@ function renderNotesMain(noteObject) {
 
   //listening for changes in textfelds and changeing the object to the new text:
   //then we call the save function.
-  //We using value of innerhtml in bodytext for prepparing the markup and rich editor functionality...
+  //We using value of innerhtml in bodytext for preparing the markup and rich editor functionality...
   const noteDocument = document.getElementById("note-document");
   noteDocument.addEventListener("input", (e) => {
-    // console.log(e)
-    // console.log(e.target)
-    // console.log(e.target.innerHTML)
 
     switch (e.target.id) {
       case "note-headding_container":
         noteObject.title = e.target.textContent;
-        console.log("heddingen redigerades");
         break;
       case "note-body-text":
         noteObject.bodyText = e.target.innerHTML;
-        console.log("bodytexten redigerades");
         break;
 
       default:
@@ -164,7 +140,7 @@ function renderNotesMain(noteObject) {
     }
 
     //fallback:
-    //setting default headding, if there is none from the user:
+    //setting default heading, if there is none from the user:
     if (noteObject.title == false) {
       noteObject.title = "New note";
     }
@@ -236,7 +212,7 @@ function convertFromMarkdown(markdownText) {
 const markdownbutton = document.getElementById("markdownbutton")
 
 markdownbutton.addEventListener("click", function(){
- console.log("knappen är aktiv")
+
  const notebodytext = document.getElementById("note-body-text")
  const content = notebodytext.innerHTML
  const markDowncontent = convertToMarkdown(content)
@@ -280,8 +256,7 @@ markdownbutton.addEventListener("click", function(){
       editType = "WRITE"
     }
 
-    // console.log(editTime);
-    // console.log(editType);
+   
 
     gtag("event", "edit_note", {
       "edit_time": editTime,
@@ -292,15 +267,11 @@ markdownbutton.addEventListener("click", function(){
   // ------- End of Viktors gtag -------
   // ===================================
 
-
 } 
 
-//
-//
-//
 
 // ==============================================================
-// Other functions tat the main funchtion uses is comming here:
+// Other functions that the main funchtion uses is comming here:
 // ---------------------------------------------------------------
 
 //put the favourite icon in the right style based of if the note is fav or not:
@@ -308,10 +279,8 @@ function styleOfFavouriteStar(noteObject) {
   const favouriteIconPath = document.querySelector("#favourite-icon-path");
   if (noteObject.isFavourite) {
     //hooking up the favouriteicon:
-    // console.log("den här noten är en favorit");
     favouriteIconPath.style.fill = "#EFBD02";
   } else {
-    // console.log("den här noten är inte en favorit");
     favouriteIconPath.style.fill = "none";
   }
 }
@@ -329,7 +298,7 @@ function placeholderLogic(textfield, placeholdertext) {
     textfield.dataset.isFilled = false;
   }
   // when focused and dataset.isFilled=false...
-  // --- removse the placeholder color.
+  // --- remove the placeholder color.
   // --- remove the placeholdertext.
   textfield.addEventListener("focus", () => {
     if (textfield.dataset.isFilled === "false") {
@@ -338,8 +307,8 @@ function placeholderLogic(textfield, placeholdertext) {
       textfield.dataset.isFilled = true;
     }
   });
-  // when the use unfocus the field and there still is no headding...
-  // --- Whe do the same thing as in the first step.
+  // when the use unfocus the field and there still is no heading...
+  // --- When do the same thing as in the first step.
   textfield.addEventListener("blur", () => {
     if (textfield.innerHTML == false) {
       textfield.innerHTML = placeholdertext;
