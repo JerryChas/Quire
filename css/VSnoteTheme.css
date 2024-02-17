@@ -1,0 +1,107 @@
+html {
+  --grey: #f6f6f6f6;
+  --lightgrey: #f4f4f4f4;
+  --darkwhite: #f9f9f9;
+  --white: #ffffff;
+
+  --accent: #e2f1ff;
+}
+
+
+nav {
+  background-color: var(--lightgrey);
+}
+
+html {
+  color: var(--lightgrey);
+}
+
+#date-stamp_div {
+  color: var(--lightgrey);
+}
+
+aside {
+  background-color: var(--darkwhite);
+  color: var(--white);
+}
+
+.activeNote {
+  color: var(--accent);
+}
+
+#display_container {
+  background-color: var(--white);
+}
+
+/* Base style for buttons */
+.button {
+  background-color: var(--accent)
+}
+
+.button:hover {
+  background-color: var(--grey)
+}
+
+input {
+  border: none;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+input::placeholder {
+  color: var(--white);
+}
+
+input:hover {
+  background-color: var(--accent);
+  opacity: 0.8;
+}
+
+
+form {
+  label {
+    background-color: var(--accent)
+  }
+}
+
+form {
+  label:hover {
+    background-color: var(--grey)
+  }
+}
+
+.line {
+  background: var(--accent)
+}
+
+.navIcons:hover {
+  background-color: var(--accent)
+}
+
+#add-new_btn {
+  color: var(--white);
+  border: none;
+  background-color: var(--accent)
+}
+
+.statistics_card {
+  background-color: var(--white);
+}
+
+#add-new_btn:hover {
+  color: var(--accent);
+}
+
+#active-tag_ul .active-tags_li,
+.active-tag_h3,
+.active-tag_section {
+  border: solid var(--darkwhite) 1px;
+  scrollbar-color: var(--accent);
+
+}
+
+.editorbutton,
+.small-tag-labels {
+  color: var(--white);
+  background-color: var(--lightgrey);
+}

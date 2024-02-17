@@ -1,137 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-911QDKJDBF", { debug_mode: true });
-    </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link id="theme-style" rel="stylesheet" href="#" />
-    <link rel="stylesheet" href="css/settings.css" />
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/4af35ea7d6.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- SCRIPT -->
-    <script src="js/changeTheme.js" defer></script>
-    <script src="js/index.js" defer></script>
-    <!--Länk till fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-911QDKJDBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-911QDKJDBF", { debug_mode: true });
+  </script>
 
-    <title>Quire - Settings</title>
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link id="theme-style" rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="css/settings.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/4af35ea7d6.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
+  <script src="js/changeTheme.js" defer></script>
+  <script src="js/index.js" defer></script>
+  <!--Länk till fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Playfair+Display&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html" class="navIcons">
-              <i class="fa-brands fa-quora fa-4x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="search.html" class="navIcons">
-              <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="favorites.html" class="navIcons">
-              <i class="fa-regular fa-star fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="statistics.html" class="navIcons">
-              <i class="fa-solid fa-chart-simple fa-2x"> </i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li>
-            <a href="settings.html" class="navIcons">
-              <i class="fa-solid fa-gear fa-2x"></i>
-            </a>
-            <div class="line"></div>
-          </li>
-          <li class="navIcons" id="info-btn">
-            <i class="fa-solid fa-info fa-2x"></i>
-            <div class="line"></div>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div id="display_container">
-        <h2>Theme Selector</h2>
-        <div class="themePreview">
-          <img
-            class="themeImages"
-            src="./images/quirethemepreview.jpg"
-            alt="preview of quire theme"
-          />
-        </div>
-        <button id="quireTheme" class="button">Quire Theme</button>
-        <div class="themePreview">
-          <img
-            class="themeImages"
-            src="./images/melonthemepreview.jpg"
-            alt="preview of quire theme"
-          />
-        </div>
-        <button id="melonTheme" class="button">Water Melon Theme</button>
+  <title>Quire - Settings</title>
+</head>
 
-        <div class="themePreview">
-          <img
-            class="themeImages"
-            src="./images/bubblegumtheme.PNG"
-            alt="preview of quire theme"
-          />
-        </div>
-        <button id="bubblegumTheme" class="button">Bubblegum Theme</button>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html" class="navIcons">
+            <i class="fa-brands fa-quora fa-4x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="search.html" class="navIcons">
+            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="favorites.html" class="navIcons">
+            <i class="fa-regular fa-star fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="statistics.html" class="navIcons">
+            <i class="fa-solid fa-chart-simple fa-2x"> </i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li>
+          <a href="settings.html" class="navIcons">
+            <i class="fa-solid fa-gear fa-2x"></i>
+          </a>
+          <div class="line"></div>
+        </li>
+        <li class="navIcons" id="info-btn">
+          <i class="fa-solid fa-info fa-2x"></i>
+          <div class="line"></div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="display_container">
+      <h2>Theme Selector</h2>
+      <div class="themePreview">
+        <img class="themeImages" src="./images/quirethemepreview.jpg" alt="preview of quire theme" />
+      </div>
+      <button id="quireTheme" class="button">Quire Theme</button>
+      <div class="themePreview">
+        <img class="themeImages" src="./images/melonthemepreview.jpg" alt="preview of quire theme" />
+      </div>
+      <button id="melonTheme" class="button">Water Melon Theme</button>
+
+      <div class="themePreview">
+        <img class="themeImages" src="./images/bubblegumtheme.PNG" alt="preview of quire theme" />
+      </div>
+      <button id="bubblegumTheme" class="button">Bubblegum Theme</button>
 
       <div class="themePreview">
         <img class="themeImages" src="./images/halloweentheme.PNG" alt="preview of quire theme">
@@ -139,38 +103,41 @@
       <button id="halloweenTheme" class="button">Halloween Theme</button>
 
       <div class="themePreview">
-        <img class="themeImages" src="./images/snowstorTheme.png" alt="preview of quire theme">
+        <img class="themeImages" src="./images/snowstorTheme.png" alt="preview of snow storm theme">
       </div>
       <button id="snowstorTheme" class="button">Snow storm Theme</button>
-      
- <div class="themePreview">
-        <img class="themeImages" src="/images/pixeltheme.PNG" alt="preview of quire theme">
-        </div>
-        <button id="pixelTheme" class="button">Pixel Theme</button>
 
       <div class="themePreview">
-      <img class="themeImages" src="./images/pastelltheme.png" alt="preview of quire theme">
+        <img class="themeImages" src="/images/pixeltheme.PNG" alt="preview of quire theme">
+      </div>
+      <button id="pixelTheme" class="button">Pixel Theme</button>
+
+      <div class="themePreview">
+        <img class="themeImages" src="./images/pastelltheme.png" alt="preview of quire theme">
       </div>
       <button id="pastellTheme" class="button">Pastelle Theme</button>
 
-        <div class="themePreview">
-        <img class="themeImages" src="./images/polkagristhemepreview.png" alt="preview of polka theme">  
-        </div> 
-        <button id="polkagrisTheme" class="button">Polkagris Theme</button>
+      <div class="themePreview">
+        <img class="themeImages" src="./images/polkagristhemepreview.png" alt="preview of polka theme">
+      </div>
+      <button id="polkagrisTheme" class="button">Polkagris Theme</button>
 
-        <div class="themePreview">
-        <img class="themeImages" src="./images/darkmodepreview.png" alt="preview of darkmode theme">  
-        </div> 
-        <button id="darkmodeTheme" class="button">Darkmode Theme</button>
+      <div class="themePreview">
+        <img class="themeImages" src="./images/darkmodepreview.png" alt="preview of darkmode theme">
+      </div>
+      <button id="darkmodeTheme" class="button">Darkmode Theme</button>
 
-        <div class="themePreview">
-          <img
-            class="themeImages"
-            src="./images/summerthemepreview.png"
-            alt="preview of summer theme"
-          />
-        </div>
-        <button id="summerTheme" class="button">Summer Theme</button>
+      <div class="themePreview">
+        <img class="themeImages" src="./images/summerthemepreview.png" alt="preview of summer theme" />
+      </div>
+      <button id="summerTheme" class="button">Summer Theme</button>
+
+
+      <div class="themePreview">
+        <img class="themeImages" src="./images/VSnoteTheme.png" alt="preview of VS note theme">
+      </div>
+      <button id="darkmodeTheme" class="button">VS Note Theme</button>
+
 
       <button id="add-new_btn">Tryck här</button>
 
@@ -178,4 +145,5 @@
     </div>
   </main>
 </body>
+
 </html>
