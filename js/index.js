@@ -245,7 +245,8 @@ function getInputs() {
 
 // When click you get the form (PEN)
 addNewBtn.addEventListener("click", () => {
-  // Paulinas custom event
+  /* Paulinas custom event 
+  This event tracks when the user clicks on the pen button to create a new note */
   gtag("event", "pen_click", {
     event_label: "create_note",
   });
