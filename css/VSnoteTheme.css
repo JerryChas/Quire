@@ -18,6 +18,7 @@ html {
 /* ************ defalt text ************ */
 html {
   color: var(--defaultTextColor);
+  background-color: var(--backgroundLight);
 }
 
 /* Base style for all headings */
