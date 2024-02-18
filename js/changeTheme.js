@@ -32,7 +32,7 @@ if (quireTheme) {
     document.getElementById('pastellTheme').addEventListener('click', () => {
         applyTheme('./css/pastelltheme.css')
     });
-      
+
     document.getElementById('polkagrisTheme').addEventListener('click', () => {
         applyTheme('./css/polkagrisTheme.css')
     });
@@ -45,7 +45,12 @@ if (quireTheme) {
     document.getElementById('summerTheme').addEventListener('click', () => {
         applyTheme('./css/summerTheme.css')
     })
-} 
+
+    document.getElementById('VSnoteTheme').addEventListener('click', () => {
+        applyTheme('./css/VSnoteTheme.css')
+    })
+
+}
 
 function applyTheme(theme) {
     // Remove the existing theme stylesheet

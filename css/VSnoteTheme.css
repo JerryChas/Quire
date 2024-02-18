@@ -1,0 +1,303 @@
+/* ***** COLOR VARIABLES******** */
+
+html {
+  --backgroundDark: #181818;
+  --backgroundMiddle: #1B1B1B;
+  --backgroundLight: #1E1E1E;
+
+  --defaultTextColor: #9E9E9E;
+  --invertedTextColor: var(--backgroundDark);
+
+  --marked: #303030;
+  --accent: #007ACC;
+  --markedAccent: #20252B;
+}
+
+
+
+/* ************ defalt text ************ */
+html {
+  color: var(--defaultTextColor);
+  background-color: var(--backgroundLight);
+}
+
+/* Base style for all headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+}
+
+/********* Base style for buttons **********/
+.button {
+  all: unset;
+  margin: 1rem;
+  padding: 0.5rem 1rem 0.5em 1rem;
+  color: white;
+  background-color: var(--accent);
+  border: 1px solid transparent;
+
+}
+
+.button:hover {
+  background-color: var(--markedAccent);
+  border: 1px solid var(--marked);
+}
+
+/********* inputboxes: **********/
+input {
+  all: unset;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  background-color: var(--marked);
+}
+
+input::placeholder {
+  color: var(--white);
+}
+
+input:hover {
+  background-color: var(--markedAccent);
+}
+
+
+
+/* ****** navbar ********** */
+nav {
+  background-color: var(--backgroundDark);
+}
+
+.line {
+  display: none;
+}
+
+.navIcons {
+  color: var(--white);
+}
+
+.navIcons:hover {
+  color: white;
+  background-color: unset;
+}
+
+
+
+/* ******** Aside/ notes list************* */
+
+aside {
+  background-color: var(--backgroundMiddle);
+  color: var(--defaultTextColor);
+  border: solid 1px var(--backgroundDark);
+}
+
+.aside-note_li:hover {
+  background-color: var(--markedAccent);
+}
+
+.activeNote {
+  color: inherit;
+  background-color: var(--marked);
+
+}
+
+.aside-note_li {
+  color: inherit;
+  background-color: none;
+  margin: 0px;
+  height: unset;
+  padding: 0.5em;
+  border: none;
+
+  .delBtn {
+    top: unset;
+    right: 0.5em;
+  }
+}
+
+
+/* ********* main area ********** */
+
+main {
+  background-color: var(--backgroundLight);
+}
+
+
+
+/* ******* editor ******** */
+
+/* toolbar in editor */
+
+#editor-tool-bar {
+  background-color: var(--backgroundMiddle);
+  border: solid 1px var(--backgroundDark);
+}
+
+.editorbutton,
+.small-tag-labels,
+#dropdown {
+  color: var(--white);
+  background-color: var(--marked);
+  border: 1px solid transparent;
+}
+
+.editorbutton:hover,
+.small-tag-labels:hover {
+
+  background-color: var(--markedAccent);
+  border: 1px solid var(--marked);
+}
+
+/* the icons from fontawesome */
+#editor-tool-bar .fa-solid {
+  color: var(--white) !important;
+}
+
+/*  the document area: */
+#note-document {
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+#note-headding_container,
+.small-tag-labels,
+#tag-input {
+  color: #CE9178;
+}
+
+#note-body-text {
+  color: #6A9955;
+}
+
+#tags_label {
+  color: #9BDAFB;
+}
+
+
+/* #date-stamp_div {
+  color: var(--lightgrey);
+} */
+
+#date-stamp_div {
+  color: #DCDCAA;
+}
+
+
+#note-headding_container {
+  background-color: var(--markedAccent);
+  font-family: "Noto Sans",
+    sans-serif;
+}
+
+#meta-information_div {
+  font-family: "Noto Sans",
+    sans-serif;
+}
+
+
+.add-img_modal {
+  background-color: var(--backgroundLight);
+
+  border: 1px solid var(--marked)
+}
+
+
+
+
+/***** special special special style elements: *****/
+/* buttons on search page: */
+form {
+  label {
+    all: unset;
+    margin: 0.5rem;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    color: white;
+    background-color: var(--accent);
+    border: 1px solid transparent;
+  }
+}
+
+form {
+  label:hover {
+    background-color: var(--markedAccent);
+    border: 1px solid var(--marked);
+  }
+}
+
+/* the pen button that opens new note: */
+#add-new_btn {
+  border: none;
+  color: white;
+  background-color: var(--accent);
+  border: 1px solid transparent;
+}
+
+#add-new_btn:hover {
+  background-color: var(--markedAccent);
+  border: 1px solid var(--marked);
+}
+
+
+/* ************* cards all around the app: *********/
+.statistics_card,
+.result-card,
+.favorite-note {
+  background-color: var(--backgroundDark);
+  border: 1px solid transparent;
+}
+
+
+.result-card:hover,
+.favorite-note:hover {
+  background-color: var(--markedAccent);
+  border: 1px solid var(--marked);
+}
+
+
+/* ********** Preview modal: ************* */
+#preview-container {
+  background-color: var(--backgroundLight);
+  border: 1px solid var(--marked);
+}
+
+#modal-exit-button:hover {
+  background-color: var(--marked);
+}
+
+/* activetags container */
+#preview-body-text {
+  scrollbar-color: var(--marked) transparent;
+}
+
+
+/* ******************************************* */
+/* style for list w active taxs on search page: */
+#active-tag_ul .active-tags_li,
+.active-tag_h3,
+.active-tag_section {
+  border: none;
+
+}
+
+/* activetags container */
+.active-tag_section {
+  background-color: transparent;
+  scrollbar-color: var(--marked) transparent;
+}
+
+/* activetags list */
+/* #active-tag_ul {} */
+
+/* activetags listitem */
+.active-tags_li {
+  background-color: var(--backgroundMiddle);
+  margin: 2px;
+  padding: 0px 0.5rem 0px 0.5rem;
+}
+
+.active-tags_li:hover {
+  background-color: var(--markedAccent)
+}
+
+/* ******************************************* */
